@@ -1,0 +1,44 @@
+body{
+    background-image: url("../img/index.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100vw;  
+    height: 100vh; 
+}
+.index_footer{
+    margin:  0 auto;
+    margin-top: 30%;
+    margin-left: 16%;
+}
+.help_info{
+    margin-left: 20px;
+    display: inline-block;
+    height: 35px;
+    padding-top: 5px;
+    border-left: 1px solid black;
+}
+.form_info{
+    margin-top: 5%;
+}
+#tourist{
+    padding-left: 25px;
+}
+#forget_password{
+    padding-left: 15px;
+}
+#user_login{
+    border: 1px solid #51b0e7;
+    background-color: #51b0e7;
+}
+#user_register{
+    border: 1px solid white;
+    background-color: white;
+}
+#user_login,#user_register{
+	cursor:pointer;
+    vertical-align:middle;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+}

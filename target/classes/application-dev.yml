@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: admin
+    url: jdbc:mysql://localhost:3306/campus?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    dbcp2:
+      driver-class-name: com.mysql.jdbc.Driver
+  resources:
+    #指定静态静态资源位置
+    static-locations: classpath:/
+  freemarker:
+    #指定HttpServletRequest的属性是否可以覆盖controller的model的同名项
+    allow-request-override: false
+    #是否开启template caching
+    cache: false
+    #是否检查templates路径是否存在
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html;
+    #设定所有request的属性在merge到模板的时候，是否要都添加到model中.
+    expose-request-attributes: false
+    #设定所有HttpSession的属性在merge到模板的时候，是否要都添加到model中.
+    expose-session-attributes: false
+    #设定模板的后缀.
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    #便于前端获取contextPath,调用时候
+    request-context-attribute: request
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: zyy.campuscommunity.entity

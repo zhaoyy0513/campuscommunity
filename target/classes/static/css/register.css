@@ -1,0 +1,31 @@
+body{
+    background-image: url("../img/register.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100vw;  
+    height: 100vh; 
+}
+
+.form_header{
+    width: 30%;
+    margin: 0 auto;   
+}
+
+#role_detail{
+    color: red;
+    position: fixed;   
+    left: 46%;
+    top: 8%;
+    cursor: pointer;   
+}
+
+.form_main{
+    margin: 0 auto;
+    width: 50%;
+}
+form{
+    position: relative;
+    top: 40px;
+    left: 25%;
+}

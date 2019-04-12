@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zyy.campuscommunity.mapper.ReplyMapper">
+  <resultMap id="BaseResultMap" type="zyy.campuscommunity.entity.Reply">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="reply_user_name" jdbcType="VARCHAR" property="replyUserName" />
+    <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
+    <result column="reply_time" jdbcType="VARCHAR" property="replyTime" />
+    <result column="reply_floor" jdbcType="INTEGER" property="replyFloor" />
+    <result column="reply_time_simple" jdbcType="VARCHAR" property="replyTimeSimple" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, post_id, reply_user_name, reply_content, reply_time, reply_floor, reply_time_simple
+  </sql>
+  <select id="selectByExample" parameterType="zyy.campuscommunity.entity.ReplyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from reply
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="zyy.campuscommunity.entity.ReplyExample">
+    delete from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="zyy.campuscommunity.entity.Reply">
+    insert into reply (id, post_id, reply_user_name, 
+      reply_content, reply_time, reply_floor, 
+      reply_time_simple)
+    values (#{id,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{replyUserName,jdbcType=VARCHAR}, 
+      #{replyContent,jdbcType=VARCHAR}, #{replyTime,jdbcType=VARCHAR}, #{replyFloor,jdbcType=INTEGER}, 
+      #{replyTimeSimple,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.Reply">
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="replyUserName != null">
+        reply_user_name,
+      </if>
+      <if test="replyContent != null">
+        reply_content,
+      </if>
+      <if test="replyTime != null">
+        reply_time,
+      </if>
+      <if test="replyFloor != null">
+        reply_floor,
+      </if>
+      <if test="replyTimeSimple != null">
+        reply_time_simple,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="postId != null">
+        #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="replyUserName != null">
+        #{replyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null">
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null">
+        #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="replyFloor != null">
+        #{replyFloor,jdbcType=INTEGER},
+      </if>
+      <if test="replyTimeSimple != null">
+        #{replyTimeSimple,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="zyy.campuscommunity.entity.ReplyExample" resultType="java.lang.Long">
+    select count(*) from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update reply
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.postId != null">
+        post_id = #{record.postId,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyUserName != null">
+        reply_user_name = #{record.replyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyContent != null">
+        reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyTime != null">
+        reply_time = #{record.replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.replyFloor != null">
+        reply_floor = #{record.replyFloor,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyTimeSimple != null">
+        reply_time_simple = #{record.replyTimeSimple,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update reply
+    set id = #{record.id,jdbcType=INTEGER},
+      post_id = #{record.postId,jdbcType=INTEGER},
+      reply_user_name = #{record.replyUserName,jdbcType=VARCHAR},
+      reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      reply_time = #{record.replyTime,jdbcType=VARCHAR},
+      reply_floor = #{record.replyFloor,jdbcType=INTEGER},
+      reply_time_simple = #{record.replyTimeSimple,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="zyy.campuscommunity.entity.Reply">
+    update reply
+    <set>
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="replyUserName != null">
+        reply_user_name = #{replyUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="replyContent != null">
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="replyTime != null">
+        reply_time = #{replyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="replyFloor != null">
+        reply_floor = #{replyFloor,jdbcType=INTEGER},
+      </if>
+      <if test="replyTimeSimple != null">
+        reply_time_simple = #{replyTimeSimple,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zyy.campuscommunity.entity.Reply">
+    update reply
+    set post_id = #{postId,jdbcType=INTEGER},
+      reply_user_name = #{replyUserName,jdbcType=VARCHAR},
+      reply_content = #{replyContent,jdbcType=VARCHAR},
+      reply_time = #{replyTime,jdbcType=VARCHAR},
+      reply_floor = #{replyFloor,jdbcType=INTEGER},
+      reply_time_simple = #{replyTimeSimple,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

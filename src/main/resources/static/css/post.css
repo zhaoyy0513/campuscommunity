@@ -1,0 +1,43 @@
+#Main {
+    width: 60%;
+    margin-left: 20%;
+}
+.sep20 {
+    height: 20px;
+}
+.msl {
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: 0;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px;
+    font-family: 'Helvetica Neue','Hiragino Sans GB','Microsoft Yahei',sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+.box {
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    border-bottom: 1px solid #e2e2e2;
+}
+.cell {
+     padding: 10px;
+     font-size: 14px;
+     line-height: 120%;
+     text-align: left;
+     border-bottom: 1px solid #E2E2E2;
+ }
+form {
+    display: block;
+    margin-top: 0em;
+}
+.form-control{
+
+    width: 300px;
+}/*文本输入框的宽度*/
+#file0{
+    margin-top: -25px;
+    margin-left: 150px;
+}/*图片上传*/

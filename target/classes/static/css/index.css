@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+}
+#header_logo{
+    background-image: url("../img/aurora.PNG");
+}
+#index_header{
+    border-top: 1px solid white;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    box-shadow:  darkgrey 0 1px 1px 1px ;//边框阴影;
+}
+#header_logo{
+    width: 10%;
+    height: 100%;
+    margin-left: 15%;
+    background-color: darkred;
+}
+#header_searchBar{
+    margin-top: -3%;
+    margin-left: 26%;
+}
+#header_option{
+    float: right;
+    margin-right: 10%;
+    margin-top: -30px;
+}
+#header_option a{
+    padding: 10px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#index_content{
+    float: left;
+    margin-left: 10%;
+    margin-top: 1.5%;
+    width: 60%;
+    height: 40px;
+    background-color: white;
+}
+#main_article{
+    clear: both;
+    background-color: #FFFFFF;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+#main_article td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+#main_content{
+    height: 600px;
+}
+
+#index_rightNavigation{
+    position: fixed;
+    float: right;
+    width: 270px;
+    height: 270px;
+    bottom: 320px;
+    left: 79%;
+    background-color: white;
+}
+
+#primary_title{
+    height: 40px;
+}
+#secondary_title{
+    height: 40px;
+    background-color: #F9F9F9;
+}
+#secondary_title>span{
+    display: inline-block !important;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+#secondary_title a{
+    font-size: 14px;
+    color: #4d5256;
+}
+.count_livid{
+    line-height: 12px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #e5e5e5;
+    display: inline-block;
+    padding: 2px 10px 2px 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.node{
+    background-color: #f5f5f5;
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #999;
+}
+.topic_info{
+    font-size: 12px;
+    color: #ccc;
+    line-height: 200%;
+}
