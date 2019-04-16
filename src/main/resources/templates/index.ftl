@@ -174,6 +174,10 @@
                             }
                         }
                     }
+                    // var test = data.posts;
+                    // for(var j=0;j<test.length;j++){
+                    //     console.log(test);
+                    // }
                     //重新渲染新的帖子
                     $(".post_content").css("display","none");
                     var post = data.posts;

@@ -34,7 +34,6 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
         <!--spring-boot-starter或者spring-boot-starter-web这两个依赖中都已经包含了
         对于spring-boot-starter-logging的依赖，所以，无需额外添加依赖。 -->
 		<dependency>
@@ -85,7 +84,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>

@@ -2,8 +2,10 @@ package zyy.campuscommunity.entity;
 
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @ToString
-public class Tab {
+public class Tab implements Serializable {
     private Integer id;
 
     private String tabName;

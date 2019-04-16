@@ -3,6 +3,7 @@ package zyy.campuscommunity.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -58,7 +59,7 @@ public class UserController {
 	@RequestMapping(value="/login")
 	public String userLogin(HttpServletRequest request) throws ParseException {
 		//先将一级标题所有的标签获取到
-		List<Tab> tabList = tabService.getTabsByParentId(0);
+        List<Tab> tabList = tabService.getTabsByParentId(0);
         //将数据库查询到的一级标签添加到tabList中,并渲染到首页
         request.getSession().setAttribute("tabList",tabList);
         //获取一级标签'学霸'所有的帖子，并放到首页进行渲染,学霸的id是1

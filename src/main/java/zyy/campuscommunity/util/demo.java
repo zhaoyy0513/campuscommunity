@@ -1,14 +1,14 @@
 package zyy.campuscommunity.util;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import zyy.campuscommunity.entity.User;
+import zyy.campuscommunity.service.UserService;
+
+
 public class demo {
     public static void main(String args[]){
-        String str = "ab,cd,efg";
-        String arr[] = str.split(",");
-        String str2 = str.substring(1,str.length()-1);
-        for (String s : arr) {
-            System.out.println(s);
-        }
-        System.out.println("--------------");
-        System.out.println(str2);
+
     }
 }
