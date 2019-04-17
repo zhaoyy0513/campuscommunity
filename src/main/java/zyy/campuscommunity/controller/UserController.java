@@ -1,5 +1,6 @@
 package zyy.campuscommunity.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class UserController {
 	TabService tabService;
 	@Autowired
     PostService postService;
+    @Resource(name="redisTemplate")
+    RedisTemplate<String,List> listRedisTemplate;
 
 	//跳转到登录界面·
 	@RequestMapping(value = "/toLogin")
@@ -45,8 +48,17 @@ public class UserController {
 	//跳转到主页
 	@RequestMapping("/toIndex")
 	public String toIndex(HttpServletRequest request) {
-        List<Post> post = postService.getPostByParentId(1);
-        request.setAttribute("posts",post);
+        List<Post> list = (List<Post>)listRedisTemplate.opsForList().rightPop("indexList");
+        if (null==list) {
+            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            list = postService.getPostByParentId(1);
+            listRedisTemplate.opsForList().rightPush("indexList",list);
+            System.out.println("从数据库查询得到indexList");
+        } else {
+            System.out.println("从Redis查询得到indexList");
+        }
+        System.out.println(list.toString());
+        request.setAttribute("posts",list);
 		return "index";
 	}
 
@@ -59,11 +71,29 @@ public class UserController {
 	@RequestMapping(value="/login")
 	public String userLogin(HttpServletRequest request) throws ParseException {
 		//先将一级标题所有的标签获取到
-        List<Tab> tabList = tabService.getTabsByParentId(0);
+        List<Tab> tabList = (List<Tab>)listRedisTemplate.opsForList().rightPop("tabList");
+        if (null==tabList) {
+            //如果Redis没有找到这个对应的tabList这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            tabList = tabService.getTabsByParentId(0);
+            listRedisTemplate.opsForList().rightPush("tabList",tabList);
+            System.out.println("从数据库查询得到tabList");
+        } else {
+            System.out.println("从Redis查询得到tabList");
+        }
+        System.out.println(tabList.toString());
         //将数据库查询到的一级标签添加到tabList中,并渲染到首页
         request.getSession().setAttribute("tabList",tabList);
         //获取一级标签'学霸'所有的帖子，并放到首页进行渲染,学霸的id是1
-        List<Post> list = postService.getPostByParentId(1);
+        List<Post> list = (List<Post>)listRedisTemplate.opsForList().rightPop("postByParentIdList");
+        if (null==list) {
+            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            list = postService.getPostByParentId(1);
+            listRedisTemplate.opsForList().rightPush("postByParentIdList",list);
+            System.out.println("从数据库查询得到postByParentIdList");
+        } else {
+            System.out.println("从Redis查询得到postByParentIdList");
+        }
+        System.out.println(list.toString());
         Iterator<Post> iterator = list.iterator();
         //设置回复时间差值(当前时间减去帖子最后一次回复时间的差值)
         Date date = new Date();
@@ -101,7 +131,16 @@ public class UserController {
         }
         request.setAttribute("posts",list);
         //获得一级标题中'学霸'对应的二级标题，用于默认被选中
-        List<Tab> xuebaList = tabService.getTabsByParentId(1);
+        List<Tab> xuebaList = (List<Tab>)listRedisTemplate.opsForList().rightPop("tabsByParentIdList");
+        if (null==xuebaList) {
+            //如果Redis没有找到这个对应的xuebaList这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            xuebaList = tabService.getTabsByParentId(1);
+            listRedisTemplate.opsForList().rightPush("tabsByParentIdList",xuebaList);
+            System.out.println("从数据库查询得到tabsByParentIdList");
+        } else {
+            System.out.println("从Redis查询得到tabsByParentIdList");
+        }
+        System.out.println(xuebaList.toString());
 		Collections.sort(xuebaList, new Comparator<Tab>() {
 			public int compare(Tab o1, Tab o2) {
 				return o1.getTabName().length()-o2.getTabName().length();
@@ -144,12 +183,30 @@ public class UserController {
     @RequestMapping(value="tourist")
 	public String tourist_login(HttpServletRequest request){
         //先将一级标题所有的标签获取到
-        List<Tab> tabList = tabService.getTabsByParentId(0);
+        List<Tab> tabList = (List<Tab>)listRedisTemplate.opsForList().rightPop("tabList");
+        if (null==tabList) {
+            //如果Redis没有找到这个对应的tabList这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            tabList = tabService.getTabsByParentId(0);
+            listRedisTemplate.opsForList().rightPush("tabList",tabList);
+            System.out.println("从数据库查询得到tabList");
+        } else {
+            System.out.println("从Redis查询得到tabList");
+        }
+        System.out.println(tabList.toString());
         //将数据库查询到的一级标签添加到tabList中,并渲染到首页
         request.getSession().setAttribute("tabList",tabList);
         //获取一级标签'学霸'所有的帖子，并放到首页进行渲染,学霸的id是1
-        List<Post> post = postService.getPostByParentId(1);
-        request.setAttribute("posts",post);
+        List<Post> list = (List<Post>)listRedisTemplate.opsForList().rightPop("postByParentIdList");
+        if (null==list) {
+            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
+            list = postService.getPostByParentId(1);
+            listRedisTemplate.opsForList().rightPush("postByParentIdList",list);
+            System.out.println("从数据库查询得到postByParentIdList");
+        } else {
+            System.out.println("从Redis查询得到postByParentIdList");
+        }
+        System.out.println(list.toString());
+        request.setAttribute("posts",list);
         //获得一级标题中'学霸'对应的二级标题，用于默认被选中
         List<Tab> xuebaList = tabService.getTabsByParentId(1);
         Collections.sort(xuebaList, new Comparator<Tab>() {

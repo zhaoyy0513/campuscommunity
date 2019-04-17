@@ -2,8 +2,10 @@ package zyy.campuscommunity.entity;
 
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @ToString
-public class Reply {
+public class Reply implements Serializable {
     private Integer id;
 
     private Integer postId;
