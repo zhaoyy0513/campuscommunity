@@ -182,40 +182,70 @@
                     $(".post_content").css("display","none");
                     var post = data.posts;
                    for(var i=0;i<post.length;i++){
-                        $("#main_article").append(' <div class="cell post_content">\n' +
-                                '                <table cellpadding="0" cellspacing="0" border="0" width="100%">\n' +
-                                '                    <tbody>\n' +
-                                '                    <tr>\n' +
-                                '                        <td width="48" valign="top" align="center">\n' +
-                                '                            <a href="#">\n' +
-                                '                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">\n' +
-                                '                            </a>\n' +
-                                '                        </td>\n' +
-                                '                        <td width="10"></td>\n' +
-                                '\n' +
-                                '                        <td width="auto" valign="middle"><span class="item_title"><a\n' +
-                                '                                href="/post/postDetail/'+post[i].id+'">'+post[i].postTitle+'</a></span>\n' +
-                                '                            <div class="sep5" style="margin-top: 10px;"></div>\n' +
-                                '                            <span class="topic_info"><a class="node" href="#">'+post[i].postTabName+'</a> &nbsp;•&nbsp; <strong><a\n' +
-                                '                                    href="#">'+post[i].postUserName+'</a></strong>\n' +
-                                '\n' +
-                                '                                <#if (post[i].postLastReplyTimeSimple)??>\n'+
+                       if((post[i].postLastReplyTimeSimple)!=""){
+                           $("#main_article").append(' <div class="cell post_content">\n' +
+                                   '                <table cellpadding="0" cellspacing="0" border="0" width="100%">\n' +
+                                   '                    <tbody>\n' +
+                                   '                    <tr>\n' +
+                                   '                        <td width="48" valign="top" align="center">\n' +
+                                   '                            <a href="#">\n' +
+                                   '                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">\n' +
+                                   '                            </a>\n' +
+                                   '                        </td>\n' +
+                                   '                        <td width="10"></td>\n' +
+                                   '\n' +
+                                   '                        <td width="auto" valign="middle"><span class="item_title"><a\n' +
+                                   '                                href="/post/postDetail/'+post[i].id+'">'+post[i].postTitle+'</a></span>\n' +
+                                   '                            <div class="sep5" style="margin-top: 10px;"></div>\n' +
+                                   '                            <span class="topic_info"><a class="node" href="#">'+post[i].postTabName+'</a> &nbsp;•&nbsp; <strong><a\n' +
+                                   '                                    href="#">'+post[i].postUserName+'</a></strong>\n' +
+                                   '\n' +
+                                   '                              \n'+
 '                                &nbsp;•&nbsp;'+post[i].postLastReplyTimeSimple+' &nbsp;•&nbsp; 最后回复来自 <strong><a\n' +
 '                                    href="#">'+post[i].postLastReply+'</a></strong></span>\n' +
-'                                </#if>\n' +
-                                '\n' +
-                                '                        </td>\n' +
-                                '                        <td width="70" align="right" valign="middle">\n' +
-                                '                            <a href="#" class="count_livid">'+post[i].postReplyCount+'</a>\n' +
-                                '                        </td>\n' +
-                                '                    </tr>\n' +
-                                '                    </tbody>\n' +
-                                '                </table>\n' +
-                                '            </div>');
+'                                \n' +
+                                   '\n' +
+                                   '                        </td>\n' +
+                                   '                        <td width="70" align="right" valign="middle">\n' +
+                                   '                            <a href="#" class="count_livid">'+post[i].postReplyCount+'</a>\n' +
+                                   '                        </td>\n' +
+                                   '                    </tr>\n' +
+                                   '                    </tbody>\n' +
+                                   '                </table>\n' +
+                                   '            </div>');
+                       }else{
+                           $("#main_article").append(' <div class="cell post_content">\n' +
+                                   '                <table cellpadding="0" cellspacing="0" border="0" width="100%">\n' +
+                                   '                    <tbody>\n' +
+                                   '                    <tr>\n' +
+                                   '                        <td width="48" valign="top" align="center">\n' +
+                                   '                            <a href="#">\n' +
+                                   '                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">\n' +
+                                   '                            </a>\n' +
+                                   '                        </td>\n' +
+                                   '                        <td width="10"></td>\n' +
+                                   '\n' +
+                                   '                        <td width="auto" valign="middle"><span class="item_title"><a\n' +
+                                   '                                href="/post/postDetail/'+post[i].id+'">'+post[i].postTitle+'</a></span>\n' +
+                                   '                            <div class="sep5" style="margin-top: 10px;"></div>\n' +
+                                   '                            <span class="topic_info"><a class="node" href="#">'+post[i].postTabName+'</a> &nbsp;•&nbsp; <strong><a\n' +
+                                   '                                    href="#">'+post[i].postUserName+'</a></strong>\n' +
+                                   '\n' +
+                                   '\n' +
+                                   '                        </td>\n' +
+                                   '                        <td width="70" align="right" valign="middle">\n' +
+                                   '                            <a href="#" class="count_livid">'+post[i].postReplyCount+'</a>\n' +
+                                   '                        </td>\n' +
+                                   '                    </tr>\n' +
+                                   '                    </tbody>\n' +
+                                   '                </table>\n' +
+                                   '            </div>');
+                       }
                    }
 
-            }
 
+
+                   }
             });
 
         });

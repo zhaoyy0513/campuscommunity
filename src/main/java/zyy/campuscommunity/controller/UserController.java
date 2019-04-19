@@ -48,16 +48,15 @@ public class UserController {
 	//跳转到主页
 	@RequestMapping("/toIndex")
 	public String toIndex(HttpServletRequest request) {
-        List<Post> list = (List<Post>)listRedisTemplate.opsForList().rightPop("indexList");
+        List<Post> list = (List<Post>)listRedisTemplate.opsForList().rightPop("postByParentIdList");
         if (null==list) {
             //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
             list = postService.getPostByParentId(1);
-            listRedisTemplate.opsForList().rightPush("indexList",list);
-            System.out.println("从数据库查询得到indexList");
+            listRedisTemplate.opsForList().rightPush("postByParentIdList",list);
+            System.out.println("从数据库查询得到postByParentIdList");
         } else {
-            System.out.println("从Redis查询得到indexList");
+            System.out.println("从Redis查询得到postByParentIdList");
         }
-        System.out.println(list.toString());
         request.setAttribute("posts",list);
 		return "index";
 	}
@@ -93,7 +92,6 @@ public class UserController {
         } else {
             System.out.println("从Redis查询得到postByParentIdList");
         }
-        System.out.println(list.toString());
         Iterator<Post> iterator = list.iterator();
         //设置回复时间差值(当前时间减去帖子最后一次回复时间的差值)
         Date date = new Date();
@@ -140,7 +138,6 @@ public class UserController {
         } else {
             System.out.println("从Redis查询得到tabsByParentIdList");
         }
-        System.out.println(xuebaList.toString());
 		Collections.sort(xuebaList, new Comparator<Tab>() {
 			public int compare(Tab o1, Tab o2) {
 				return o1.getTabName().length()-o2.getTabName().length();
@@ -205,7 +202,6 @@ public class UserController {
         } else {
             System.out.println("从Redis查询得到postByParentIdList");
         }
-        System.out.println(list.toString());
         request.setAttribute("posts",list);
         //获得一级标题中'学霸'对应的二级标题，用于默认被选中
         List<Tab> xuebaList = tabService.getTabsByParentId(1);
