@@ -199,7 +199,6 @@ public class PostController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = sdf.format(date);
         post.setPostTime(format);  //设置发布时间
-        post.setPostLastReplyTime(format);//设置最后回复时间
         post.setPostReplyCount(0); //设置回复数
         post.setPostClickCount(0);  //设置点击数
         try {

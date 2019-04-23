@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import zyy.campuscommunity.entity.Post;
 import zyy.campuscommunity.entity.Tab;
 import zyy.campuscommunity.entity.User;
+import zyy.campuscommunity.service.FocusService;
 import zyy.campuscommunity.service.PostService;
 import zyy.campuscommunity.service.TabService;
 import zyy.campuscommunity.service.UserService;
@@ -30,6 +32,9 @@ public class UserController {
 	TabService tabService;
 	@Autowired
     PostService postService;
+	@Autowired
+    FocusService focusService;
+
     @Resource(name="redisTemplate")
     RedisTemplate<String,List> listRedisTemplate;
 
@@ -247,5 +252,31 @@ public class UserController {
 
             return map;
         }
+
+        @RequestMapping("/getFocus/{user_id}")
+        public String getFocus(@PathVariable("user_id") int user_id,HttpServletRequest request){
+            request.getSession().setAttribute("user",request.getSession().getAttribute("user"));
+            String focusUserIdByUid = focusService.getFocusUserIdByUid(user_id);
+            System.out.println(focusUserIdByUid);
+            String[] arr = focusUserIdByUid.split(";");
+            List<Post> posts = new ArrayList<>();
+            //arr.for可以快速书写增强型for循环
+            for (String str:arr) {
+                //将切割出来的用户id进行转换，用于查找
+                List<Post> post = postService.getPostByUid(Integer.valueOf(str));
+                try {
+                    posts.addAll(post);
+                }catch (Exception e){
+                    break; //如果出现空指针异常，跳出当前，执行下个查询即可
+                }
+            }
+            request.getSession().setAttribute("Posts",posts);
+            request.getSession().setAttribute("postCount",posts.size());
+            for (int i=0;i<posts.size();i++){
+                System.out.println(posts.get(i).toString());
+            }
+            return "post/focusPosts";
+        }
+
 
 }

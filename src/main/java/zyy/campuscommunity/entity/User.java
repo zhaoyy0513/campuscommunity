@@ -2,10 +2,8 @@ package zyy.campuscommunity.entity;
 
 import lombok.ToString;
 
-import java.io.Serializable;
-
 @ToString
-public class User implements Serializable {
+public class User {
     private Integer id;
 
     private Integer userRole;
@@ -27,6 +25,12 @@ public class User implements Serializable {
     private String userSex;
 
     private String userImg;
+
+    private Integer unreadMessage;
+
+    private Integer postCollectionNum;
+
+    private Integer focusNumber;
 
     public Integer getId() {
         return id;
@@ -114,5 +118,29 @@ public class User implements Serializable {
 
     public void setUserImg(String userImg) {
         this.userImg = userImg == null ? null : userImg.trim();
+    }
+
+    public Integer getUnreadMessage() {
+        return unreadMessage;
+    }
+
+    public void setUnreadMessage(Integer unreadMessage) {
+        this.unreadMessage = unreadMessage;
+    }
+
+    public Integer getPostCollectionNum() {
+        return postCollectionNum;
+    }
+
+    public void setPostCollectionNum(Integer postCollectionNum) {
+        this.postCollectionNum = postCollectionNum;
+    }
+
+    public Integer getFocusNumber() {
+        return focusNumber;
+    }
+
+    public void setFocusNumber(Integer focusNumber) {
+        this.focusNumber = focusNumber;
     }
 }

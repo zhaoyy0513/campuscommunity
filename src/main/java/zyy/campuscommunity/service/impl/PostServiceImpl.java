@@ -57,6 +57,22 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    /** 
+    * @Description: 通过用户索引id查找帖子，用于关注功能
+    * @Param: [Uid] 
+    * @return: java.util.List<zyy.campuscommunity.entity.Post> 
+    * @Author: zhaoyy
+    * @Date: 2019/4/23 15:54
+    */ 
+    public List<Post> getPostByUid(int Uid) {
+        PostExample example = new PostExample();
+        PostExample.Criteria criteria = example.createCriteria();
+        criteria.andPostUserIdEqualTo(Uid);
+        List<Post> posts = postMapper.selectByExample(example);
+        return posts;
+    }
+
+    @Override
    /** 
    * @Description: 通过点击相应的TabId(二级标题)获取相应的有关所有帖子
    * @Param: [tabId] 

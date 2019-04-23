@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50725
 File Encoding         : 65001
 
-Date: 2019-04-19 17:56:55
+Date: 2019-04-23 18:45:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for focus
+-- ----------------------------
+DROP TABLE IF EXISTS `focus`;
+CREATE TABLE `focus` (
+  `id` int(255) NOT NULL AUTO_INCREMENT COMMENT '关注索引',
+  `user_id` int(12) NOT NULL COMMENT '用户索引id',
+  `focused_id` varchar(40) COLLATE utf8_bin NOT NULL COMMENT '被关注者的索引id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of focus
+-- ----------------------------
+INSERT INTO `focus` VALUES ('1', '3', '1;2');
 
 -- ----------------------------
 -- Table structure for post
@@ -21,6 +37,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '帖子id',
+  `post_user_id` int(40) NOT NULL COMMENT '发帖用户的索引id',
   `post_user_name` varchar(12) COLLATE utf8_bin NOT NULL COMMENT '发帖id',
   `post_title` varchar(200) COLLATE utf8_bin NOT NULL COMMENT '帖子标题',
   `post_tab_id` int(20) NOT NULL COMMENT '帖子标签(分类)',
@@ -37,19 +54,36 @@ CREATE TABLE `post` (
   `post_last_reply_time_simple` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '帖子最后回复时间(差值)用来显示在页面上',
   PRIMARY KEY (`id`),
   KEY `userid` (`post_user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of post
 -- ----------------------------
-INSERT INTO `post` VALUES ('1', '吹不散眉弯', '找找一份实习工作', '14', '实习', '2', '本人软件学院的一名15级学生，想要找一份软件工程,java方向的工作，有没有大佬能够帮我引荐一下，或者推荐一下工作什么的啊，非常感谢啊。', '2019-03-29 10:34:51', '226ce810-c32d-4ce5-993f-3986ee9aad06.PNG', '', '96', '0', '', '', '');
-INSERT INTO `post` VALUES ('2', '吹不散眉弯', '今天学到了一点新的东西，跟同学们分享一下', '9', '工学', '1', '今天学习了设计模式，发现里面很多东西都非常值得思考，今天刚刚学习了策略模式，感觉非常不错，希望大家都可以学习一下，', '2019-03-29 10:38:08', '51d89138-372b-42e7-91c9-78afef1c52a3.PNG', '', '252', '6', 'root', '2019-04-09 09:55:55', '10天7小时59分钟之前');
-INSERT INTO `post` VALUES ('3', '吹不散眉弯', '谈谈今天的一些感受吧', '9', '工学', '1', '今天温度挺低的，本来就穿的不厚，结果感觉今天脑子更疼， 不知道大家有没有啥推荐的网站听听音乐啥的吗,http://www.baidu.com', '2019-04-01 09:07:44', 'ab35664c-3d1d-4046-98de-5e3de09ce992.PNG', '', '45', '2', '一首歌从深情唱', '2019-04-08 18:06:20', '10天23小时48分钟之前');
-INSERT INTO `post` VALUES ('4', 'root', 'B 站的同学，你们能不能不要在移动端主页投毒了？', '10', '理学', '1', '每次手机重装系统之后去 B 站主页( https://m.bilibili.com/index.html) 下客户端，都会下到国际版。只能安装客户端后去问客服要国内的客户端，再重新装一次。​为什么移动端首页不能改成国内的？国际版的没有免流服务，我要它何用？', '2019-04-01 09:09:08', '', '', '36', '2', '吹不散眉弯', '2019-04-09 09:08:22', '10天8小时46分钟之前');
-INSERT INTO `post` VALUES ('5', '吹不散眉弯', '测试下管理学代码', '12', '管理学', '1', '如果管理学代码测试成功！，那么今天就完成了很大的一部分工作！加油 2019/4/1', '2019-04-01 11:27:28', '', null, '101', '1', '一首歌从深情唱', '2019-04-04 14:27:28', '15天3小时27分钟之前');
-INSERT INTO `post` VALUES ('6', '吹不散眉弯', '理学的二次测试', '10', '理学', '1', '如果这次理学测试成功，那么真的一二级标题联动就正式写完了！', '2019-04-01 16:09:43', '', null, '51', '5', 'root', '2019-04-08 16:09:43', '11天1小时45分钟之前');
-INSERT INTO `post` VALUES ('7', 'root', 'ajax出问题了', '16', '全职', '2', '后台我将两个list放到了一个map里，但是问题是我想把其中一个list的值渲染到前台的某个div中，因为那个div本身就已经是个list循环出来的(是上一个页面点击渲染的)，但是ajax返回之后 我不知道 应该怎么写下面是前台的代码:(这个list本来是有值的 )', '2019-04-09 14:00:01', '', null, '28', '1', '吹不散眉弯', '2019-04-09 15:10:06', '10天1小时47分钟之前');
-INSERT INTO `post` VALUES ('8', 'root', '有河南老乡在深圳实习吗？', '30', '华中天地', '5', '题主现在在深圳，想看看有没有校友啊，有空一起玩，一起交流，一起学习啊..', '2019-04-19 17:02:26', '', null, '5', '1', '一首歌从深情唱', '2019-04-19 17:03:37', '51分钟之前');
+INSERT INTO `post` VALUES ('1', '2', '吹不散眉弯', '找找一份实习工作', '14', '实习', '2', '本人软件学院的一名15级学生，想要找一份软件工程,java方向的工作，有没有大佬能够帮我引荐一下，或者推荐一下工作什么的啊，非常感谢啊。', '2019-03-29 10:34:51', '226ce810-c32d-4ce5-993f-3986ee9aad06.PNG', '', '101', '0', '', '', '');
+INSERT INTO `post` VALUES ('2', '2', '吹不散眉弯', '今天学到了一点新的东西，跟同学们分享一下', '9', '工学', '1', '今天学习了设计模式，发现里面很多东西都非常值得思考，今天刚刚学习了策略模式，感觉非常不错，希望大家都可以学习一下，', '2019-03-29 10:38:08', '51d89138-372b-42e7-91c9-78afef1c52a3.PNG', '', '258', '7', '一首歌从深情唱', '2019-04-23 13:41:04', '4小时59分钟之前');
+INSERT INTO `post` VALUES ('3', '2', '吹不散眉弯', '谈谈今天的一些感受吧', '9', '工学', '1', '今天温度挺低的，本来就穿的不厚，结果感觉今天脑子更疼， 不知道大家有没有啥推荐的网站听听音乐啥的吗,http://www.baidu.com', '2019-04-01 09:07:44', 'ab35664c-3d1d-4046-98de-5e3de09ce992.PNG', '', '45', '2', '一首歌从深情唱', '2019-04-08 18:06:20', '15天0小时33分钟之前');
+INSERT INTO `post` VALUES ('4', '1', 'root', 'B 站的同学，你们能不能不要在移动端主页投毒了？', '10', '理学', '1', '每次手机重装系统之后去 B 站主页( https://m.bilibili.com/index.html) 下客户端，都会下到国际版。只能安装客户端后去问客服要国内的客户端，再重新装一次。​为什么移动端首页不能改成国内的？国际版的没有免流服务，我要它何用？', '2019-04-01 09:09:08', '', '', '36', '2', '吹不散眉弯', '2019-04-09 09:08:22', '14天9小时25分钟之前');
+INSERT INTO `post` VALUES ('5', '2', '吹不散眉弯', '测试下管理学代码', '12', '管理学', '1', '如果管理学代码测试成功！，那么今天就完成了很大的一部分工作！加油 2019/4/1', '2019-04-01 11:27:28', '', null, '101', '1', '一首歌从深情唱', '2019-04-04 14:27:28', '19天4小时6分钟之前');
+INSERT INTO `post` VALUES ('6', '2', '吹不散眉弯', '理学的二次测试', '10', '理学', '1', '如果这次理学测试成功，那么真的一二级标题联动就正式写完了！', '2019-04-01 16:09:43', '', null, '51', '5', 'root', '2019-04-08 16:09:43', '15天2小时24分钟之前');
+INSERT INTO `post` VALUES ('7', '1', 'root', 'ajax出问题了', '16', '全职', '2', '后台我将两个list放到了一个map里，但是问题是我想把其中一个list的值渲染到前台的某个div中，因为那个div本身就已经是个list循环出来的(是上一个页面点击渲染的)，但是ajax返回之后 我不知道 应该怎么写下面是前台的代码:(这个list本来是有值的 )', '2019-04-09 14:00:01', '', null, '28', '1', '吹不散眉弯', '2019-04-09 15:10:06', '10天1小时47分钟之前');
+INSERT INTO `post` VALUES ('8', '1', 'root', '有河南老乡在深圳实习吗？', '30', '华中天地', '5', '题主现在在深圳，想看看有没有校友啊，有空一起玩，一起交流，一起学习啊..', '2019-04-19 17:02:26', '', null, '6', '1', '一首歌从深情唱', '2019-04-19 17:03:37', '3天20小时45分钟之前');
+INSERT INTO `post` VALUES ('9', '3', '一首歌从深情唱', '软件学院实验室招新', '41', '软件学院', '8', '软件学院303实验室招新，具体的详情，可以去303实验室查看，获取去302找老师咨询，欢迎各位！', '2019-04-22 14:50:54', '', null, '27', '6', '一首歌从深情唱', '2019-04-23 11:51:37', '1小时58分钟之前');
+
+-- ----------------------------
+-- Table structure for postcollection
+-- ----------------------------
+DROP TABLE IF EXISTS `postcollection`;
+CREATE TABLE `postcollection` (
+  `id` int(255) NOT NULL AUTO_INCREMENT COMMENT '收藏帖子索引',
+  `user_id` varchar(12) COLLATE utf8_bin NOT NULL COMMENT '收藏者id',
+  `post_id` varchar(40) COLLATE utf8_bin NOT NULL COMMENT '帖子索引id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of postcollection
+-- ----------------------------
+INSERT INTO `postcollection` VALUES ('1', '3', '4;7;8');
 
 -- ----------------------------
 -- Table structure for reply
@@ -65,30 +99,37 @@ CREATE TABLE `reply` (
   `reply_time_simple` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '回复时间简写',
   PRIMARY KEY (`id`),
   KEY `postid` (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Records of reply
 -- ----------------------------
-INSERT INTO `reply` VALUES ('1', '6', '吹不散眉弯', '我感觉这次测试会成功!', '2019-04-02 17:11:30', '1', null);
-INSERT INTO `reply` VALUES ('2', '6', '吹不散眉弯', '这测试的第二条回复 看看会不会成功', '2019-04-02 17:39:52', '2', null);
-INSERT INTO `reply` VALUES ('3', '6', '吹不散眉弯', '现在进行第三条回复测试', '2019-04-02 18:04:21', '3', null);
-INSERT INTO `reply` VALUES ('4', '6', '吹不散眉弯', '第四次测试看看到底哪里有问题', '2019-04-02 18:07:16', '4', null);
-INSERT INTO `reply` VALUES ('5', '6', '吹不散眉弯', '第五次测试！，这次一定要成功啊！', '2019-04-02 18:10:02', '5', null);
-INSERT INTO `reply` VALUES ('6', '2', 'root', '那本书我也看了，我打算明天再看一遍', '2019-04-08 14:40:15', '1', '11天2小时27分钟之前');
-INSERT INTO `reply` VALUES ('7', '2', 'root', '那本书我也看了，我打算明天再看一遍', '2019-04-08 14:41:05', '2', '11天2小时26分钟之前');
+INSERT INTO `reply` VALUES ('1', '6', '吹不散眉弯', '我感觉这次测试会成功!', '2019-04-02 17:11:30', '1', '19天22小时56分钟之前');
+INSERT INTO `reply` VALUES ('2', '6', '吹不散眉弯', '这测试的第二条回复 看看会不会成功', '2019-04-02 17:39:52', '2', '19天22小时28分钟之前');
+INSERT INTO `reply` VALUES ('3', '6', '吹不散眉弯', '现在进行第三条回复测试', '2019-04-02 18:04:21', '3', '19天22小时3分钟之前');
+INSERT INTO `reply` VALUES ('4', '6', '吹不散眉弯', '第四次测试看看到底哪里有问题', '2019-04-02 18:07:16', '4', '19天22小时0分钟之前');
+INSERT INTO `reply` VALUES ('5', '6', '吹不散眉弯', '第五次测试！，这次一定要成功啊！', '2019-04-02 18:10:02', '5', '19天21小时57分钟之前');
+INSERT INTO `reply` VALUES ('6', '2', 'root', '那本书我也看了，我打算明天再看一遍', '2019-04-08 14:40:15', '1', '15天3小时45分钟之前');
+INSERT INTO `reply` VALUES ('7', '2', 'root', '那本书我也看了，我打算明天再看一遍', '2019-04-08 14:41:05', '2', '15天3小时44分钟之前');
 INSERT INTO `reply` VALUES ('8', '3', '一首歌从深情唱', '歌曲的话，可以去51sing里面好像还有伴奏可以随便下，感觉挺不错的，你可以去试试啊，然后我现在平常用QQ音乐听，自己用的大王卡，感觉用QQ音乐听非常好', '2019-04-08 15:33:01', '1', '1天0小时54分钟之前');
 INSERT INTO `reply` VALUES ('9', '5', '一首歌从深情唱', '哈哈，测试差不多可以结束了，真正的实现了相应的功能操作，和应有的逻辑，不负初心，不负己！', '2019-04-08 15:35:53', '1', null);
-INSERT INTO `reply` VALUES ('10', '2', '一首歌从深情唱', '现在测试一下时间的更新看看对不对', '2019-04-08 16:54:52', '3', '11天0小时12分钟之前');
-INSERT INTO `reply` VALUES ('11', '2', '一首歌从深情唱', '我来更新一下时间，看看时间对不对', '2019-04-08 17:27:07', '3', '10天23小时40分钟之前');
+INSERT INTO `reply` VALUES ('10', '2', '一首歌从深情唱', '现在测试一下时间的更新看看对不对', '2019-04-08 16:54:52', '3', '15天1小时31分钟之前');
+INSERT INTO `reply` VALUES ('11', '2', '一首歌从深情唱', '我来更新一下时间，看看时间对不对', '2019-04-08 17:27:07', '3', '15天0小时58分钟之前');
 INSERT INTO `reply` VALUES ('12', '3', '一首歌从深情唱', '现在来测试一下时间差值是否正确！', '2019-04-08 18:06:20', '2', '22小时20分钟之前');
 INSERT INTO `reply` VALUES ('13', '4', '一首歌从深情唱', '真是个悲伤的故事，时间测试还是没有完全成功！', '2019-04-08 18:16:30', '1', '10天22小时23分钟之前');
 INSERT INTO `reply` VALUES ('14', '4', '吹不散眉弯', '我感觉如果真的可能的话，或许我们可以调整一下思路，重新把时间好好划分一下，这样的话应该就不会有太大问题', '2019-04-09 09:08:22', '2', '10天7小时31分钟之前');
-INSERT INTO `reply` VALUES ('15', '2', '吹不散眉弯', '就奇怪不知道为啥感觉效率很慢呢，', '2019-04-09 09:18:06', '4', '10天7小时49分钟之前');
-INSERT INTO `reply` VALUES ('16', '2', 'root', '测试', '2019-04-09 09:53:51', '5', '10天7小时13分钟之前');
-INSERT INTO `reply` VALUES ('17', '2', 'root', '测试下时间是否是正确的', '2019-04-09 09:55:55', '6', '10天7小时11分钟之前');
+INSERT INTO `reply` VALUES ('15', '2', '吹不散眉弯', '就奇怪不知道为啥感觉效率很慢呢，', '2019-04-09 09:18:06', '4', '14天9小时7分钟之前');
+INSERT INTO `reply` VALUES ('16', '2', 'root', '测试', '2019-04-09 09:53:51', '5', '14天8小时32分钟之前');
+INSERT INTO `reply` VALUES ('17', '2', 'root', '测试下时间是否是正确的', '2019-04-09 09:55:55', '6', '14天8小时30分钟之前');
 INSERT INTO `reply` VALUES ('18', '7', '吹不散眉弯', '测试一下距离！', '2019-04-09 15:10:06', '1', '10天1小时47分钟之前');
-INSERT INTO `reply` VALUES ('19', '8', '一首歌从深情唱', '有啊，我就在深圳，现在在龙岗区，你在哪个区呢，有空可以见个面啊，，哈哈~', '2019-04-19 17:03:37', '1', '51分钟之前');
+INSERT INTO `reply` VALUES ('19', '8', '一首歌从深情唱', '有啊，我就在深圳，现在在龙岗区，你在哪个区呢，有空可以见个面啊，，哈哈~', '2019-04-19 17:03:37', '1', '3天20小时45分钟之前');
+INSERT INTO `reply` VALUES ('20', '9', 'root', '今天下午去，老师不在办公室，明天再去看一下', '2019-04-22 15:57:04', '1', '21小时53分钟之前');
+INSERT INTO `reply` VALUES ('21', '9', '一首歌从深情唱', '', '2019-04-23 11:28:48', '2', '2小时21分钟之前');
+INSERT INTO `reply` VALUES ('22', '9', '一首歌从深情唱', '', '2019-04-23 11:35:19', '3', '2小时15分钟之前');
+INSERT INTO `reply` VALUES ('23', '9', '一首歌从深情唱', '', '2019-04-23 11:37:20', '4', '2小时13分钟之前');
+INSERT INTO `reply` VALUES ('24', '9', '一首歌从深情唱', '', '2019-04-23 11:47:39', '5', '2小时2分钟之前');
+INSERT INTO `reply` VALUES ('25', '9', '一首歌从深情唱', '', '2019-04-23 11:51:37', '6', '1小时58分钟之前');
+INSERT INTO `reply` VALUES ('26', '2', '一首歌从深情唱', '测试一下，回复为空和不为空的区别', '2019-04-23 13:41:04', '7', '4小时44分钟之前');
 
 -- ----------------------------
 -- Table structure for tab
@@ -170,6 +211,23 @@ INSERT INTO `tab` VALUES ('62', '四六级', '1', '四六级经验分享与收�
 INSERT INTO `tab` VALUES ('63', '雅思', '1', '雅思经验分享与收获');
 
 -- ----------------------------
+-- Table structure for unread
+-- ----------------------------
+DROP TABLE IF EXISTS `unread`;
+CREATE TABLE `unread` (
+  `id` int(255) NOT NULL AUTO_INCREMENT COMMENT '未读信息索引',
+  `user_id` varchar(12) COLLATE utf8_bin NOT NULL COMMENT '用户索引id',
+  `info` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '未读信息',
+  `infocome_id` varchar(12) COLLATE utf8_bin DEFAULT NULL COMMENT '发送信息者的id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of unread
+-- ----------------------------
+INSERT INTO `unread` VALUES ('1', '3', '是时候测试下未读信息了', '1');
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -185,6 +243,9 @@ CREATE TABLE `user` (
   `problem_answer` varchar(20) NOT NULL COMMENT '找回功能问题答案',
   `user_sex` varchar(2) NOT NULL COMMENT '用户性别',
   `user_img` varchar(30) DEFAULT NULL COMMENT '用户头像',
+  `unread_message` int(255) unsigned DEFAULT '0' COMMENT '未读消息数',
+  `post_collection_num` int(255) unsigned DEFAULT '0' COMMENT '收藏帖子数',
+  `focus_number` int(255) unsigned DEFAULT '0' COMMENT '关注的人数',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -192,6 +253,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '2', '541513250153', 'root', 'admin', '13222222222', '软件学院', '1', '息县三中', '男', null);
-INSERT INTO `user` VALUES ('2', '1', '541513250132', '吹不散眉弯', '111', '15222222222', '软件学院', '1', '息县一中', '女', null);
-INSERT INTO `user` VALUES ('3', '1', '541513250222', '一首歌从深情唱', '111', '15299999999', '计算机与通信工程学院', '1', '息县三中', '男', null);
+INSERT INTO `user` VALUES ('1', '2', '541513250153', 'root', 'admin', '13222222222', '软件学院', '1', '息县三中', '男', null, '0', '0', '0');
+INSERT INTO `user` VALUES ('2', '1', '541513250132', '吹不散眉弯', '111', '15222222222', '软件学院', '1', '息县一中', '女', null, '0', '0', '0');
+INSERT INTO `user` VALUES ('3', '1', '541513250222', '一首歌从深情唱', '111', '15299999999', '计算机与通信工程学院', '1', '息县三中', '男', null, '1', '0', '2');

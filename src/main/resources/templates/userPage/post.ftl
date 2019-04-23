@@ -36,7 +36,7 @@
         var layer = layui.layer;
     });
 </script>
-<body style="background-color: whitesmoke;height: 600px; overflow-y: visible !important;">
+<body style="height: 600px; overflow-y: visible !important;">
 <div id="Main">
     <div class="sep20"></div>
     <div class="box" id="box">

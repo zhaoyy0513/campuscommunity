@@ -3,6 +3,7 @@
 <mapper namespace="zyy.campuscommunity.mapper.PostMapper">
   <resultMap id="BaseResultMap" type="zyy.campuscommunity.entity.Post">
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="post_user_id" jdbcType="INTEGER" property="postUserId" />
     <result column="post_user_name" jdbcType="VARCHAR" property="postUserName" />
     <result column="post_title" jdbcType="VARCHAR" property="postTitle" />
     <result column="post_tab_id" jdbcType="INTEGER" property="postTabId" />
@@ -77,8 +78,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, 
-    post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, 
+    id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, 
+    post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, 
     post_last_reply, post_last_reply_time, post_last_reply_time_simple
   </sql>
   <select id="selectByExample" parameterType="zyy.campuscommunity.entity.PostExample" resultMap="BaseResultMap">
@@ -112,24 +113,27 @@
     </if>
   </delete>
   <insert id="insert" parameterType="zyy.campuscommunity.entity.Post">
-    insert into post (id, post_user_name, post_title, 
-      post_tab_id, post_tab_name, tab_parentid, 
-      post_content, post_time, post_content_img, 
-      post_user_icon, post_click_count, post_reply_count, 
-      post_last_reply, post_last_reply_time, post_last_reply_time_simple
-      )
-    values (#{id,jdbcType=INTEGER}, #{postUserName,jdbcType=VARCHAR}, #{postTitle,jdbcType=VARCHAR}, 
-      #{postTabId,jdbcType=INTEGER}, #{postTabName,jdbcType=VARCHAR}, #{tabParentid,jdbcType=INTEGER}, 
-      #{postContent,jdbcType=VARCHAR}, #{postTime,jdbcType=VARCHAR}, #{postContentImg,jdbcType=VARCHAR}, 
-      #{postUserIcon,jdbcType=VARCHAR}, #{postClickCount,jdbcType=INTEGER}, #{postReplyCount,jdbcType=INTEGER}, 
-      #{postLastReply,jdbcType=VARCHAR}, #{postLastReplyTime,jdbcType=VARCHAR}, #{postLastReplyTimeSimple,jdbcType=VARCHAR}
-      )
+    insert into post (id, post_user_id, post_user_name, 
+      post_title, post_tab_id, post_tab_name, 
+      tab_parentid, post_content, post_time, 
+      post_content_img, post_user_icon, post_click_count, 
+      post_reply_count, post_last_reply, post_last_reply_time, 
+      post_last_reply_time_simple)
+    values (#{id,jdbcType=INTEGER}, #{postUserId,jdbcType=INTEGER}, #{postUserName,jdbcType=VARCHAR}, 
+      #{postTitle,jdbcType=VARCHAR}, #{postTabId,jdbcType=INTEGER}, #{postTabName,jdbcType=VARCHAR}, 
+      #{tabParentid,jdbcType=INTEGER}, #{postContent,jdbcType=VARCHAR}, #{postTime,jdbcType=VARCHAR}, 
+      #{postContentImg,jdbcType=VARCHAR}, #{postUserIcon,jdbcType=VARCHAR}, #{postClickCount,jdbcType=INTEGER}, 
+      #{postReplyCount,jdbcType=INTEGER}, #{postLastReply,jdbcType=VARCHAR}, #{postLastReplyTime,jdbcType=VARCHAR}, 
+      #{postLastReplyTimeSimple,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.Post">
     insert into post
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
+      </if>
+      <if test="postUserId != null">
+        post_user_id,
       </if>
       <if test="postUserName != null">
         post_user_name,
@@ -177,6 +181,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="postUserId != null">
+        #{postUserId,jdbcType=INTEGER},
       </if>
       <if test="postUserName != null">
         #{postUserName,jdbcType=VARCHAR},
@@ -234,6 +241,9 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.postUserId != null">
+        post_user_id = #{record.postUserId,jdbcType=INTEGER},
+      </if>
       <if test="record.postUserName != null">
         post_user_name = #{record.postUserName,jdbcType=VARCHAR},
       </if>
@@ -284,6 +294,7 @@
   <update id="updateByExample" parameterType="map">
     update post
     set id = #{record.id,jdbcType=INTEGER},
+      post_user_id = #{record.postUserId,jdbcType=INTEGER},
       post_user_name = #{record.postUserName,jdbcType=VARCHAR},
       post_title = #{record.postTitle,jdbcType=VARCHAR},
       post_tab_id = #{record.postTabId,jdbcType=INTEGER},
@@ -305,6 +316,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="zyy.campuscommunity.entity.Post">
     update post
     <set>
+      <if test="postUserId != null">
+        post_user_id = #{postUserId,jdbcType=INTEGER},
+      </if>
       <if test="postUserName != null">
         post_user_name = #{postUserName,jdbcType=VARCHAR},
       </if>
@@ -352,7 +366,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="zyy.campuscommunity.entity.Post">
     update post
-    set post_user_name = #{postUserName,jdbcType=VARCHAR},
+    set post_user_id = #{postUserId,jdbcType=INTEGER},
+      post_user_name = #{postUserName,jdbcType=VARCHAR},
       post_title = #{postTitle,jdbcType=VARCHAR},
       post_tab_id = #{postTabId,jdbcType=INTEGER},
       post_tab_name = #{postTabName,jdbcType=VARCHAR},

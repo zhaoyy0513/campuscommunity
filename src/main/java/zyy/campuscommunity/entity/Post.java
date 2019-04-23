@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class Post implements Serializable {
     private Integer id;
 
+    private Integer postUserId;
+
     private String postUserName;
 
     private String postTitle;
@@ -42,6 +44,14 @@ public class Post implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getPostUserId() {
+        return postUserId;
+    }
+
+    public void setPostUserId(Integer postUserId) {
+        this.postUserId = postUserId;
     }
 
     public String getPostUserName() {

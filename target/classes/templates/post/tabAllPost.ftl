@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../../static/css/tabAllPost.css">
 <#include "../js.ftl" />
 <script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<body style="background-color: whitesmoke;overflow-y:auto;">
+<body style="overflow-y:auto;">
 <div id="index_header">
     <div id="header_logo"></div>
     <div class="col-lg-3" id="header_searchBar">
@@ -76,10 +76,11 @@
                             <span class="topic_info"><a class="node" href="#">${post.postTabName}</a> &nbsp;•&nbsp; <strong><a
                                     href="#">${post.postUserName}</a></strong>
 
-                                <#if (post.postLastReplyTimeSimple)??>
-                                <#else>
+                                <#if (post.postLastReply)??>
                                 &nbsp;•&nbsp; ${post.postLastReplyTimeSimple} &nbsp;•&nbsp; 最后回复来自 <strong><a
-                                    href="#">${post.postLastReply}</a></strong></span>
+                                        href="#">${post.postLastReply}</a></strong></span>
+                                <#else>
+                                <!--为空啥也不显示-->
                                 </#if>
 
                         </td>
@@ -116,6 +117,21 @@
                 <td width="10" valign="top"></td>
                 <td width="auto" align="left"><span class="bigger"><a href="#">${user.userName}</a></span>
                 </td>
+            </tr>
+            </tbody>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tbody>
+            <div style="margin-top: 10px;"></div>
+            <tr style="text-align: center;">
+                <td width="33%"><a href="#">${user.unreadMessage}</a></td>
+                <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
+                <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td width="33%"><a href="#">未读信息</a></td>
+                <td width="34%"><a href="#">帖子收藏</a></td>
+                <td width="33%"><a href="#">特别关注</a></td>
             </tr>
             </tbody>
         </table>

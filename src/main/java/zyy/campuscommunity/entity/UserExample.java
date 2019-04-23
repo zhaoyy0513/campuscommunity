@@ -843,6 +843,186 @@ public class UserExample {
             addCriterion("user_img not between", value1, value2, "userImg");
             return (Criteria) this;
         }
+
+        public Criteria andUnreadMessageIsNull() {
+            addCriterion("unread_message is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageIsNotNull() {
+            addCriterion("unread_message is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageEqualTo(Integer value) {
+            addCriterion("unread_message =", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageNotEqualTo(Integer value) {
+            addCriterion("unread_message <>", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageGreaterThan(Integer value) {
+            addCriterion("unread_message >", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageGreaterThanOrEqualTo(Integer value) {
+            addCriterion("unread_message >=", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageLessThan(Integer value) {
+            addCriterion("unread_message <", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageLessThanOrEqualTo(Integer value) {
+            addCriterion("unread_message <=", value, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageIn(List<Integer> values) {
+            addCriterion("unread_message in", values, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageNotIn(List<Integer> values) {
+            addCriterion("unread_message not in", values, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageBetween(Integer value1, Integer value2) {
+            addCriterion("unread_message between", value1, value2, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andUnreadMessageNotBetween(Integer value1, Integer value2) {
+            addCriterion("unread_message not between", value1, value2, "unreadMessage");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumIsNull() {
+            addCriterion("post_collection_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumIsNotNull() {
+            addCriterion("post_collection_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumEqualTo(Integer value) {
+            addCriterion("post_collection_num =", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumNotEqualTo(Integer value) {
+            addCriterion("post_collection_num <>", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumGreaterThan(Integer value) {
+            addCriterion("post_collection_num >", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("post_collection_num >=", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumLessThan(Integer value) {
+            addCriterion("post_collection_num <", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumLessThanOrEqualTo(Integer value) {
+            addCriterion("post_collection_num <=", value, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumIn(List<Integer> values) {
+            addCriterion("post_collection_num in", values, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumNotIn(List<Integer> values) {
+            addCriterion("post_collection_num not in", values, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumBetween(Integer value1, Integer value2) {
+            addCriterion("post_collection_num between", value1, value2, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostCollectionNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("post_collection_num not between", value1, value2, "postCollectionNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberIsNull() {
+            addCriterion("focus_number is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberIsNotNull() {
+            addCriterion("focus_number is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberEqualTo(Integer value) {
+            addCriterion("focus_number =", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberNotEqualTo(Integer value) {
+            addCriterion("focus_number <>", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberGreaterThan(Integer value) {
+            addCriterion("focus_number >", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberGreaterThanOrEqualTo(Integer value) {
+            addCriterion("focus_number >=", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberLessThan(Integer value) {
+            addCriterion("focus_number <", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberLessThanOrEqualTo(Integer value) {
+            addCriterion("focus_number <=", value, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberIn(List<Integer> values) {
+            addCriterion("focus_number in", values, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberNotIn(List<Integer> values) {
+            addCriterion("focus_number not in", values, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberBetween(Integer value1, Integer value2) {
+            addCriterion("focus_number between", value1, value2, "focusNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andFocusNumberNotBetween(Integer value1, Integer value2) {
+            addCriterion("focus_number not between", value1, value2, "focusNumber");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -113,7 +113,23 @@
                 </tr>
                 </tbody>
             </table>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tbody>
+                <div style="margin-top: 10px;"></div>
+                <tr style="text-align: center;">
+                    <td width="33%"><a href="#">${user.unreadMessage}</a></td>
+                    <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
+                    <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td width="33%"><a href="#">未读信息</a></td>
+                    <td width="34%"><a href="#">帖子收藏</a></td>
+                    <td width="33%"><a href="/user/getFocus/${user.id}">特别关注</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+
         <div class="cell">
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
@@ -182,7 +198,7 @@
                     $(".post_content").css("display","none");
                     var post = data.posts;
                    for(var i=0;i<post.length;i++){
-                       if((post[i].postLastReplyTimeSimple)!=""){
+                       if((post[i].postLastReply)!=""){
                            $("#main_article").append(' <div class="cell post_content">\n' +
                                    '                <table cellpadding="0" cellspacing="0" border="0" width="100%">\n' +
                                    '                    <tbody>\n' +

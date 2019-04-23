@@ -78,7 +78,7 @@
                     </tr>
                     </tbody></table>
             </div>
-                  </#list>
+            </#list>
         <#else>
 
         </#if>
@@ -91,12 +91,12 @@
                     <p id="first_p">添加一条新回复</p>
                     <p id="second_p"><a href="#" class="change_a">↑回到顶部</a></p>
                 </div>
-                <form action="/reply/addReply/${post.id}" method="post">
+                <form class="layui-form" action="/reply/addReply/${post.id}" method="post" id="reply_form">
                     <input type="hidden" name="replyUserName" value="${user.userName}"
                     <input type="hidden" name="postId" value="${post.id}">
-                    <textarea placeholder="请输入内容" name="replyContent"></textarea>
+                    <textarea placeholder="请输入内容" name="replyContent" lay-verify="required|replyArea"></textarea>
                     <div class="btn_group">
-                        <button class="layui-btn">立即提交</button>
+                        <button class="layui-btn" type="button" id="reply_btn">回复</button>
                         <button type="reset" class="layui-btn layui-btn-primary">清空</button>
                     </div>
                 </form>
@@ -116,7 +116,7 @@
             <div class="layui-form-item" style="margin: 2% 0 0 5%;">
                 <label class="layui-form-label">密 码</label>
                 <div class="layui-input-inline">
-                    <input type="password" id="tourist_userPwd" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    <input type="password" id="tourist_userPwd" lay-verify="required"placeholder="请输入密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <span style="margin: 4% 0 0 6%;"><a href="#">忘记密码?</a></span>
@@ -138,8 +138,22 @@
                 </tr>
                 </tbody>
             </table>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tbody>
+                <div style="margin-top: 10px;"></div>
+                <tr style="text-align: center;">
+                    <td width="33%"><a href="#">${user.unreadMessage}</a></td>
+                    <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
+                    <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+                </tr>
+                <tr style="text-align: center;">
+                    <td width="33%"><a href="#">未读信息</a></td>
+                    <td width="34%"><a href="#">帖子收藏</a></td>
+                    <td width="33%"><a href="/user/getFocus/${user.id}">特别关注</a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-
         <div class="cell">
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
@@ -186,6 +200,14 @@
 
 <script>
     $(function () {
+        $("#reply_btn").click(function () {
+            var replyText = $("textarea[name='replyContent']").val();
+                    if(replyText==''){
+                        layer.alert('回复不能为空', {icon: 5});
+                    }else{
+                        $("#reply_form").submit();//让第一个form表单提交
+                    }
+            });
         //用户登录弹出层点击事件
         $("#tourist_login").click(function () {
             //自定页
