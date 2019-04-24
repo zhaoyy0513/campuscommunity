@@ -95,3 +95,6 @@ body{
 .red{
     color: indianred;
 }
+.avatar{
+    cursor: pointer;
+}

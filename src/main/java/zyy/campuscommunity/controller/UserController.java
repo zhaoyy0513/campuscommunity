@@ -3,6 +3,7 @@ package zyy.campuscommunity.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -47,7 +48,7 @@ public class UserController {
 	//跳转到注册界面
 	@RequestMapping("/toRegister")
 	public String toRegister() {
-		return "userPage/register";
+		return "user/register";
 	}
 
 	//跳转到主页
@@ -278,5 +279,38 @@ public class UserController {
             return "post/focusPosts";
         }
 
+    /**
+     * @Description:用户点击完相应帖子的用户头像或者名字后跳转的controller
+     * @Param: [userId, request]
+     * @return: java.lang.String
+     * @Author: zhaoyy
+     * @Date: 2019/4/24 16:23
+     */
+    @RequestMapping("/userInfo/{uid}")
+        public String UserInfo(@PathVariable("uid") int userId,HttpServletRequest request){
+            System.out.println("要跳转的用户id"+userId);
+    	    User user = userService.getUserById(userId);
+    	    request.getSession().setAttribute("focus",user);
+            List<Post> posts = postService.getPostByUid(userId);
+            request.getSession().setAttribute("Posts",posts);
+            request.getSession().setAttribute("postCount",posts.size());
+            request.getSession().setAttribute("status","focused");//用来前台校验改变button的值
+            return "user/otherInfo";
+        }
+        
+        /** 
+        * @Description: 用来取消特别关注的controller
+        * @Param: [] 
+        * @return: java.lang.String 
+        * @Author: zhaoyy
+        * @Date: 2019/4/24 16:25
+        */
+        @RequestMapping(value = "/cancelFocusUser")
+        @ResponseBody
+        public String focusOrCancelUser(String userId,String focusId){
+            System.out.println("userId"+userId);
+            System.out.println("focusId"+focusId);
+            return JSONArray.toJSONString(userId+":"+focusId);
+        }
 
 }

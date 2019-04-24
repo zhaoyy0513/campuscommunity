@@ -34,7 +34,7 @@
 
 <div id="main_content">
     <div id="start_post" style="display: none;height: 40%;">
-        <#include "userPage/post.ftl" />
+        <#include "user/post.ftl" />
     </div>
 
     <div id="index_content">

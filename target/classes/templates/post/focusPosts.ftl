@@ -35,13 +35,13 @@
 
 <div id="main_content">
     <div id="start_post" style="display: none;height: 40%;">
-        <#include "../userPage/post.ftl" />
+        <#include "../user/post.ftl" />
     </div>
     <div class="header">
         <a href="/user/toIndex" style="margin-left: 2%;color: darkgray;">ZZUI</a>
-        <span class="chevron">&nbsp;›&nbsp;</span> 我关注的人的最新主题
+        <span class="chevron">&nbsp;›&nbsp;</span> 我关注的人的最新帖子
         <span id="postCount">
-            <span class="snow">主题总数&nbsp;</span>
+            <span class="snow">帖子总数&nbsp;</span>
             <strong class="red">${postCount}</strong>
         </span>
     </div>
@@ -53,8 +53,8 @@
                     <tbody>
                     <tr>
                         <td width="48" valign="top" align="center">
-                            <a href="#">
-                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">
+                            <a href="/user/userInfo/${post.postUserId}">
+                                <img src="/static/img/portrait.png" class="avatar"  border="0" align="default">
                             </a>
                         </td>
                         <td width="10"></td>
@@ -63,7 +63,7 @@
                                 href="/post/postDetail/${post.id}">${post.postTitle}</a></span>
                             <div class="sep5" style="margin-top: 10px;"></div>
                         <span class="topic_info"><a class="node" href="#">${post.postTabName}</a> &nbsp;•&nbsp; <strong><a
-                                    href="#">${post.postUserName}</a></strong>
+                                    href="/user/userInfo/${post.postUserId}">${post.postUserName}</a></strong>
 
                                 <#if (post.postLastReply)??>
                                 &nbsp;•&nbsp; ${post.postLastReplyTimeSimple} &nbsp;•&nbsp; 最后回复来自 <strong><a
@@ -81,16 +81,13 @@
                                 <td width="70" align="right" valign="middle">
                                     <a href="#" class="count_livid">${post.postReplyCount}</a>
                                 </td>
-
                           </#if>
-
                     </tr>
                     </tbody>
                 </table>
             </div>
              </#list>
          <#else>
-            <h1>还没有帖子<a href="#" class="create_post" style="color: deepskyblue;">创建一个吧</a></h1>
          </#if>
     </div>
 </div>
@@ -144,6 +141,7 @@
 </body>
 <script>
     $(function () {
+        //让相应的发布界面显示出来
         $(".create_post").click(function () {
             $("#tabAllMain").remove();
             $("#index_rightNavigation").remove();
