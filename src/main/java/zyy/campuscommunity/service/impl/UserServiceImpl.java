@@ -22,7 +22,17 @@ public class UserServiceImpl implements UserService {
 		User user = userMapper.selectByPrimaryKey(id);
 		return user;
 	}
-	
+
+	@Override
+	public int updateUser(User user) {
+        int result = userMapper.updateByPrimaryKey(user);
+        if (result < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+	}
+
 	@Override
 	public List<User> getUserByName(String name) {
 		UserExample example = new UserExample();

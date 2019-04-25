@@ -2,13 +2,13 @@ package zyy.campuscommunity.entity;
 
 import lombok.ToString;
 
-import java.io.Serializable;
-
 @ToString
-public class Reply implements Serializable {
+public class Reply {
     private Integer id;
 
     private Integer postId;
+
+    private Integer replyUserId;
 
     private String replyUserName;
 
@@ -34,6 +34,14 @@ public class Reply implements Serializable {
 
     public void setPostId(Integer postId) {
         this.postId = postId;
+    }
+
+    public Integer getReplyUserId() {
+        return replyUserId;
+    }
+
+    public void setReplyUserId(Integer replyUserId) {
+        this.replyUserId = replyUserId;
     }
 
     public String getReplyUserName() {

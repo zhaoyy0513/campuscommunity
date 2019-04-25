@@ -47,7 +47,7 @@
             <a href="/post/tabId/${post.postTabId}">${post.postTabName}</a>
             <div class="sep10"></div>
             <h1>${post.postTitle}</h1>
-            <small class="gray"><a href="#">${post.postUserName}</a> · ${post.postTime}
+            <small class="gray"><a href="#">${post.postUserName}</a>${post.postTime}
                 · ${post.postClickCount}次点击 &nbsp;
             </small>
         </div>
@@ -66,12 +66,17 @@
             <div class="cell">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tbody><tr>
-                        <td width="48" valign="top" align="center"><img src="../../static/img/portrait.png" class="avatar" border="0" align="default"></td>
+                        <td width="48" valign="top" align="center"><a href="/user/userInfo/${reply.replyUserId}"><img src="../../static/img/portrait.png" class="avatar" border="0" align="default"></a></td>
                         <td width="10" valign="top"></td>
                         <td width="auto" valign="top" align="left">
                             <div class="sep3"></div>
-                            <strong><a href="#" >${reply.replyUserName}</a></strong>&nbsp; &nbsp;<span style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
-                            <span id="reply_floor">${reply.replyFloor}</span>
+                            <strong><a href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp; &nbsp;<span style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
+                            <span id="reply_floor">
+                                ${reply.replyFloor}
+                            </span>
+
+                            <a class="reply_icon" style="margin-right: 12px;float: right;" href="#" onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');"><img src="../../static/img/reply.png"  border="0" alt="Reply"></a>
+                            <a style="margin-right: 14px;float: right;text-decoration: none; display: none;" href="#" onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');">回复</a>
                             <div class="sep5"></div>
                             <div class="reply_content">${reply.replyContent}</div>
                         </td>
@@ -92,9 +97,12 @@
                     <p id="second_p"><a href="#" class="change_a">↑回到顶部</a></p>
                 </div>
                 <form class="layui-form" action="/reply/addReply/${post.id}" method="post" id="reply_form">
-                    <input type="hidden" name="replyUserName" value="${user.userName}"
-                    <input type="hidden" name="postId" value="${post.id}">
-                    <textarea placeholder="请输入内容" name="replyContent" lay-verify="required|replyArea"></textarea>
+                    <input type="hidden" name="replyUserId" value="${user.id}" />
+                    <input type="hidden" name="replyUserName" value="${user.userName}" />
+                    <input type="hidden" name="postId" value="${post.id}" />
+                    <input type="hidden" name="sendTo" value=""/>
+                    <input type="hidden" name="infocomeId" value="" />
+                    <textarea placeholder="请输入内容" id="replyTextArea" name="replyContent" lay-verify="required"></textarea>
                     <div class="btn_group">
                         <button class="layui-btn" type="button" id="reply_btn">回复</button>
                         <button type="reset" class="layui-btn layui-btn-primary">清空</button>
@@ -116,7 +124,7 @@
             <div class="layui-form-item" style="margin: 2% 0 0 5%;">
                 <label class="layui-form-label">密 码</label>
                 <div class="layui-input-inline">
-                    <input type="password" id="tourist_userPwd" lay-verify="required"placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    <input type="password" id="tourist_userPwd" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <span style="margin: 4% 0 0 6%;"><a href="#">忘记密码?</a></span>
@@ -130,10 +138,10 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="48" valign="top"><a href="#"><img src="/static/img/portrait.png" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;"></a>
+                    <td width="48" valign="top"><a href="/user/userInfo/${user.id}"><img src="/static/img/portrait.png" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;"></a>
                     </td>
                     <td width="10" valign="top"></td>
-                    <td width="auto" align="left"><span class="bigger"><a href="#">${user.userName}</a></span>
+                    <td width="auto" align="left"><span class="bigger"><a href="/user/userInfo/${user.id}">${user.userName}</a></span>
                     </td>
                 </tr>
                 </tbody>
@@ -172,9 +180,37 @@
 </#if>
     </div>
 </div>
-
-
 </body>
+
+<script>
+    layui.use(['form','layer'], function () {
+        var form = layui.form;
+        var layer = layui.layer;
+    });
+</script>
+
+<script>
+    $(function () {
+        $(".reply_icon").mouseover(function () {
+            $(this).next().css("display","block");
+        });
+        $(".reply_icon").next().mouseout(function () {
+            $(this).css("display","none");
+        });
+    });
+
+</script>
+
+<script>
+    function replyOne(toId,toName) { //添加回复给某个用户功能的按钮
+        //第一个参数是目的用户的id，第二个参数是目的用户的用户名
+        //进入这个方法后获取焦点，并将要回复的名字写入到里面
+        $("input[name='infocomeId']").val(toId);
+        $("input[name='sendTo']").val(toName);
+        $("#replyTextArea").focus().text('@'+toName+' ');
+    }
+</script>
+
 
 <script>
     $(function () {
@@ -186,15 +222,6 @@
             $("#start_post").css("margin-right", "20%");
             $("#start_post").css("display", "block");
         });
-    });
-</script>
-<script>
-
-</script>
-<script>
-    layui.use(['form','layer'], function () {
-        var form = layui.form;
-        var layer = layui.layer;
     });
 </script>
 

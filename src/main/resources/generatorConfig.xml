@@ -38,6 +38,6 @@
 		</javaClientGenerator>
 
 		<!-- table指定每个表的生成策略 -->
-		<table tableName="post" domainObjectName="Post"></table>
+		<table tableName="reply" domainObjectName="Reply"></table>
 	</context>
 </generatorConfiguration>  

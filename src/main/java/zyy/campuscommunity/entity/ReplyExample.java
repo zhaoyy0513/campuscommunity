@@ -224,6 +224,66 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
+        public Criteria andReplyUserIdIsNull() {
+            addCriterion("reply_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdIsNotNull() {
+            addCriterion("reply_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdEqualTo(Integer value) {
+            addCriterion("reply_user_id =", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotEqualTo(Integer value) {
+            addCriterion("reply_user_id <>", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdGreaterThan(Integer value) {
+            addCriterion("reply_user_id >", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("reply_user_id >=", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdLessThan(Integer value) {
+            addCriterion("reply_user_id <", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("reply_user_id <=", value, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdIn(List<Integer> values) {
+            addCriterion("reply_user_id in", values, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotIn(List<Integer> values) {
+            addCriterion("reply_user_id not in", values, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("reply_user_id between", value1, value2, "replyUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("reply_user_id not between", value1, value2, "replyUserId");
+            return (Criteria) this;
+        }
+
         public Criteria andReplyUserNameIsNull() {
             addCriterion("reply_user_name is null");
             return (Criteria) this;

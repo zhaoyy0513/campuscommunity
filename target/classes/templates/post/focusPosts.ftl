@@ -97,11 +97,11 @@
         <table cellpadding="0" cellspacing="0" border="0" width="100%">
             <tbody>
             <tr>
-                <td width="48" valign="top"><a href="#"><img src="/static/img/portrait.png" class="avatar" border="0"
+                <td width="48" valign="top"><a href="/user/userInfo/${user.id}"><img src="/static/img/portrait.png" class="avatar" border="0"
                                                              align="default" style="max-width: 48px; max-height: 48px;"></a>
                 </td>
                 <td width="10" valign="top"></td>
-                <td width="auto" align="left"><span class="bigger"><a href="#">${user.userName}</a></span>
+                <td width="auto" align="left"><span class="bigger"><a href="/user/userInfo/${user.id}">${user.userName}</a></span>
                 </td>
             </tr>
             </tbody>

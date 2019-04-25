@@ -66,7 +66,7 @@
                     <tbody>
                     <tr>
                         <td width="48" valign="top" align="center">
-                            <a href="#">
+                            <a href="/user/userInfo/${post.postUserId}">
                                 <img src="/static/img/portrait.png" class="avatar" border="0" align="default">
                             </a>
                         </td>
@@ -75,17 +75,19 @@
                         <td width="auto" valign="middle"><span class="item_title"><a
                                 href="/post/postDetail/${post.id}">${post.postTitle}</a></span>
                             <div class="sep5" style="margin-top: 10px;"></div>
-                            <span class="topic_info"><a class="node" href="#">${post.postTabName}</a> &nbsp;•&nbsp; <strong><a
-                                    href="#">${post.postUserName}</a></strong>
-
+                            <span class="topic_info"><a class="node" href="/user/userInfo/${post.postUserId}">${post.postTabName}</a> &nbsp;•&nbsp; <strong><a
+                                    href="/user/userInfo/${post.postUserId}">${post.postUserName}</a></strong>
                                 <#if (post.postLastReplyTimeSimple)??>
-                                &nbsp;•&nbsp; ${post.postLastReplyTimeSimple}  &nbsp;•&nbsp; 最后回复来自 <strong><a
-                                    href="#">${post.postLastReply}</a></strong></span>
+                                &nbsp;•&nbsp; ${post.postLastReplyTimeSimple}  &nbsp;•&nbsp; 最后回复来自
+                                    <strong style="color:black">
+                                    ${post.postLastReply}
+                                    </strong>
+                                </span>
                                 </#if>
 
                         </td>
                         <td width="70" align="right" valign="middle">
-                            <a href="#" class="count_livid">${post.postReplyCount}</a>
+                            <a href="/post/postDetail/${post.id}" class="count_livid">${post.postReplyCount}</a>
                         </td>
                     </tr>
                     </tbody>
@@ -104,11 +106,11 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="48" valign="top"><a href="#"><img src="/static/img/portrait.png" class="avatar" border="0"
+                    <td width="48" valign="top"><a href="/user/userInfo/${user.id}"><img src="/static/img/portrait.png" class="avatar" border="0"
                                                                  align="default" style="max-width: 48px; max-height: 48px;"></a>
                     </td>
                     <td width="10" valign="top"></td>
-                    <td width="auto" align="left"><span class="bigger"><a href="#">${user.userName}</a></span>
+                    <td width="auto" align="left"><span class="bigger"><a href="/user/userInfo/${user.id}">${user.userName}</a></span>
                     </td>
                 </tr>
                 </tbody>
@@ -204,7 +206,7 @@
                                    '                    <tbody>\n' +
                                    '                    <tr>\n' +
                                    '                        <td width="48" valign="top" align="center">\n' +
-                                   '                            <a href="#">\n' +
+                                   '                            <a href="/user/userInfo/'+post[i].postUserId+'">\n' +
                                    '                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">\n' +
                                    '                            </a>\n' +
                                    '                        </td>\n' +
@@ -214,11 +216,10 @@
                                    '                                href="/post/postDetail/'+post[i].id+'">'+post[i].postTitle+'</a></span>\n' +
                                    '                            <div class="sep5" style="margin-top: 10px;"></div>\n' +
                                    '                            <span class="topic_info"><a class="node" href="#">'+post[i].postTabName+'</a> &nbsp;•&nbsp; <strong><a\n' +
-                                   '                                    href="#">'+post[i].postUserName+'</a></strong>\n' +
+                                   '                                    href="/user/userInfo/'+post[i].postUserId+'">'+post[i].postUserName+'</a></strong>\n' +
                                    '\n' +
                                    '                              \n'+
-'                                &nbsp;•&nbsp;'+post[i].postLastReplyTimeSimple+' &nbsp;•&nbsp; 最后回复来自 <strong><a\n' +
-'                                    href="#">'+post[i].postLastReply+'</a></strong></span>\n' +
+'                                &nbsp;•&nbsp;'+post[i].postLastReplyTimeSimple+' &nbsp;•&nbsp; 最后回复来自 <strong style="color:black">+post[i].postLastReply+</strong></span>\n' +
 '                                \n' +
                                    '\n' +
                                    '                        </td>\n' +
@@ -235,7 +236,7 @@
                                    '                    <tbody>\n' +
                                    '                    <tr>\n' +
                                    '                        <td width="48" valign="top" align="center">\n' +
-                                   '                            <a href="#">\n' +
+                                   '                            <a href="/user/userInfo/'+post[i].postUserId+'">\n' +
                                    '                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">\n' +
                                    '                            </a>\n' +
                                    '                        </td>\n' +
@@ -245,7 +246,7 @@
                                    '                                href="/post/postDetail/'+post[i].id+'">'+post[i].postTitle+'</a></span>\n' +
                                    '                            <div class="sep5" style="margin-top: 10px;"></div>\n' +
                                    '                            <span class="topic_info"><a class="node" href="#">'+post[i].postTabName+'</a> &nbsp;•&nbsp; <strong><a\n' +
-                                   '                                    href="#">'+post[i].postUserName+'</a></strong>\n' +
+                                   '                                    href="/user/userInfo/'+post[i].postUserId+'">'+post[i].postUserName+'</a></strong>\n' +
                                    '\n' +
                                    '\n' +
                                    '                        </td>\n' +

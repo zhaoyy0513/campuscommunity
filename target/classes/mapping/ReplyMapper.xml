@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="zyy.campuscommunity.entity.Reply">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="reply_user_id" jdbcType="INTEGER" property="replyUserId" />
     <result column="reply_user_name" jdbcType="VARCHAR" property="replyUserName" />
     <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
     <result column="reply_time" jdbcType="VARCHAR" property="replyTime" />
@@ -69,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, post_id, reply_user_name, reply_content, reply_time, reply_floor, reply_time_simple
+    id, post_id, reply_user_id, reply_user_name, reply_content, reply_time, reply_floor, 
+    reply_time_simple
   </sql>
   <select id="selectByExample" parameterType="zyy.campuscommunity.entity.ReplyExample" resultMap="BaseResultMap">
     select
@@ -102,12 +104,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="zyy.campuscommunity.entity.Reply">
-    insert into reply (id, post_id, reply_user_name, 
-      reply_content, reply_time, reply_floor, 
-      reply_time_simple)
-    values (#{id,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{replyUserName,jdbcType=VARCHAR}, 
-      #{replyContent,jdbcType=VARCHAR}, #{replyTime,jdbcType=VARCHAR}, #{replyFloor,jdbcType=INTEGER}, 
-      #{replyTimeSimple,jdbcType=VARCHAR})
+    insert into reply (id, post_id, reply_user_id, 
+      reply_user_name, reply_content, reply_time, 
+      reply_floor, reply_time_simple)
+    values (#{id,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}, #{replyUserId,jdbcType=INTEGER}, 
+      #{replyUserName,jdbcType=VARCHAR}, #{replyContent,jdbcType=VARCHAR}, #{replyTime,jdbcType=VARCHAR}, 
+      #{replyFloor,jdbcType=INTEGER}, #{replyTimeSimple,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.Reply">
     insert into reply
@@ -117,6 +119,9 @@
       </if>
       <if test="postId != null">
         post_id,
+      </if>
+      <if test="replyUserId != null">
+        reply_user_id,
       </if>
       <if test="replyUserName != null">
         reply_user_name,
@@ -140,6 +145,9 @@
       </if>
       <if test="postId != null">
         #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="replyUserId != null">
+        #{replyUserId,jdbcType=INTEGER},
       </if>
       <if test="replyUserName != null">
         #{replyUserName,jdbcType=VARCHAR},
@@ -173,6 +181,9 @@
       <if test="record.postId != null">
         post_id = #{record.postId,jdbcType=INTEGER},
       </if>
+      <if test="record.replyUserId != null">
+        reply_user_id = #{record.replyUserId,jdbcType=INTEGER},
+      </if>
       <if test="record.replyUserName != null">
         reply_user_name = #{record.replyUserName,jdbcType=VARCHAR},
       </if>
@@ -197,6 +208,7 @@
     update reply
     set id = #{record.id,jdbcType=INTEGER},
       post_id = #{record.postId,jdbcType=INTEGER},
+      reply_user_id = #{record.replyUserId,jdbcType=INTEGER},
       reply_user_name = #{record.replyUserName,jdbcType=VARCHAR},
       reply_content = #{record.replyContent,jdbcType=VARCHAR},
       reply_time = #{record.replyTime,jdbcType=VARCHAR},
@@ -211,6 +223,9 @@
     <set>
       <if test="postId != null">
         post_id = #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="replyUserId != null">
+        reply_user_id = #{replyUserId,jdbcType=INTEGER},
       </if>
       <if test="replyUserName != null">
         reply_user_name = #{replyUserName,jdbcType=VARCHAR},
@@ -233,6 +248,7 @@
   <update id="updateByPrimaryKey" parameterType="zyy.campuscommunity.entity.Reply">
     update reply
     set post_id = #{postId,jdbcType=INTEGER},
+      reply_user_id = #{replyUserId,jdbcType=INTEGER},
       reply_user_name = #{replyUserName,jdbcType=VARCHAR},
       reply_content = #{replyContent,jdbcType=VARCHAR},
       reply_time = #{replyTime,jdbcType=VARCHAR},

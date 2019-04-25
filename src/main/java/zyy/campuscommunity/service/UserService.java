@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserService {
     User getUserById(int id);
-
+    int updateUser(User user);
     List<User> getUserByName(String name);
 }
