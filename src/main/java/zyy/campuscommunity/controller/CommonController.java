@@ -13,6 +13,12 @@ public class CommonController {
 
 
 	@RequestMapping("*")
+	public String other(){
+		System.out.println("has error!");
+		return "error";
+	}
+
+	@RequestMapping("/Error")
 	public String hasErorr(){
 		System.out.println("has error!");
 		return "error";

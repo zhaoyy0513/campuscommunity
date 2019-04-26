@@ -1,5 +1,7 @@
 package zyy.campuscommunity.service;
 
-public interface UnreadService {
+import zyy.campuscommunity.entity.Unread;
 
+public interface UnreadService {
+     int insertUnread(Unread unread);
 }

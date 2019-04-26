@@ -3,9 +3,9 @@
 <mapper namespace="zyy.campuscommunity.mapper.UnreadMapper">
   <resultMap id="BaseResultMap" type="zyy.campuscommunity.entity.Unread">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="info" jdbcType="VARCHAR" property="info" />
-    <result column="infocome_id" jdbcType="VARCHAR" property="infocomeId" />
+    <result column="infocome_id" jdbcType="INTEGER" property="infocomeId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -101,8 +101,8 @@
   <insert id="insert" parameterType="zyy.campuscommunity.entity.Unread">
     insert into unread (id, user_id, info, 
       infocome_id)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
-      #{infocomeId,jdbcType=VARCHAR})
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{info,jdbcType=VARCHAR}, 
+      #{infocomeId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.Unread">
     insert into unread
@@ -125,13 +125,13 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="info != null">
         #{info,jdbcType=VARCHAR},
       </if>
       <if test="infocomeId != null">
-        #{infocomeId,jdbcType=VARCHAR},
+        #{infocomeId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -148,13 +148,13 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=VARCHAR},
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
       <if test="record.info != null">
         info = #{record.info,jdbcType=VARCHAR},
       </if>
       <if test="record.infocomeId != null">
-        infocome_id = #{record.infocomeId,jdbcType=VARCHAR},
+        infocome_id = #{record.infocomeId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -164,9 +164,9 @@
   <update id="updateByExample" parameterType="map">
     update unread
     set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
       info = #{record.info,jdbcType=VARCHAR},
-      infocome_id = #{record.infocomeId,jdbcType=VARCHAR}
+      infocome_id = #{record.infocomeId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -175,22 +175,22 @@
     update unread
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
       <if test="info != null">
         info = #{info,jdbcType=VARCHAR},
       </if>
       <if test="infocomeId != null">
-        infocome_id = #{infocomeId,jdbcType=VARCHAR},
+        infocome_id = #{infocomeId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="zyy.campuscommunity.entity.Unread">
     update unread
-    set user_id = #{userId,jdbcType=VARCHAR},
+    set user_id = #{userId,jdbcType=INTEGER},
       info = #{info,jdbcType=VARCHAR},
-      infocome_id = #{infocomeId,jdbcType=VARCHAR}
+      infocome_id = #{infocomeId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

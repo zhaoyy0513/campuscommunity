@@ -47,7 +47,7 @@
             <a href="/post/tabId/${post.postTabId}">${post.postTabName}</a>
             <div class="sep10"></div>
             <h1>${post.postTitle}</h1>
-            <small class="gray"><a href="#">${post.postUserName}</a>${post.postTime}
+            <small class="gray"><a href="#">${post.postUserName}</a>&nbsp${post.postTime}
                 · ${post.postClickCount}次点击 &nbsp;
             </small>
         </div>
@@ -100,8 +100,7 @@
                     <input type="hidden" name="replyUserId" value="${user.id}" />
                     <input type="hidden" name="replyUserName" value="${user.userName}" />
                     <input type="hidden" name="postId" value="${post.id}" />
-                    <input type="hidden" name="sendTo" value=""/>
-                    <input type="hidden" name="infocomeId" value="" />
+                    <input type="hidden" name="infoTo" value="" />
                     <textarea placeholder="请输入内容" id="replyTextArea" name="replyContent" lay-verify="required"></textarea>
                     <div class="btn_group">
                         <button class="layui-btn" type="button" id="reply_btn">回复</button>
@@ -205,9 +204,12 @@
     function replyOne(toId,toName) { //添加回复给某个用户功能的按钮
         //第一个参数是目的用户的id，第二个参数是目的用户的用户名
         //进入这个方法后获取焦点，并将要回复的名字写入到里面
-        $("input[name='infocomeId']").val(toId);
-        $("input[name='sendTo']").val(toName);
-        $("#replyTextArea").focus().text('@'+toName+' ');
+        $("input[name='infoTo']").val(toId);
+        //focus可能会失效，这里设置个定时器函数进行 功能的实现
+        setTimeout(function () {
+            $("#replyTextArea").focus().text('@'+toName+' ');
+        },100);
+
     }
 </script>
 
@@ -232,7 +234,16 @@
                     if(replyText==''){
                         layer.alert('回复不能为空', {icon: 5});
                     }else{
-                        $("#reply_form").submit();//让第一个form表单提交
+                        var replyArr = replyText.trim();
+                        var pos = replyArr.indexOf("@");
+                        if(pos!=0){//如果索引位置不是0
+                            //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空对应的form表单内容
+                            $("input[name='infoTo']").val("");
+                            $("#reply_form").submit();//让第一个form表单提交
+                        }else{
+                            //如果是用户@某个用户 则直接提交
+                            $("#reply_form").submit();//让第一个form表单提交
+                        }
                     }
             });
         //用户登录弹出层点击事件

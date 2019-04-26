@@ -5,13 +5,16 @@ import lombok.ToString;
 @ToString
 public class Unread {
     private Integer id;
-
-    private String userId;
-
+    private Integer userId;
     private String info;
-
-    private String infocomeId;
-
+    private Integer infocomeId;
+    public Unread() {
+    }
+    public Unread(Integer userId, String info, Integer infocomeId) {
+        this.userId = userId;
+        this.info = info;
+        this.infocomeId = infocomeId;
+    }
     public Integer getId() {
         return id;
     }
@@ -20,12 +23,12 @@ public class Unread {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getInfo() {
@@ -36,11 +39,11 @@ public class Unread {
         this.info = info == null ? null : info.trim();
     }
 
-    public String getInfocomeId() {
+    public Integer getInfocomeId() {
         return infocomeId;
     }
 
-    public void setInfocomeId(String infocomeId) {
-        this.infocomeId = infocomeId == null ? null : infocomeId.trim();
+    public void setInfocomeId(Integer infocomeId) {
+        this.infocomeId = infocomeId;
     }
 }

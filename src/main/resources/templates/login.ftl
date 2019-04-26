@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/css/login.css">
 </head>
 
-<body style="overflow-y:hidden">
+<body style="overflow:hidden;">
     <div class="index_footer">
             <div class="container">
                 <h1>轻大校园BBS</h1>
