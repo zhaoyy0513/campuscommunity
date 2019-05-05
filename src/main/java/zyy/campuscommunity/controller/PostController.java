@@ -107,11 +107,9 @@ public class PostController {
         ModelAndView model = new ModelAndView();
         Post post = postService.getPostById(postId);
         //每点击进来一次之后，将点击次数进行提取并+1然后保存至数据库
-        System.out.println("点击之前:" + post.getPostClickCount());
         int count = post.getPostClickCount() + 1;
         post.setPostClickCount(count);
         postService.updatePost(post);
-        System.out.println("点击之后:" + post.getPostClickCount());
         List<Reply> replies = replyService.getRepliesByPostId(postId);
         Iterator<Reply> iterator = replies.iterator();
         //设置回复时间差值(当前时间减去帖子最后一次回复时间的差值)

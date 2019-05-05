@@ -64,7 +64,7 @@ public class UserController {
         } else {
             System.out.println("从Redis查询得到postByParentIdList");
         }
-        request.setAttribute("posts", list);
+        request.getSession().setAttribute("posts", list);
         return "index";
     }
 
@@ -134,7 +134,7 @@ public class UserController {
             }
             postService.updatePost(post);  //更新帖子
         }
-        request.setAttribute("posts", list);
+        request.getSession().setAttribute("posts", list);
         //获得一级标题中'学霸'对应的二级标题，用于默认被选中
         List<Tab> xuebaList = (List<Tab>) listRedisTemplate.opsForList().rightPop("tabsByParentIdList");
         if (null == xuebaList) {
@@ -260,9 +260,6 @@ public class UserController {
     public String getFocus(@PathVariable("user_id") int user_id, HttpServletRequest request) {
         request.getSession().setAttribute("user", request.getSession().getAttribute("user"));
         User user = userService.getUserById(user_id);
-        if(user.getFocusNumber()==0){ //如果没有关注的人，则直接结束
-            return "/user/noFocus";
-        }
         String focusUserIdByUid = focusService.getFocusUserIdByUid(user_id);
         System.out.println("所有关注的用户id字符串:" + focusUserIdByUid);
         String[] arr = focusUserIdByUid.split(";");

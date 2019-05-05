@@ -36,6 +36,9 @@
     <div id="start_post" style="display: none;height: 40%;">
         <#include "user/post.ftl" />
     </div>
+    <div id="no_focus" style="display: none;height: 40%;">
+        <#include "user/noFocus.ftl" />
+    </div>
 
     <div id="index_content">
         <div id="primary_title">
@@ -121,12 +124,12 @@
                 <tr style="text-align: center;">
                     <td width="33%"><a href="#">${user.unreadMessage}</a></td>
                     <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
-                    <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+                    <td width="33%"><a style="cursor: pointer;" class="focus_a" Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
                 </tr>
                 <tr style="text-align: center;">
-                    <td width="33%"><a href="#">未读信息</a></td>
-                    <td width="34%"><a href="#">帖子收藏</a></td>
-                    <td width="33%"><a href="/user/getFocus/${user.id}">特别关注</a></td>
+                    <td width="33%">未读信息</td>
+                    <td width="34%">帖子收藏</td>
+                    <td width="33%">特别关注</td>
                 </tr>
                 </tbody>
             </table>
@@ -158,8 +161,30 @@
             $(this).addClass("active");
             $(this).siblings().removeClass("active");
         });
+
+        //创建帖子按钮的点击事件
+        $("#create_post").click(function () {
+            $("#index_content").remove();
+            $("#index_rightNavigation").remove();
+            $("#start_post").css("display", "block");
+        });
+
+        //给特别关注的a标签添加点击事件
+        $(".focus_a").click(function () {
+            if($(this).text()!=="0"){
+                //判断是否有关注的人，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href=Gohref;
+            }else{
+                //如果没有关注的人，则跳到提示的界面，让他去关注别人
+                $("#index_content").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_focus").css("display", "block");
+            }
+        });
     })
 </script>
+
 <script>
     $(function () {
         $(".primary_li>a").click(function () {
@@ -219,7 +244,7 @@
                                    '                                    href="/user/userInfo/'+post[i].postUserId+'">'+post[i].postUserName+'</a></strong>\n' +
                                    '\n' +
                                    '                              \n'+
-'                                &nbsp;•&nbsp;'+post[i].postLastReplyTimeSimple+' &nbsp;•&nbsp; 最后回复来自 <strong style="color:black">+post[i].postLastReply+</strong></span>\n' +
+'                                &nbsp;•&nbsp;'+post[i].postLastReplyTimeSimple+' &nbsp;•&nbsp; 最后回复来自 <strong style="color:black">'+post[i].postLastReply+'</strong></span>\n' +
 '                                \n' +
                                    '\n' +
                                    '                        </td>\n' +
@@ -259,24 +284,11 @@
                                    '            </div>');
                        }
                    }
-
-
-
                    }
             });
 
         });
     })
-</script>
-
-<script>
-    $(function () {
-        $("#create_post").click(function () {
-            $("#index_content").remove();
-            $("#index_rightNavigation").remove();
-            $("#start_post").css("display", "block");
-        });
-    });
 </script>
 
 <script>

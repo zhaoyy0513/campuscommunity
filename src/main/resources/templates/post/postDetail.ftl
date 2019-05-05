@@ -37,6 +37,9 @@
     <div id="start_post" style="display: none;height: 40%;">
         <#include "../user/post.ftl" />
     </div>
+    <div id="no_focus" style="display: none;height: 40%;">
+        <#include "../user/noFocus.ftl" />
+    </div>
     <div id="tabAllMain">
     <div class="box" style="border-bottom: 0;" >
         <div class="header">
@@ -99,7 +102,6 @@
                 <form class="layui-form" action="/reply/addReply/${post.id}" method="post" id="reply_form">
                     <input type="hidden" name="replyUserId" value="${user.id}" />
                     <input type="hidden" name="replyUserName" value="${user.userName}" />
-                    <input type="hidden" name="postId" value="${post.id}" />
                     <input type="hidden" name="infoTo" value="" />
                     <textarea placeholder="请输入内容" id="replyTextArea" name="replyContent" lay-verify="required"></textarea>
                     <div class="btn_group">
@@ -151,12 +153,11 @@
                 <tr style="text-align: center;">
                     <td width="33%"><a href="#">${user.unreadMessage}</a></td>
                     <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
-                    <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
-                </tr>
+                    <td width="33%"><a style="cursor: pointer;" class="focus_a" Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>                </tr>
                 <tr style="text-align: center;">
-                    <td width="33%"><a href="#">未读信息</a></td>
-                    <td width="34%"><a href="#">帖子收藏</a></td>
-                    <td width="33%"><a href="/user/getFocus/${user.id}">特别关注</a></td>
+                    <td width="33%">未读信息</td>
+                    <td width="34%">帖子收藏</td>
+                    <td width="33%">特别关注</td>
                 </tr>
                 </tbody>
             </table>
@@ -209,13 +210,13 @@
         setTimeout(function () {
             $("#replyTextArea").focus().text('@'+toName+' ');
         },100);
-
     }
 </script>
 
 
 <script>
     $(function () {
+        ////创建帖子按钮的点击事件
         $(".create_post").click(function () {
             $("#tabAllMain").remove();
             $("#index_rightNavigation").remove();
@@ -224,6 +225,21 @@
             $("#start_post").css("margin-right", "20%");
             $("#start_post").css("display", "block");
         });
+
+        //给特别关注的a标签添加点击事件
+        $(".focus_a").click(function () {
+            if($(this).text()!=="0"){
+                //判断是否有关注的人，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href=Gohref;
+            }else{
+                //如果没有关注的人，则跳到提示的界面，让他去关注别人
+                $("#tabAllMain").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_focus").css("display", "block");
+            }
+        });
+
     });
 </script>
 
@@ -237,12 +253,13 @@
                         var replyArr = replyText.trim();
                         var pos = replyArr.indexOf("@");
                         if(pos!=0){//如果索引位置不是0
-                            //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空对应的form表单内容
+                            //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空infoTo这个表单的内容
                             $("input[name='infoTo']").val("");
                             $("#reply_form").submit();//让第一个form表单提交
                         }else{
                             //如果是用户@某个用户 则直接提交
-                            $("#reply_form").submit();//让第一个form表单提交
+                            var url = "/reply/replyUser/${post.id}";
+                            $("#reply_form").attr("action",url).submit();
                         }
                     }
             });

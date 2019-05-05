@@ -5,16 +5,22 @@ import lombok.ToString;
 @ToString
 public class Unread {
     private Integer id;
+
     private Integer userId;
+
     private String info;
+
     private Integer infocomeId;
-    public Unread() {
-    }
-    public Unread(Integer userId, String info, Integer infocomeId) {
+
+    private Integer postId;
+
+    public Unread(Integer userId, String info, Integer infocomeId, Integer postId) {
         this.userId = userId;
         this.info = info;
         this.infocomeId = infocomeId;
+        this.postId = postId;
     }
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +51,13 @@ public class Unread {
 
     public void setInfocomeId(Integer infocomeId) {
         this.infocomeId = infocomeId;
+    }
+
+    public Integer getPostId() {
+        return postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 }
