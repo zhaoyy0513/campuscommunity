@@ -1,0 +1,103 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+}
+#tabAllMain{
+    width: 60%;
+    margin-left: 10%;
+    margin-top: 1%;
+}
+#main_content{
+    height: 600px;
+}
+#index_rightNavigation{
+    position: fixed;
+    width: 270px;
+    height: 270px;
+    float: right;
+    bottom: 325px;
+    left: 79%;
+    background-color: white;
+}
+#allPostHeader{
+    width: 100%;
+    padding: 0;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: left;
+    background-color: #001d25;
+    color: #fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#tabIntroduce{
+    height: 75px;
+    background-color: black !important;
+}
+#page{
+    height: 30px;
+    background-color: yellow !important;
+}
+.allPostCell{
+    padding: 10px;
+    font-size: 14px;
+    line-height: 120%;
+    text-align: left;
+    border-bottom: 1px solid #E2E2E2;
+    background-color: white !important;
+}
+.cell {
+    padding: 10px;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.fr {
+    margin-top: 1%;
+    float: right;
+    text-align: right;
+    display: block;
+}
+.chevron {
+    font-family: "Lucida Grande";
+    font-weight: 500;
+}
+.sep10 {
+    height: 10px;
+}
+.sep5 {
+    height: 5px;
+}
+.node_header_tab_current{
+    color: white;
+    border-bottom: 2px solid white;
+}
+.header{
+    margin: 1.5% 0 -0.9% 10%;
+    width: 60%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #FFFFFF;
+    border: 1px solid #f0f0f0;
+    box-shadow:  #f0f0f0 0 1px 1px 1px;
+}
+#postCount{
+    display: inline-block;
+    float: right;
+    margin-right: 2%;
+}
+.snow{
+    color: darkgreen;
+}
+.red{
+    color: indianred;
+}
+.avatar{
+    cursor: pointer;
+}
+
+.reply_cont{
+    margin-left: 6.7%;
+    width: 70%;
+    height: auto;
+}

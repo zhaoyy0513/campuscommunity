@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="../../static/css/index.css">
 <link rel="stylesheet" href="../../static/css/tabAllPost.css">
 <#include "../js.ftl" />
-<script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <body style="overflow-y:auto;">
 <div id="index_header">
     <div id="header_logo"></div>

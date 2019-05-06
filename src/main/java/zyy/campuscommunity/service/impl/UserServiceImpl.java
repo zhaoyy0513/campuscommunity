@@ -41,4 +41,16 @@ public class UserServiceImpl implements UserService {
 		List<User> user = userMapper.selectByExample(example);  //获取列表第一个用户
 		return user;
 	}
+
+	@Override
+	/** 
+	* @Description: 获取所有用户，用来在后台管理系统用
+	* @Param: [] 
+	* @return: java.util.List<zyy.campuscommunity.entity.User> 
+	* @Author: zhaoyy
+	* @Date: 2019/5/6 13:33
+	*/ 
+	public List<User> selectAllUser() {
+		return userMapper.selectAllUser();
+	}
 }

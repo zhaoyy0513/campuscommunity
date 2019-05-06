@@ -61,7 +61,7 @@ public class ReplyController {
         //参数分别是，帖子发布者索引Id，回复内容，回复者id,帖子id
         if (post.getPostUserId() != currentUserId) {
             //如果当前回复者同时不是帖子的发布者，则进行下列的操作
-            Unread unread = new Unread(post.getPostUserId(), replyContent, currentUserId, postId);
+            Unread unread = new Unread(post.getPostUserId(), replyContent, currentUserId,currentUser.getUserName(), replyTime,postId,post.getPostTitle());
             int result = unreadService.insertUnread(unread);
             if (result >= 0) {
                 //如果添加未读信息成功，则将对应的用户表中的未读信息数+1;
@@ -135,12 +135,16 @@ public class ReplyController {
         //想去两个关键ID
         int userId = Integer.valueOf(infoToStr); //转成id类型，对应数据库实体的类型
         User user = (User) request.getSession().getAttribute("user"); //获取当前登录的用户
+        Post post = postService.getPostById(postId); //得到要回复的帖子
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String replyTime = sdf.format(date);
         int infocomeId = user.getId(); //获取用户id
         System.out.println("infoToStr:" + userId);
         System.out.println("sendFrom:" + infocomeId);
         //下面进行添加未读信息的逻辑操作
-        //创建的实体参数分别为，接受消息的用户，消息，发送消息的用户
-        Unread unread = new Unread(userId, resultReply, infocomeId, postId);
+        //创建的实体参数分别为，接受消息的用户，消息，发送消息的用户,发送信息的用户名，帖子标题
+        Unread unread = new Unread(userId, resultReply, infocomeId, user.getUserName(),replyTime,postId,post.getPostTitle());
         int result = unreadService.insertUnread(unread);
         if (result >= 0) {
             //如果添加未读信息成功，则将对应的用户表中的未读信息数+1;
@@ -153,10 +157,6 @@ public class ReplyController {
         } else {
             return "../Error";
         }
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String replyTime = sdf.format(date);
-        Post post = postService.getPostById(postId); //得到要回复的帖子
         int count = post.getPostReplyCount();  //获取原本帖子的回复总数
         reply.setReplyContent(replyContent.trim()); //设置回复内容，这里进行去空格处理
         reply.setReplyTime(replyTime); //设置回复时间

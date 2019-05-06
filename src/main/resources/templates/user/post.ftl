@@ -53,7 +53,7 @@
             </div>
             <div class="cell">
                 <div class="fr fade" id="content_remaining">20000</div>
-                正文
+                正文<div style="float: right;font-weight: 600;">// Tab键换成4个空格 // F11键切换全屏// Esc键退出全屏</div>
             </div>
             <div style="text-align: left; border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 120%;">
                 <textarea style="visibility: hidden; display: none;" maxlength="1000" id="editor">

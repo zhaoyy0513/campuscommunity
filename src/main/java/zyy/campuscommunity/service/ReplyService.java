@@ -8,4 +8,5 @@ public interface ReplyService {
     int insertReply(Reply reply);
     List<Reply> getRepliesByPostId(int postId);
     int updateReply(Reply reply);
+    List<Reply> selectAllReply();
 }

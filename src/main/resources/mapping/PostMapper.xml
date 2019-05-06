@@ -102,6 +102,14 @@
     from post
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllPost" resultMap="BaseResultMap">
+    select
+    *
+    from post
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from post
     where id = #{id,jdbcType=INTEGER}

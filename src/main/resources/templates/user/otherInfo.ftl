@@ -7,7 +7,6 @@
 <#include "../css.ftl" />
 <link rel="stylesheet" href="../../static/css/otherInfo.css">
 <script type="text/javascript" src="../../static/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
 <body>
 <div id="index_header">
@@ -74,7 +73,7 @@
                         <span class="topic_info"><a class="node">${post.postTabName}</a> &nbsp;•&nbsp; <strong><a
                                     href="/user/userInfo/${post.postUserId}">${post.postUserName}</a></strong>
 
-                                <#if (post.postLastReply)??>
+                                <#if (post.postReplyCount)!=0>
                                 &nbsp;•&nbsp; ${post.postLastReplyTimeSimple} &nbsp;•&nbsp; 最后回复来自 <strong><a
                                         href="#">${post.postLastReply}</a></strong></span>
                                 <#else>
@@ -88,7 +87,7 @@
                               </td>
                           <#else>
                                 <td width="70" align="right" valign="middle">
-                                    <a href="#" class="count_livid">${post.postReplyCount}</a>
+                                    <a href="/post/postDetail/${post.id}" class="count_livid">${post.postReplyCount}</a>
                                 </td>
                           </#if>
                     </tr>

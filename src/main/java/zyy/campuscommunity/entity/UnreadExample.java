@@ -354,6 +354,146 @@ public class UnreadExample {
             return (Criteria) this;
         }
 
+        public Criteria andInfocomeNameIsNull() {
+            addCriterion("infocome_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameIsNotNull() {
+            addCriterion("infocome_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameEqualTo(String value) {
+            addCriterion("infocome_name =", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameNotEqualTo(String value) {
+            addCriterion("infocome_name <>", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameGreaterThan(String value) {
+            addCriterion("infocome_name >", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameGreaterThanOrEqualTo(String value) {
+            addCriterion("infocome_name >=", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameLessThan(String value) {
+            addCriterion("infocome_name <", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameLessThanOrEqualTo(String value) {
+            addCriterion("infocome_name <=", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameLike(String value) {
+            addCriterion("infocome_name like", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameNotLike(String value) {
+            addCriterion("infocome_name not like", value, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameIn(List<String> values) {
+            addCriterion("infocome_name in", values, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameNotIn(List<String> values) {
+            addCriterion("infocome_name not in", values, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameBetween(String value1, String value2) {
+            addCriterion("infocome_name between", value1, value2, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeNameNotBetween(String value1, String value2) {
+            addCriterion("infocome_name not between", value1, value2, "infocomeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeIsNull() {
+            addCriterion("infocome_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeIsNotNull() {
+            addCriterion("infocome_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeEqualTo(String value) {
+            addCriterion("infocome_time =", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeNotEqualTo(String value) {
+            addCriterion("infocome_time <>", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeGreaterThan(String value) {
+            addCriterion("infocome_time >", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("infocome_time >=", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeLessThan(String value) {
+            addCriterion("infocome_time <", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeLessThanOrEqualTo(String value) {
+            addCriterion("infocome_time <=", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeLike(String value) {
+            addCriterion("infocome_time like", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeNotLike(String value) {
+            addCriterion("infocome_time not like", value, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeIn(List<String> values) {
+            addCriterion("infocome_time in", values, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeNotIn(List<String> values) {
+            addCriterion("infocome_time not in", values, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeBetween(String value1, String value2) {
+            addCriterion("infocome_time between", value1, value2, "infocomeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInfocomeTimeNotBetween(String value1, String value2) {
+            addCriterion("infocome_time not between", value1, value2, "infocomeTime");
+            return (Criteria) this;
+        }
+
         public Criteria andPostIdIsNull() {
             addCriterion("post_id is null");
             return (Criteria) this;
@@ -411,6 +551,76 @@ public class UnreadExample {
 
         public Criteria andPostIdNotBetween(Integer value1, Integer value2) {
             addCriterion("post_id not between", value1, value2, "postId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleIsNull() {
+            addCriterion("post_title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleIsNotNull() {
+            addCriterion("post_title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleEqualTo(String value) {
+            addCriterion("post_title =", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleNotEqualTo(String value) {
+            addCriterion("post_title <>", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleGreaterThan(String value) {
+            addCriterion("post_title >", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("post_title >=", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleLessThan(String value) {
+            addCriterion("post_title <", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleLessThanOrEqualTo(String value) {
+            addCriterion("post_title <=", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleLike(String value) {
+            addCriterion("post_title like", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleNotLike(String value) {
+            addCriterion("post_title not like", value, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleIn(List<String> values) {
+            addCriterion("post_title in", values, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleNotIn(List<String> values) {
+            addCriterion("post_title not in", values, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleBetween(String value1, String value2) {
+            addCriterion("post_title between", value1, value2, "postTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andPostTitleNotBetween(String value1, String value2) {
+            addCriterion("post_title not between", value1, value2, "postTitle");
             return (Criteria) this;
         }
     }

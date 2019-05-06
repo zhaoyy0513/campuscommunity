@@ -45,4 +45,16 @@ public class ReplyServiceImpl implements ReplyService {
             return 0;
         }
     }
+
+    @Override
+    /** 
+    * @Description: 获取所有回复
+    * @Param: [] 
+    * @return: java.util.List<zyy.campuscommunity.entity.Reply> 
+    * @Author: zhaoyy
+    * @Date: 2019/5/6 13:35
+    */ 
+    public List<Reply> selectAllReply() {
+        return replyMapper.selectAllReply();
+    }
 }

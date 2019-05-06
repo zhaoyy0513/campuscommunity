@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>No-Focus</title>
 </head>
 <body>
     <div style="text-align: center;margin-top: 10%;">

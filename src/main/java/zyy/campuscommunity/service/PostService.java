@@ -11,4 +11,5 @@ public interface PostService {
     List<Post> getPostByUid(int Uid);
     List<Post> getPostByTabId(int tabId);
     List<Post> getPostByParentId(int parentId);
+    List<Post> selectAllPost();
 }

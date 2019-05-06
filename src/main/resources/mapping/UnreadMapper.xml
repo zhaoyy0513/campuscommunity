@@ -6,7 +6,10 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="info" jdbcType="VARCHAR" property="info" />
     <result column="infocome_id" jdbcType="INTEGER" property="infocomeId" />
+    <result column="infocome_name" jdbcType="VARCHAR" property="infocomeName" />
+    <result column="infocome_time" jdbcType="VARCHAR" property="infocomeTime" />
     <result column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="post_title" jdbcType="VARCHAR" property="postTitle" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, info, infocome_id, post_id
+    id, user_id, info, infocome_id, infocome_name, infocome_time, post_id, post_title
   </sql>
   <select id="selectByExample" parameterType="zyy.campuscommunity.entity.UnreadExample" resultMap="BaseResultMap">
     select
@@ -89,6 +92,14 @@
     from unread
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllUnRead" resultMap="BaseResultMap">
+    select
+    *
+    from unread
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from unread
     where id = #{id,jdbcType=INTEGER}
@@ -101,9 +112,11 @@
   </delete>
   <insert id="insert" parameterType="zyy.campuscommunity.entity.Unread">
     insert into unread (id, user_id, info, 
-      infocome_id, post_id)
+      infocome_id, infocome_name, infocome_time, 
+      post_id, post_title)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{info,jdbcType=VARCHAR}, 
-      #{infocomeId,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER})
+      #{infocomeId,jdbcType=INTEGER}, #{infocomeName,jdbcType=VARCHAR}, #{infocomeTime,jdbcType=VARCHAR}, 
+      #{postId,jdbcType=INTEGER}, #{postTitle,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.Unread">
     insert into unread
@@ -120,8 +133,17 @@
       <if test="infocomeId != null">
         infocome_id,
       </if>
+      <if test="infocomeName != null">
+        infocome_name,
+      </if>
+      <if test="infocomeTime != null">
+        infocome_time,
+      </if>
       <if test="postId != null">
         post_id,
+      </if>
+      <if test="postTitle != null">
+        post_title,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -137,8 +159,17 @@
       <if test="infocomeId != null">
         #{infocomeId,jdbcType=INTEGER},
       </if>
+      <if test="infocomeName != null">
+        #{infocomeName,jdbcType=VARCHAR},
+      </if>
+      <if test="infocomeTime != null">
+        #{infocomeTime,jdbcType=VARCHAR},
+      </if>
       <if test="postId != null">
         #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="postTitle != null">
+        #{postTitle,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -163,8 +194,17 @@
       <if test="record.infocomeId != null">
         infocome_id = #{record.infocomeId,jdbcType=INTEGER},
       </if>
+      <if test="record.infocomeName != null">
+        infocome_name = #{record.infocomeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.infocomeTime != null">
+        infocome_time = #{record.infocomeTime,jdbcType=VARCHAR},
+      </if>
       <if test="record.postId != null">
         post_id = #{record.postId,jdbcType=INTEGER},
+      </if>
+      <if test="record.postTitle != null">
+        post_title = #{record.postTitle,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -177,7 +217,10 @@
       user_id = #{record.userId,jdbcType=INTEGER},
       info = #{record.info,jdbcType=VARCHAR},
       infocome_id = #{record.infocomeId,jdbcType=INTEGER},
-      post_id = #{record.postId,jdbcType=INTEGER}
+      infocome_name = #{record.infocomeName,jdbcType=VARCHAR},
+      infocome_time = #{record.infocomeTime,jdbcType=VARCHAR},
+      post_id = #{record.postId,jdbcType=INTEGER},
+      post_title = #{record.postTitle,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -194,8 +237,17 @@
       <if test="infocomeId != null">
         infocome_id = #{infocomeId,jdbcType=INTEGER},
       </if>
+      <if test="infocomeName != null">
+        infocome_name = #{infocomeName,jdbcType=VARCHAR},
+      </if>
+      <if test="infocomeTime != null">
+        infocome_time = #{infocomeTime,jdbcType=VARCHAR},
+      </if>
       <if test="postId != null">
         post_id = #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="postTitle != null">
+        post_title = #{postTitle,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -205,7 +257,10 @@
     set user_id = #{userId,jdbcType=INTEGER},
       info = #{info,jdbcType=VARCHAR},
       infocome_id = #{infocomeId,jdbcType=INTEGER},
-      post_id = #{postId,jdbcType=INTEGER}
+      infocome_name = #{infocomeName,jdbcType=VARCHAR},
+      infocome_time = #{infocomeTime,jdbcType=VARCHAR},
+      post_id = #{postId,jdbcType=INTEGER},
+      post_title = #{postTitle,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

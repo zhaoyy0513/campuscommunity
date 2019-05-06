@@ -27,4 +27,6 @@ public interface UnreadMapper {
     int updateByPrimaryKeySelective(Unread record);
 
     int updateByPrimaryKey(Unread record);
+
+    List<Unread> selectAllUnRead();
 }

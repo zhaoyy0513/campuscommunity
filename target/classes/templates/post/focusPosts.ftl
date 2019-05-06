@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="../../static/css/index.css">
 <link rel="stylesheet" href="../../static/css/focusPosts.css">
 <#include "../js.ftl" />
-<script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <body style="overflow-y:auto;">
 <div id="index_header">
     <div id="header_logo"></div>
@@ -37,16 +36,22 @@
     <div id="start_post" style="display: none;height: 40%;">
         <#include "../user/post.ftl" />
     </div>
+    <div id="no_focus" style="display: none;height: 40%;">
+        <#include "../user/noFocus.ftl" />
+    </div>
+    <div id="no_unread" style="display: none;height: 40%;">
+         <#include "../user/noUnread.ftl" />
+    </div>
     <div class="header">
         <a href="/user/toIndex" style="margin-left: 2%;color: darkgray;">ZZUI</a>
-        <span class="chevron">&nbsp;›&nbsp;</span> 我关注的人的最新帖子
+        <span class="chevron">&nbsp;›&nbsp;</span> 关注的人的最新帖子
         <span id="postCount">
             <span class="snow">帖子总数&nbsp;</span>
             <strong class="red">${postCount}</strong>
         </span>
     </div>
     <div id="tabAllMain">
-         <#if Posts?exists && (Posts?size>0) >
+         <#if Posts??>
              <#list Posts as post>
             <div class="allPostCell">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -110,9 +115,9 @@
             <tbody>
             <div style="margin-top: 10px;"></div>
             <tr style="text-align: center;">
-                <td width="33%"><a href="#">${user.unreadMessage}</a></td>
+                <td width="33%"><a style="cursor: pointer;" class="unread_a" Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
                 <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
-                <td width="33%"><a href="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+                <td width="33%"><a style="cursor: pointer;" class="focus_a" Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
             </tr>
             <tr style="text-align: center;">
                 <td width="33%"><a href="#">未读信息</a></td>
@@ -143,9 +148,42 @@
     $(function () {
         //让相应的发布界面显示出来
         $(".create_post").click(function () {
+            $(".header").remove();
             $("#tabAllMain").remove();
             $("#index_rightNavigation").remove();
             $("#start_post").css("display", "block");
+        });
+
+        //给未读信息的a标签添加点击事件
+        $(".unread_a").click(function () {
+            if($(this).text()!=="0"){
+                //判断是否有未读信息，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href=Gohref;
+            }else{
+                layer.alert("你并没有未读信息",{icon: 2});
+                //如果没有关注的人，则跳到提示的界面，让他去关注其他人
+                $(".header").remove();
+                $("#tabAllMain").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_unread").css("display", "block");
+            }
+        });
+
+        //给特别关注的a标签添加点击事件
+        $(".focus_a").click(function () {
+            if($(this).text()!=="0"){
+                //判断是否有关注的人，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href=Gohref;
+            }else{
+                //如果没有关注的人，则跳到提示的界面，让他去关注别人
+                layer.alert("你并没有关注任何人",{icon: 2});
+                $(".header").remove();
+                $("#tabAllMain").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_focus").css("display", "block");
+            }
         });
     });
 </script>

@@ -103,4 +103,16 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = postMapper.selectByExample(example);
         return posts;
     }
+
+    @Override
+    /** 
+    * @Description: 获取所有帖子，后台管理系统用到
+    * @Param: [] 
+    * @return: java.util.List<zyy.campuscommunity.entity.Post> 
+    * @Author: zhaoyy
+    * @Date: 2019/5/6 13:37
+    */ 
+    public List<Post> selectAllPost() {
+        return postMapper.selectAllPost();
+    }
 }

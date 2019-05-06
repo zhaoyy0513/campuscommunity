@@ -93,6 +93,14 @@
     from reply
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectAllReply" resultMap="BaseResultMap">
+    select
+    *
+    from reply
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from reply
     where id = #{id,jdbcType=INTEGER}

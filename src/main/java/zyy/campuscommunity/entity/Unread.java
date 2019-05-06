@@ -12,13 +12,25 @@ public class Unread {
 
     private Integer infocomeId;
 
+    private String infocomeName;
+
+    private String infocomeTime;
+
     private Integer postId;
 
-    public Unread(Integer userId, String info, Integer infocomeId, Integer postId) {
+    private String postTitle;
+
+    public Unread() {
+    }
+
+    public Unread(Integer userId, String info, Integer infocomeId, String infocomeName, String infocomeTime, Integer postId, String postTitle) {
         this.userId = userId;
         this.info = info;
         this.infocomeId = infocomeId;
+        this.infocomeName = infocomeName;
+        this.infocomeTime = infocomeTime;
         this.postId = postId;
+        this.postTitle = postTitle;
     }
 
     public Integer getId() {
@@ -53,11 +65,35 @@ public class Unread {
         this.infocomeId = infocomeId;
     }
 
+    public String getInfocomeName() {
+        return infocomeName;
+    }
+
+    public void setInfocomeName(String infocomeName) {
+        this.infocomeName = infocomeName == null ? null : infocomeName.trim();
+    }
+
+    public String getInfocomeTime() {
+        return infocomeTime;
+    }
+
+    public void setInfocomeTime(String infocomeTime) {
+        this.infocomeTime = infocomeTime == null ? null : infocomeTime.trim();
+    }
+
     public Integer getPostId() {
         return postId;
     }
 
     public void setPostId(Integer postId) {
         this.postId = postId;
+    }
+
+    public String getPostTitle() {
+        return postTitle;
+    }
+
+    public void setPostTitle(String postTitle) {
+        this.postTitle = postTitle == null ? null : postTitle.trim();
     }
 }
