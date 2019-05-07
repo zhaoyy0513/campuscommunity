@@ -55,15 +55,7 @@ public class UserController {
     //跳转到主页
     @RequestMapping("/toIndex")
     public String toIndex(HttpServletRequest request) {
-        List<Post> list = (List<Post>) listRedisTemplate.opsForList().rightPop("postByParentIdList");
-        if (null == list) {
-            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
-            list = postService.getPostByParentId(1);
-            listRedisTemplate.opsForList().rightPush("postByParentIdList", list);
-            System.out.println("从数据库查询得到postByParentIdList");
-        } else {
-            System.out.println("从Redis查询得到postByParentIdList");
-        }
+        List<Post> list = postService.getPostByParentId(1);
         request.getSession().setAttribute("posts", list);
         return "index";
     }
@@ -91,15 +83,7 @@ public class UserController {
         //将数据库查询到的一级标签添加到tabList中,并渲染到首页
         request.getSession().setAttribute("tabList", tabList);
         //获取一级标签'学霸'所有的帖子，并放到首页进行渲染,学霸的id是1
-        List<Post> list = (List<Post>) listRedisTemplate.opsForList().rightPop("postByParentIdList");
-        if (null == list) {
-            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
-            list = postService.getPostByParentId(1);
-            listRedisTemplate.opsForList().rightPush("postByParentIdList", list);
-            System.out.println("从数据库查询得到postByParentIdList");
-        } else {
-            System.out.println("从Redis查询得到postByParentIdList");
-        }
+        List<Post> list = postService.getPostByParentId(1);
         Iterator<Post> iterator = list.iterator();
         //设置回复时间差值(当前时间减去帖子最后一次回复时间的差值)
         Date date = new Date();
@@ -201,15 +185,7 @@ public class UserController {
         //将数据库查询到的一级标签添加到tabList中,并渲染到首页
         request.getSession().setAttribute("tabList", tabList);
         //获取一级标签'学霸'所有的帖子，并放到首页进行渲染,学霸的id是1
-        List<Post> list = (List<Post>) listRedisTemplate.opsForList().rightPop("postByParentIdList");
-        if (null == list) {
-            //如果Redis没有找到这个对应的list这个键名，则从数据库查找，并将其放入Redis中，以便下次使用
-            list = postService.getPostByParentId(1);
-            listRedisTemplate.opsForList().rightPush("postByParentIdList", list);
-            System.out.println("从数据库查询得到postByParentIdList");
-        } else {
-            System.out.println("从Redis查询得到postByParentIdList");
-        }
+        List<Post> list = postService.getPostByParentId(1);
         request.setAttribute("posts", list);
         //获得一级标题中'学霸'对应的二级标题，用于默认被选中
         List<Tab> xuebaList = tabService.getTabsByParentId(1);

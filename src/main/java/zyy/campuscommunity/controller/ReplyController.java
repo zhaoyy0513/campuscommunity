@@ -46,7 +46,7 @@ public class ReplyController {
      * @Date: 2019/5/5 16:54
      */
     @RequestMapping("/addReply/{postId}")
-    public synchronized String addReply(@PathVariable Integer postId, Reply reply, HttpServletRequest request) throws ParseException {
+    public String addReply(@PathVariable Integer postId, Reply reply, HttpServletRequest request) throws ParseException {
         User currentUser = (User) request.getSession().getAttribute("user");//获取当前登录的用户
         int currentUserId = currentUser.getId(); //登录用户的索引Id
         Date date = new Date();
@@ -57,11 +57,12 @@ public class ReplyController {
         reply.setReplyContent(replyContent);
         reply.setReplyTime(replyTime); //设置回复时间
         Post post = postService.getPostById(postId); //得到要回复的帖子
-        //添加未读信息，既当别人回复此帖子的时候，给帖子发布者添加未读
-        //参数分别是，帖子发布者索引Id，回复内容，回复者id,帖子id
         if (post.getPostUserId() != currentUserId) {
             //如果当前回复者同时不是帖子的发布者，则进行下列的操作
-            Unread unread = new Unread(post.getPostUserId(), replyContent, currentUserId,currentUser.getUserName(), replyTime,postId,post.getPostTitle());
+            int lastReplyId = replyService.getLastReplyId(); //获取最后一个回复贴的id
+            //添加未读信息，既当别人回复此帖子的时候，给帖子发布者添加未读
+            //参数分别是，帖子发布者索引Id，回复内容，回复者id,帖子id，回复的帖子id
+            Unread unread = new Unread(post.getPostUserId(), replyContent, currentUserId,currentUser.getUserName(), replyTime,postId,post.getPostTitle(),lastReplyId+1);
             int result = unreadService.insertUnread(unread);
             if (result >= 0) {
                 //如果添加未读信息成功，则将对应的用户表中的未读信息数+1;
@@ -124,8 +125,7 @@ public class ReplyController {
      * @Date: 2019/5/5 16:54
      */
     @RequestMapping("/replyUser/{postId}")
-    public synchronized String replyUser(@PathVariable Integer postId, Reply reply, HttpServletRequest request) throws ParseException {
-        System.out.println("回复用户Controller");
+    public  String replyUser(@PathVariable Integer postId, Reply reply, HttpServletRequest request) throws ParseException {
         String infoToStr = request.getParameter("infoTo");
         //这一块逻辑是处理@用户之后进行回复的逻辑
         String replyContent = reply.getReplyContent();
@@ -133,24 +133,25 @@ public class ReplyController {
         String subReplyStr = replyContent.substring(pos); //将第一个空格后的内容拼出来
         String resultReply = subReplyStr.trim(); //去掉用户可能产生的 前后空格
         //想去两个关键ID
-        int userId = Integer.valueOf(infoToStr); //转成id类型，对应数据库实体的类型
+        int infoTouserId = Integer.valueOf(infoToStr); //转成id类型，对应数据库实体的类型
         User user = (User) request.getSession().getAttribute("user"); //获取当前登录的用户
         Post post = postService.getPostById(postId); //得到要回复的帖子
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String replyTime = sdf.format(date);
-        int infocomeId = user.getId(); //获取用户id
-        System.out.println("infoToStr:" + userId);
-        System.out.println("sendFrom:" + infocomeId);
+        int infocomeId = user.getId(); //获取发送者id
+        //System.out.println("infoToStr:" + userId);
+       // System.out.println("sendFrom:" + infocomeId);
         //下面进行添加未读信息的逻辑操作
-        //创建的实体参数分别为，接受消息的用户，消息，发送消息的用户,发送信息的用户名，帖子标题
-        Unread unread = new Unread(userId, resultReply, infocomeId, user.getUserName(),replyTime,postId,post.getPostTitle());
+        //创建的实体参数分别为，接受消息的用户，消息，发送消息的用户,发送信息的用户名，帖子标题,回复的帖子id
+        int lastReplyId = replyService.getLastReplyId(); //获取最后一个回复贴的id
+        Unread unread = new Unread(infoTouserId, resultReply, infocomeId, user.getUserName(),replyTime,postId,post.getPostTitle(),lastReplyId+1);
         int result = unreadService.insertUnread(unread);
         if (result >= 0) {
             //如果添加未读信息成功，则将对应的用户表中的未读信息数+1;
-            if (reply.getReplyUserId() != infocomeId) {
+            if (infocomeId != infoTouserId) {
                 //如果是自己回复自己，则不添加用户未读信息
-                User msgRecUser = userService.getUserById(userId);
+                User msgRecUser = userService.getUserById(infoTouserId);
                 msgRecUser.setUnreadMessage(msgRecUser.getUnreadMessage() + 1);
                 userService.updateUser(msgRecUser);
             }

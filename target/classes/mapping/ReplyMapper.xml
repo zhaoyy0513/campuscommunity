@@ -94,6 +94,10 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
+  <select id="getLastReplyId" resultType="java.lang.Integer">
+   select max(id) from reply
+  </select>
+
   <select id="selectAllReply" resultMap="BaseResultMap">
     select
     *

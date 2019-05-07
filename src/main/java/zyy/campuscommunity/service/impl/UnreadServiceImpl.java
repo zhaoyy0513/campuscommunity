@@ -14,7 +14,27 @@ public class UnreadServiceImpl implements UnreadService {
 
     @Autowired
     UnreadMapper unreadMapper;
+
     @Override
+    /** 
+    * @Description: 通过id获取未读信息
+    * @Param: [id] 
+    * @return: zyy.campuscommunity.entity.Unread 
+    * @Author: zhaoyy
+    * @Date: 2019/5/7 17:01
+    */ 
+    public Unread getUnreadById(int id) {
+        return unreadMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    /** 
+    * @Description: 添加未读信息
+    * @Param: [unread] 
+    * @return: int 
+    * @Author: zhaoyy
+    * @Date: 2019/5/7 16:42
+    */ 
     public int insertUnread(Unread unread) {
        int result = unreadMapper.insert(unread);
         if (result < 0) {
@@ -23,6 +43,24 @@ public class UnreadServiceImpl implements UnreadService {
             return 0;
         }
     }
+
+    @Override
+    /** 
+    * @Description: 根据id删除未读信息
+    * @Param: [id] 
+    * @return: int 
+    * @Author: zhaoyy
+    * @Date: 2019/5/7 16:43
+    */ 
+    public int deleteUnreadById(int id) {
+        int result =  unreadMapper.deleteByPrimaryKey(id);
+        if (result < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
 
     @Override
     /** 

@@ -48,6 +48,23 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     /** 
+    * @Description: 根据回复的索引id删除回复
+    * @Param: [id] 
+    * @return: int 
+    * @Author: zhaoyy
+    * @Date: 2019/5/7 17:09
+    */ 
+    public int deleteReplyById(int id) {
+        int i = replyMapper.deleteByPrimaryKey(id);
+        if(i<0){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
+    /** 
     * @Description: 获取所有回复
     * @Param: [] 
     * @return: java.util.List<zyy.campuscommunity.entity.Reply> 
@@ -56,5 +73,17 @@ public class ReplyServiceImpl implements ReplyService {
     */ 
     public List<Reply> selectAllReply() {
         return replyMapper.selectAllReply();
+    }
+
+    @Override
+    /** 
+    * @Description: 获取最后一个回复id，用来设置下一个回复的id，以便删除评论时好删除
+    * @Param: [] 
+    * @return: int 
+    * @Author: zhaoyy
+    * @Date: 2019/5/7 15:07
+    */ 
+    public int getLastReplyId() {
+        return replyMapper.getLastReplyId();
     }
 }

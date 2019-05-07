@@ -20,10 +20,12 @@ public class Unread {
 
     private String postTitle;
 
+    private Integer replyId;
+
     public Unread() {
     }
 
-    public Unread(Integer userId, String info, Integer infocomeId, String infocomeName, String infocomeTime, Integer postId, String postTitle) {
+    public Unread(Integer userId, String info, Integer infocomeId, String infocomeName, String infocomeTime, Integer postId, String postTitle, Integer replyId) {
         this.userId = userId;
         this.info = info;
         this.infocomeId = infocomeId;
@@ -31,6 +33,7 @@ public class Unread {
         this.infocomeTime = infocomeTime;
         this.postId = postId;
         this.postTitle = postTitle;
+        this.replyId = replyId;
     }
 
     public Integer getId() {
@@ -95,5 +98,13 @@ public class Unread {
 
     public void setPostTitle(String postTitle) {
         this.postTitle = postTitle == null ? null : postTitle.trim();
+    }
+
+    public Integer getReplyId() {
+        return replyId;
+    }
+
+    public void setReplyId(Integer replyId) {
+        this.replyId = replyId;
     }
 }

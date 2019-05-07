@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface ReplyService {
     int insertReply(Reply reply);
-    List<Reply> getRepliesByPostId(int postId);
+    int getLastReplyId();
     int updateReply(Reply reply);
+    int deleteReplyById(int id);
+    List<Reply> getRepliesByPostId(int postId);
     List<Reply> selectAllReply();
+
 }

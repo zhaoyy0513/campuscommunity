@@ -5,7 +5,9 @@ import zyy.campuscommunity.entity.Unread;
 import java.util.List;
 
 public interface UnreadService {
+     Unread getUnreadById(int id);
      int insertUnread(Unread unread);
+     int deleteUnreadById(int id);
      List<Unread> getUnreadsByUid(Integer uid);
      List<Unread> selectAllUnRead();
 }

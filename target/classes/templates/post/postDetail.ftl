@@ -57,7 +57,7 @@
                 · ${post.postClickCount}次点击 &nbsp;
             </small>
             <div style="float: right;">
-                <button type="button" class="btn btn-success">添加收藏</button>
+                <button type="button" class="btn btn-success" id="collectBtn">添加收藏</button>
             </div>
         </div>
         <div class="cell">
@@ -183,6 +183,7 @@
                 </tbody>
             </table>
         </div>
+        <iframe id="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=300 src="//music.163.com/outchain/player?type=0&id=2788010738&auto=0&height=430"></iframe>
     </div>
 </#if>
     </div>
@@ -262,6 +263,10 @@
             }
         });
 
+        //添加收藏按钮点击事件
+        $("#collectBtn").click(function () {
+            
+        })
 
 
     });

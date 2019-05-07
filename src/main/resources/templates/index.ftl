@@ -151,10 +151,10 @@
                 </tbody>
             </table>
         </div>
+        <iframe id="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=300 src="//music.163.com/outchain/player?type=0&id=2788010738&auto=0&height=430"></iframe>
     </div>
     </#if>
 </body>
-
 <script>
     $(function () {
         //给第一个li设置被选中属性
@@ -201,9 +201,6 @@
                 $("#no_focus").css("display", "block");
             }
         });
-
-
-
 
     })
 </script>

@@ -29,4 +29,6 @@ public interface ReplyMapper {
     int updateByPrimaryKey(Reply record);
 
     List<Reply> selectAllReply();
+
+    int getLastReplyId();
 }

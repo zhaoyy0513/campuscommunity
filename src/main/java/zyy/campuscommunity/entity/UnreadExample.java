@@ -623,6 +623,66 @@ public class UnreadExample {
             addCriterion("post_title not between", value1, value2, "postTitle");
             return (Criteria) this;
         }
+
+        public Criteria andReplyIdIsNull() {
+            addCriterion("reply_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIsNotNull() {
+            addCriterion("reply_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdEqualTo(Integer value) {
+            addCriterion("reply_id =", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotEqualTo(Integer value) {
+            addCriterion("reply_id <>", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdGreaterThan(Integer value) {
+            addCriterion("reply_id >", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("reply_id >=", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdLessThan(Integer value) {
+            addCriterion("reply_id <", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdLessThanOrEqualTo(Integer value) {
+            addCriterion("reply_id <=", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIn(List<Integer> values) {
+            addCriterion("reply_id in", values, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotIn(List<Integer> values) {
+            addCriterion("reply_id not in", values, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdBetween(Integer value1, Integer value2) {
+            addCriterion("reply_id between", value1, value2, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("reply_id not between", value1, value2, "replyId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
