@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import zyy.campuscommunity.entity.Post;
-import zyy.campuscommunity.entity.Reply;
-import zyy.campuscommunity.entity.Tab;
+import zyy.campuscommunity.entity.*;
+import zyy.campuscommunity.service.PostCollectionService;
 import zyy.campuscommunity.service.PostService;
 import zyy.campuscommunity.service.ReplyService;
 import zyy.campuscommunity.service.TabService;
@@ -31,6 +30,8 @@ public class PostController {
     TabService tabService;
     @Autowired
     ReplyService replyService;
+    @Autowired
+    PostCollectionService postCollectionService;
 
     /** 
     * @Description: 通过tabId获取所有的帖子
@@ -144,6 +145,17 @@ public class PostController {
                 }
             }
             replyService.updateReply(reply);
+        }
+        //查看帖子是否是收藏过的，用来设置属性
+        User user = (User)request.getSession().getAttribute("user");
+        PostCollection postCollection = postCollectionService.getPostCollectionByUid(user.getId());//获取该用户对应的收藏表
+        String postCollectStr = postCollection.getPostId();//从收藏表中获取收藏字符串
+        int index = postCollectStr.indexOf(String.valueOf(postId));
+        if(index>0){
+            //如果关注了，那么就设置状态为已经收藏
+            request.getSession().setAttribute("status", "collected");
+        }else{
+            request.getSession().setAttribute("status", "uncollected");
         }
         model.addObject("post", post);
         model.addObject("replies", replies);

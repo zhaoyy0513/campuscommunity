@@ -62,7 +62,7 @@
                         </a> 在 <a href="/post/postDetail/${unread.postId}" style="color: #778087;background-color: gainsboro;">${unread.postTitle}</a> 里回复了你
                     </span>&nbsp;
                 <span class="">${unread.infocomeTime}</span> &nbsp;
-                <a Gohref="/unread/delete/${unread.id}" class="node delete_unread">删除</a>
+                <a style="cursor: pointer;" Gohref="/unread/delete/${unread.id}" class="node delete_unread">删除</a>
                 <input type="hidden" value="${unread.postId}"/>
                 <div class="reply_cont">
                     <span style="display:inline-block;color: #778087;background-color: gainsboro;">${unread.info}</span>
@@ -172,10 +172,9 @@
             var gohref = $(this).attr("Gohref"); //删除操作所需要的连接
             var parent = $(this).parent();
             var postId = $(this).next().val();
-            alert(postId);
             layer.confirm('确定删除这条回复吗', {
                 btn: ['确定','取消'] //按钮
-            }, function(){
+            }, function(index){
                 //点击确定之后执行ajax代码，执行后台业务的操作
                 $.ajax({
                     type: 'POST',
@@ -183,7 +182,7 @@
                     dataType:'JSON',
                     async: false,  //不异步，执行成功再执行下面的
                     cache: false,
-                    data:postId,
+                    data:{'postId':postId},
                     success:function (data) {
                         if(data.msg==='success'){
                             parent.remove();
@@ -196,10 +195,9 @@
                         layer.alert("请求异常!请联系管理员",{icon:5});
                     }
                 });
-
-            }, function(){
+            }, function(index){
                 //取消之后的操作
-                layer.close();
+                layer.close(index);
             });
         })
     });

@@ -3,7 +3,7 @@
 <mapper namespace="zyy.campuscommunity.mapper.PostCollectionMapper">
   <resultMap id="BaseResultMap" type="zyy.campuscommunity.entity.PostCollection">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="post_id" jdbcType="VARCHAR" property="postId" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="zyy.campuscommunity.entity.PostCollection">
     insert into postcollection (id, user_id, post_id
       )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{postId,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{postId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="zyy.campuscommunity.entity.PostCollection">
@@ -121,7 +121,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="postId != null">
         #{postId,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=VARCHAR},
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
       <if test="record.postId != null">
         post_id = #{record.postId,jdbcType=VARCHAR},
@@ -154,7 +154,7 @@
   <update id="updateByExample" parameterType="map">
     update postcollection
     set id = #{record.id,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
       post_id = #{record.postId,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -164,7 +164,7 @@
     update postcollection
     <set>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
       <if test="postId != null">
         post_id = #{postId,jdbcType=VARCHAR},
@@ -174,7 +174,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="zyy.campuscommunity.entity.PostCollection">
     update postcollection
-    set user_id = #{userId,jdbcType=VARCHAR},
+    set user_id = #{userId,jdbcType=INTEGER},
       post_id = #{postId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

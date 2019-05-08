@@ -6,9 +6,17 @@ import lombok.ToString;
 public class PostCollection {
     private Integer id;
 
-    private String userId;
+    private Integer userId;
 
     private String postId;
+
+    public PostCollection() {
+    }
+
+    public PostCollection(Integer userId, String postId) {
+        this.userId = userId;
+        this.postId = postId;
+    }
 
     public Integer getId() {
         return id;
@@ -18,12 +26,12 @@ public class PostCollection {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getPostId() {

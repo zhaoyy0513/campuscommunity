@@ -1,5 +1,6 @@
 package zyy.campuscommunity.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,30 +54,33 @@ public class UnreadController {
     */ 
     @RequestMapping(value = "/delete/{unreadId}")
     @ResponseBody
-    public String deleteUnReadById(@PathVariable("unreadId") int id,HttpServletRequest request){
+    public String deleteUnReadById(@PathVariable("unreadId") int id,int postId,HttpServletRequest request){
         User currentUser = (User) request.getSession().getAttribute("user");
         currentUser.setUnreadMessage(currentUser.getUnreadMessage()-1);
-//        int updateU = userService.updateUser(currentUser);  //更新用户未读信息数
-//        if(updateU<0){
-//            return JSONArray.toJSONString("error");
-//        }
-        String postId = request.getParameter("postId");
-        Post post = postService.getPostById(Integer.valueOf(postId));
+        int updateU = userService.updateUser(currentUser);  //更新用户未读信息数
+        if(updateU<0){
+            return JSONArray.toJSONString("error");
+        }
+        String postIddd = request.getParameter("postId");
+        System.out.println("postIddd:"+Integer.parseInt(postIddd));
+        Post post = postService.getPostById(postId);
         System.out.println(post.toString());
 
-        System.out.println("要删除未读信息的索引id是:"+id);
-//        int deleteU = unreadService.deleteUnreadById(id);
-//        if(deleteU<0){
-//            return JSONArray.toJSONString("error");
-//        }
         Unread unread = unreadService.getUnreadById(id); //获取未读的信息
         int replyId = unread.getReplyId();  //获取索引Id
         System.out.println("要删除回复的索引id是:"+replyId);
-//        int deleteR =  replyService.deleteReplyById(replyId); //通过索引id删除帖子
-//        if(deleteR<0){
-//            return JSONArray.toJSONString("error");
-//        }
-        return "success";
+        int deleteR =  replyService.deleteReplyById(replyId); //通过索引id删除帖子
+        if(deleteR<0){
+            return JSONArray.toJSONString("error");
+        }
+
+        System.out.println("要删除未读信息的索引id是:"+id);
+        int deleteU = unreadService.deleteUnreadById(id);
+        if(deleteU<0){
+            return JSONArray.toJSONString("error");
+        }
+
+        return JSONArray.toJSONString("success");
     }
     
 }

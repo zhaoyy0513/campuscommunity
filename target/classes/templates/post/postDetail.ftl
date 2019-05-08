@@ -44,59 +44,68 @@
          <#include "../user/noUnread.ftl" />
     </div>
     <div id="tabAllMain">
-    <div class="box" style="border-bottom: 0;" >
-        <div class="header">
-            <div class="fr"><a href="#"><img
-                    src="../../static/img/portrait.png" class="avatar"
-                    border="0" align="default"></a></div>
-            <a style="color: deepskyblue;" href="/user/toIndex">ZZUI</a> <span class="chevron">&nbsp;›&nbsp;</span>
-            <a href="/post/tabId/${post.postTabId}">${post.postTabName}</a>
-            <div class="sep10"></div>
-            <h1>${post.postTitle}</h1>
-            <small class="gray"><a href="#">${post.postUserName}</a>&nbsp${post.postTime}
-                · ${post.postClickCount}次点击 &nbsp;
-            </small>
-            <div style="float: right;">
-                <button type="button" class="btn btn-success" id="collectBtn">添加收藏</button>
+        <div class="box" style="border-bottom: 0;">
+            <div class="header">
+                <div class="fr"><a href="#"><img
+                        src="../../static/img/portrait.png" class="avatar"
+                        border="0" align="default"></a></div>
+                <a style="color: deepskyblue;" href="/user/toIndex">ZZUI</a> <span class="chevron">&nbsp;›&nbsp;</span>
+                <a href="/post/tabId/${post.postTabId}">${post.postTabName}</a>
+                <div class="sep10"></div>
+                <h1>${post.postTitle}</h1>
+                <small class="gray"><a href="#">${post.postUserName}</a>&nbsp${post.postTime}
+                    · ${post.postClickCount}次点击 &nbsp;
+                </small>
+                <div style="float: right;">
+                    <button type="button" class="btn btn-primary" id="collectBtn">添加收藏</button>
+                    <input type="hidden" value="${user.id}/${post.id}"/>
+                    <input type="hidden" value="${status}" id="status" />
+                </div>
+            </div>
+            <div class="cell">
+                <div class="topic_content">${post.postContent}</div>
             </div>
         </div>
-        <div class="cell">
-            <div class="topic_content">${post.postContent}</div>
+
+        <div id="replies_head_info">
+            <p>${post.postReplyCount}回复</p>
         </div>
-    </div>
 
-    <div id="replies_head_info">
-        <p>${post.postReplyCount}回复</p>
-    </div>
-
-    <div id="replies">
+        <div id="replies">
         <#if replies?? >
             <#list replies as reply>
             <div class="cell">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                    <tbody><tr>
-                        <td width="48" valign="top" align="center"><a href="/user/userInfo/${reply.replyUserId}"><img src="../../static/img/portrait.png" class="avatar" border="0" align="default"></a></td>
+                    <tbody>
+                    <tr>
+                        <td width="48" valign="top" align="center"><a href="/user/userInfo/${reply.replyUserId}"><img
+                                src="../../static/img/portrait.png" class="avatar" border="0" align="default"></a></td>
                         <td width="10" valign="top"></td>
                         <td width="auto" valign="top" align="left">
                             <div class="sep3"></div>
-                            <strong><a href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp; &nbsp;<span style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
+                            <strong><a href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp;
+                            &nbsp;<span style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
                             <span id="reply_floor">
                                 ${reply.replyFloor}
                             </span>
 
-                            <a class="reply_icon" style="margin-right: 12px;float: right;" href="#" onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');"><img src="../../static/img/reply.png"  border="0" alt="Reply"></a>
-                            <a style="margin-right: 14px;float: right;text-decoration: none; display: none;" href="#" onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');">回复</a>
+                            <a class="reply_icon" style="margin-right: 12px;float: right;" href="#"
+                               onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');"><img
+                                    src="../../static/img/reply.png" border="0" alt="Reply"></a>
+                            <a style="margin-right: 14px;float: right;text-decoration: none; display: none;" href="#"
+                               onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');">回复</a>
                             <div class="sep5"></div>
                             <div class="reply_content">${reply.replyContent}</div>
                         </td>
                     </tr>
-                    </tbody></table>
+                    </tbody>
+                </table>
             </div>
             </#list>
         <#else>
 
         </#if>
-    </div>
+        </div>
         <#if (user.userName)=='游客'>
             <h1><a href="#" id="tourist_login">游客暂不支持回复，回复请登录</a></h1>
         <#else>
@@ -106,10 +115,11 @@
                     <p id="second_p"><a href="#" class="change_a">↑回到顶部</a></p>
                 </div>
                 <form class="layui-form" action="/reply/addReply/${post.id}" method="post" id="reply_form">
-                    <input type="hidden" name="replyUserId" value="${user.id}" />
-                    <input type="hidden" name="replyUserName" value="${user.userName}" />
-                    <input type="hidden" name="infoTo" value="" />
-                    <textarea placeholder="请输入内容" id="replyTextArea" name="replyContent" lay-verify="required"></textarea>
+                    <input type="hidden" name="replyUserId" value="${user.id}"/>
+                    <input type="hidden" name="replyUserName" value="${user.userName}"/>
+                    <input type="hidden" name="infoTo" value=""/>
+                    <textarea placeholder="请输入内容" id="replyTextArea" name="replyContent"
+                              lay-verify="required"></textarea>
                     <div class="btn_group">
                         <button class="layui-btn" type="button" id="reply_btn">回复</button>
                         <button type="reset" class="layui-btn layui-btn-primary">清空</button>
@@ -120,35 +130,41 @@
             </div>
         </#if>
 
-    <div id="Login" style="display: none;">
-        <form class="layui-form layui-form-pane">
-            <div class="layui-form-item" style="margin: 2% 0 0 5%;">
-                <label class="layui-form-label">用户名</label>
-                <div class="layui-input-inline">
-                    <input type="text"  id="tourist_userName" lay-verify="required" placeholder="请输入用户名" autocomplete="on" class="layui-input">
+        <div id="Login" style="display: none;">
+            <form class="layui-form layui-form-pane">
+                <div class="layui-form-item" style="margin: 2% 0 0 5%;">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="tourist_userName" lay-verify="required" placeholder="请输入用户名"
+                               autocomplete="on" class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <div class="layui-form-item" style="margin: 2% 0 0 5%;">
-                <label class="layui-form-label">密 码</label>
-                <div class="layui-input-inline">
-                    <input type="password" id="tourist_userPwd" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <div class="layui-form-item" style="margin: 2% 0 0 5%;">
+                    <label class="layui-form-label">密 码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" id="tourist_userPwd" lay-verify="required" placeholder="请输入密码"
+                               autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <span style="margin: 4% 0 0 6%;"><a href="#">忘记密码?</a></span>
-            <br/>
-            <input lay-submit  type="button" style="margin: 2% 0 0 5%;" class="layui-btn" value="登陆" id="login_btn">
-        </form>
-    </div>
+                <span style="margin: 4% 0 0 6%;"><a href="#">忘记密码?</a></span>
+                <br/>
+                <input lay-submit type="button" style="margin: 2% 0 0 5%;" class="layui-btn" value="登陆" id="login_btn">
+            </form>
+        </div>
 <#if (user.userName)!='游客'>
     <div id="index_rightNavigation">
         <div class="cell">
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="48" valign="top"><a href="/user/userInfo/${user.id}"><img src="/static/img/portrait.png" class="avatar" border="0" align="default" style="max-width: 48px; max-height: 48px;"></a>
+                    <td width="48" valign="top"><a href="/user/userInfo/${user.id}"><img src="/static/img/portrait.png"
+                                                                                         class="avatar" border="0"
+                                                                                         align="default"
+                                                                                         style="max-width: 48px; max-height: 48px;"></a>
                     </td>
                     <td width="10" valign="top"></td>
-                    <td width="auto" align="left"><span class="bigger"><a href="/user/userInfo/${user.id}">${user.userName}</a></span>
+                    <td width="auto" align="left"><span class="bigger"><a
+                            href="/user/userInfo/${user.id}">${user.userName}</a></span>
                     </td>
                 </tr>
                 </tbody>
@@ -157,9 +173,11 @@
                 <tbody>
                 <div style="margin-top: 10px;"></div>
                 <tr style="text-align: center;">
-                    <td width="33%"><a style="cursor: pointer;" class="unread_a" Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
+                    <td width="33%"><a style="cursor: pointer;" class="unread_a"
+                                       Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
                     <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
-                    <td width="33%"><a style="cursor: pointer;" class="focus_a" Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
+                    <td width="33%"><a style="cursor: pointer;" class="focus_a"
+                                       Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
                 </tr>
                 <tr style="text-align: center;">
                     <td width="33%">未读信息</td>
@@ -173,7 +191,8 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="40"><a href="#"><span class="glyphicon glyphicon-pencil" width="32" border="0"></span></a>
+                    <td width="40"><a href="#"><span class="glyphicon glyphicon-pencil" width="32"
+                                                     border="0"></span></a>
                     </td>
                     <td width="10"></td>
                     <td width="auto" valign="middle" align="left"><a style="cursor: pointer;"
@@ -183,7 +202,8 @@
                 </tbody>
             </table>
         </div>
-        <iframe id="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=300 src="//music.163.com/outchain/player?type=0&id=2788010738&auto=0&height=430"></iframe>
+        <iframe id="iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=300
+                src="//music.163.com/outchain/player?type=0&id=2788010738&auto=0&height=430"></iframe>
     </div>
 </#if>
     </div>
@@ -191,7 +211,7 @@
 </body>
 
 <script>
-    layui.use(['form','layer'], function () {
+    layui.use(['form', 'layer'], function () {
         var form = layui.form;
         var layer = layui.layer;
     });
@@ -199,25 +219,36 @@
 
 <script>
     $(function () {
+        //根据帖子是否被收藏，来设置按钮样式
+        var status = $("#status").val();
+        if(status==='collected'){
+            //如果已经收藏，则直接修改相应的属性,如果没有收藏，则使用默认的
+            $("#collectBtn").attr("class", "btn btn-warning").text("取消收藏");
+        }
+    })
+</script>
+<script>
+    $(function () {
+        //回复按钮的逻辑
         $(".reply_icon").mouseover(function () {
-            $(this).next().css("display","block");
+            $(this).next().css("display", "block");
         });
         $(".reply_icon").next().mouseout(function () {
-            $(this).css("display","none");
+            $(this).css("display", "none");
         });
     });
 
 </script>
 
 <script>
-    function replyOne(toId,toName) { //添加回复给某个用户功能的按钮
+    function replyOne(toId, toName) { //添加回复给某个用户功能的按钮
         //第一个参数是目的用户的id，第二个参数是目的用户的用户名
         //进入这个方法后获取焦点，并将要回复的名字写入到里面
         $("input[name='infoTo']").val(toId);
         //focus可能会失效，这里设置个定时器函数进行 功能的实现
         setTimeout(function () {
-            $("#replyTextArea").focus().text('@'+toName+' ');
-        },100);
+            $("#replyTextArea").focus().text('@' + toName + ' ');
+        }, 100);
     }
 </script>
 
@@ -228,20 +259,19 @@
         $(".create_post").click(function () {
             $("#tabAllMain").remove();
             $("#index_rightNavigation").remove();
-            $("#main_content").css("width","100%");
-            $("#Main").css("width","80%");
-            $("#start_post").css("margin-right", "20%");
-            $("#start_post").css("display", "block");
+            $("#main_content").css("width", "100%");
+            $("#Main").css("width", "80%");
+            $("#start_post").css({"margin-right": "20%", "display": "block"});
         });
 
         //给未读信息的a标签添加点击事件
         $(".unread_a").click(function () {
-            if($(this).text()!=="0"){
+            if ($(this).text() !== "0") {
                 //判断是否有未读信息，如果有则直接跳转
                 var Gohref = $(this).attr("Gohref");
-                window.location.href=Gohref;
-            }else{
-                layer.alert("你并没有未读信息",{icon: 2});
+                window.location.href = Gohref;
+            } else {
+                layer.alert("你并没有未读信息", {icon: 2});
                 //如果没有关注的人，则跳到提示的界面，让他去关注其他人
                 $("#tabAllMain").remove();
                 $("#index_rightNavigation").remove();
@@ -251,11 +281,11 @@
 
         //给特别关注的a标签添加点击事件
         $(".focus_a").click(function () {
-            if($(this).text()!=="0"){
+            if ($(this).text() !== "0") {
                 //判断是否有关注的人，如果有则直接跳转
                 var Gohref = $(this).attr("Gohref");
-                window.location.href=Gohref;
-            }else{
+                window.location.href = Gohref;
+            } else {
                 //如果没有关注的人，则跳到提示的界面，让他去关注别人
                 $("#tabAllMain").remove();
                 $("#index_rightNavigation").remove();
@@ -265,80 +295,136 @@
 
         //添加收藏按钮点击事件
         $("#collectBtn").click(function () {
-            
-        })
+            var btn = $(this); //获取当前点击的这个按钮
+            var btnText = $(this).text();  //用来判断是收藏还是取消
+            var needValues = $(this).next().val();  //获取所需要的数据用于下面切割
+            var values = needValues.split('/'); //切割数据得到用户索引id和帖子索引id
+            var user_id = values[0]; //获取当前用户索引id
+            var post_id = values[1];//获取帖子索引id
+            var toUrl = '/postCollection/addCollect/' + post_id;
+            if ("添加收藏" === btnText) {
+                //如果在下面确定选项中直接$(this)获取的并不是要设置的按钮，因此提前设置好
+                layer.confirm('确定添加收藏吗？', {
+                    btn: ['确定', '取消'] //按钮的选项
+                }, function (index) {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: {"userId":user_id},
+                        url: toUrl,
+                        async: false,  //关闭异步，一步一步进行
+                        cache: false,  //关闭缓存，每次使用后台返回的新的值
+                        success: function (data) {
+                            if ("success" === data) {
+                                btn.attr("class", "btn btn-warning").text("取消收藏");
+                                layer.close(index);
+                            } else {
+                                layer.alert("添加收藏失败", {icon: 5});
+                            }
+                        },
+                        error: function (data) {
+                            lay.alert("连接异常!,重试或联系管理员", {icon: 5});
+                        }
+                    });
+                }, function (index) {
+                    //取消之后的操作
+                    layer.close(index);
+                });
+            } else {
+                //如果是取消收藏按钮
+                layer.confirm('确定取消收藏吗？', {
+                    btn: ['确定', '取消'] //按钮的选项
+                }, function (index) {
+                    btn.attr("class", "btn btn-primary").text("添加收藏");
+                    layer.close(index);
+                }, function (index) {
+                    //取消之后的操作
+                    layer.close(index);
+                });
+            }
 
+        });//收藏和取消按钮点击事件
 
     });
 </script>
 
 <script>
     $(function () {
+        //帖子回复点击事件
         $("#reply_btn").click(function () {
             var replyText = $("textarea[name='replyContent']").val();
-                    if(replyText==''){
-                        layer.alert('回复不能为空', {icon: 5});
-                    }else{
-                        var replyArr = replyText.trim();
-                        var pos = replyArr.indexOf("@");
-                        if(pos!=0){//如果索引位置不是0
-                            //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空infoTo这个表单的内容
-                            $("input[name='infoTo']").val("");
-                            $("#reply_form").submit();//让第一个form表单提交
-                        }else{
-                            //如果是用户@某个用户 则直接提交
-                            var url = "/reply/replyUser/${post.id}";
-                            $("#reply_form").attr("action",url).submit();
-                        }
+            layer.confirm('确定提交回复吗', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {
+                //点击确定之后执行ajax代码，执行后台业务的操作
+                if (replyText == '') {
+                    layer.alert('回复不能为空', {icon: 5});
+                } else {
+                    var replyArr = replyText.trim();
+                    var pos = replyArr.indexOf("@");
+                    if (pos != 0) {//如果索引位置不是0
+                        //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空infoTo这个表单的内容
+                        $("input[name='infoTo']").val("");
+                        $("#reply_form").submit();//让第一个form表单提交
+                    } else {
+                        //如果是用户@某个用户 则直接提交
+                        var url = "/reply/replyUser/${post.id}";
+                        $("#reply_form").attr("action", url).submit();
                     }
+                }
+            }, function () {
+                //取消之后的操作
+                layer.close();
             });
+        });
+
         //用户登录弹出层点击事件
         $("#tourist_login").click(function () {
             //自定页
             layer.open({
-                title:'登录',
+                title: '登录',
                 type: 1,
                 skin: 'layui-layer-demo', //样式类名
                 anim: 2,
                 area: ['420px', '250px'], //宽高
                 content: $('#Login'),
-        });
+            });
         });
 
         //登录按钮点击事件
         $("#login_btn").click(function () {
             var userName = $("#tourist_userName").val();
             var pwd = $("#tourist_userPwd").val();
-            if(userName==''){
+            if (userName == '') {
                 layer.msg("用户名不能为空");
                 return;
             }
-            if(pwd==''){
+            if (pwd == '') {
                 layer.msg("密码不能为空");
                 return;
             }
             $.ajax({
-               type:'POST',
-               url: '../../user/tourist_login',
-                dataType:'JSON',
-                data:{userName:userName,userPwd:pwd},
-                async:true,
+                type: 'POST',
+                url: '../../user/tourist_login',
+                dataType: 'JSON',
+                data: {userName: userName, userPwd: pwd},
+                async: true,
                 cache: false,
-                success:function (data) {
-                    if(data.msg==='验证通过'){
+                success: function (data) {
+                    if (data.msg === '验证通过') {
                         layer.msg("登陆成功");
-                        setTimeout(function(){  //使用  setTimeout（）方法设定定时2000毫秒
+                        setTimeout(function () {  //使用  setTimeout（）方法设定定时2000毫秒
                             window.location.reload();//页面刷新
-                        },1000);
+                        }, 1000);
                     }
-                    if(data.msg==='未找到该用户'){
+                    if (data.msg === '未找到该用户') {
                         layer.msg("未找到该用户，请核对");
                     }
-                    if(data.msg==='密码错误'){
+                    if (data.msg === '密码错误') {
                         layer.msg("密码错误，请重新输入");
                     }
                 },
-                error:function (data) {
+                error: function (data) {
                     layer.msg("登陆失败，请查看输入是否有误,若无误请联系管理员！");
                 }
             });
