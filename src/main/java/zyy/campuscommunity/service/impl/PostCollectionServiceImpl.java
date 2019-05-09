@@ -55,8 +55,11 @@ public class PostCollectionServiceImpl implements PostCollectionService {
      * @Author: zhaoyy
      * @Date: 2019/5/8 17:06
      */
-    public int deletePostCollection(int Pid) {
-        int result = postCollectionMapper.deleteByPrimaryKey(Pid);;
+    public int deletePostCollection(int Uid) {
+        PostCollectionExample example = new PostCollectionExample();
+        PostCollectionExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(Uid);
+        int result = postCollectionMapper.deleteByExample(example);
         if(result>=0){
             return 1;
         }else{

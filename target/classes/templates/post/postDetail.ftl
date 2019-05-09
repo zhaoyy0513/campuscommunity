@@ -43,6 +43,9 @@
     <div id="no_unread" style="display: none;height: 40%;">
          <#include "../user/noUnread.ftl" />
     </div>
+    <div id="no_collection"  style="display: none;height: 40%;">
+         <#include "../user/noCollection.ftl" />
+    </div>
     <div id="tabAllMain">
         <div class="box" style="border-bottom: 0;">
             <div class="header">
@@ -59,7 +62,7 @@
                 <div style="float: right;">
                     <button type="button" class="btn btn-primary" id="collectBtn">添加收藏</button>
                     <input type="hidden" value="${user.id}/${post.id}"/>
-                    <input type="hidden" value="${status}" id="status" />
+                    <input type="hidden" value="${status}" id="status"/>
                 </div>
             </div>
             <div class="cell">
@@ -175,7 +178,7 @@
                 <tr style="text-align: center;">
                     <td width="33%"><a style="cursor: pointer;" class="unread_a"
                                        Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
-                    <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
+                    <td width="34%"><a style="cursor: pointer;" class="collection_a" Gohref="/postCollection/getCollections/${user.id}">${user.postCollectionNum}</a></td>
                     <td width="33%"><a style="cursor: pointer;" class="focus_a"
                                        Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
                 </tr>
@@ -191,7 +194,7 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="40"><a href="#"><span class="glyphicon glyphicon-pencil" width="32"
+                    <td width="40"><a style="cursor: pointer;" class="create_post"><span class="glyphicon glyphicon-pencil" width="32"
                                                      border="0"></span></a>
                     </td>
                     <td width="10"></td>
@@ -221,7 +224,7 @@
     $(function () {
         //根据帖子是否被收藏，来设置按钮样式
         var status = $("#status").val();
-        if(status==='collected'){
+        if (status === 'collected') {
             //如果已经收藏，则直接修改相应的属性,如果没有收藏，则使用默认的
             $("#collectBtn").attr("class", "btn btn-warning").text("取消收藏");
         }
@@ -279,6 +282,22 @@
             }
         });
 
+        //给收藏信息的a标签添加点击事件
+        $(".collection_a").click(function () {
+            if ($(this).text() !== "0") {
+                //判断是否有收藏，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href = Gohref;
+            } else {
+                layer.alert("你并没有收藏帖子", {icon: 2});
+                //如果没有收藏，则跳到提示的界面，让他去收藏帖子
+                $("#tabAllMain").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_collection").css("display", "block");
+            }
+        });
+
+
         //给特别关注的a标签添加点击事件
         $(".focus_a").click(function () {
             if ($(this).text() !== "0") {
@@ -301,7 +320,9 @@
             var values = needValues.split('/'); //切割数据得到用户索引id和帖子索引id
             var user_id = values[0]; //获取当前用户索引id
             var post_id = values[1];//获取帖子索引id
-            var toUrl = '/postCollection/addCollect/' + post_id;
+            var toAddUrl = '/postCollection/addCollect/' + post_id;
+            var toCancelUrl = '/postCollection/cancelCollect/' + post_id;
+            var collection_a = $(".collection_a").text();
             if ("添加收藏" === btnText) {
                 //如果在下面确定选项中直接$(this)获取的并不是要设置的按钮，因此提前设置好
                 layer.confirm('确定添加收藏吗？', {
@@ -310,20 +331,21 @@
                     $.ajax({
                         type: 'POST',
                         dataType: 'JSON',
-                        data: {"userId":user_id},
-                        url: toUrl,
+                        data: {"userId": user_id},
+                        url: toAddUrl,
                         async: false,  //关闭异步，一步一步进行
                         cache: false,  //关闭缓存，每次使用后台返回的新的值
                         success: function (data) {
                             if ("success" === data) {
                                 btn.attr("class", "btn btn-warning").text("取消收藏");
+                                $(".collection_a").text(parseInt(collection_a)+1);
                                 layer.close(index);
                             } else {
                                 layer.alert("添加收藏失败", {icon: 5});
                             }
                         },
                         error: function (data) {
-                            lay.alert("连接异常!,重试或联系管理员", {icon: 5});
+                            layer.alert("连接异常!,重试或联系管理员", {icon: 5});
                         }
                     });
                 }, function (index) {
@@ -335,8 +357,26 @@
                 layer.confirm('确定取消收藏吗？', {
                     btn: ['确定', '取消'] //按钮的选项
                 }, function (index) {
-                    btn.attr("class", "btn btn-primary").text("添加收藏");
-                    layer.close(index);
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'JSON',
+                        url: toCancelUrl,
+                        data: {"userId": user_id},
+                        async: false,
+                        cache: false,
+                        success: function (data) {
+                            if ("success" === data) {
+                                btn.attr("class", "btn btn-primary").text("添加收藏");
+                                $(".collection_a").text(parseInt(collection_a)-1);
+                                layer.close(index);
+                            } else {
+                                layer.alert("添加收藏失败", {icon: 5});
+                            }
+                        },
+                        error: function (data) {
+                            layer.alert("连接异常!,重试或联系管理员", {icon: 5});
+                        }
+                    });
                 }, function (index) {
                     //取消之后的操作
                     layer.close(index);

@@ -42,6 +42,9 @@
     <div id="no_unread" style="display: none;height: 40%;">
          <#include "../user/noUnread.ftl" />
     </div>
+    <div id="no_collection"  style="display: none;height: 40%;">
+         <#include "../user/noCollection.ftl" />
+    </div>
     <div class="header">
         <a href="/user/toIndex" style="margin-left: 2%;color: darkgray;">ZZUI</a>
         <span class="chevron">&nbsp;›&nbsp;</span> 关注的人的最新帖子
@@ -116,7 +119,7 @@
             <div style="margin-top: 10px;"></div>
             <tr style="text-align: center;">
                 <td width="33%"><a style="cursor: pointer;" class="unread_a" Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
-                <td width="34%"><a href="#">${user.postCollectionNum}</a></td>
+                <td width="34%"><a style="cursor: pointer;" class="collection_a" Gohref="/postCollection/getCollections/${user.id}">${user.postCollectionNum}</a></td>
                 <td width="33%"><a style="cursor: pointer;" class="focus_a" Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
             </tr>
             <tr style="text-align: center;">
@@ -132,7 +135,7 @@
         <table cellpadding="0" cellspacing="0" border="0" width="100%">
             <tbody>
             <tr>
-                <td width="40"><a href="/new"><span class="glyphicon glyphicon-pencil" width="32" border="0"></span></a>
+                <td width="40"><a style="cursor: pointer;" class="create_post"><span class="glyphicon glyphicon-pencil" width="32" border="0"></span></a>
                 </td>
                 <td width="10"></td>
                 <td width="auto" valign="middle" align="left"><a style="cursor: pointer;" class="create_post">创作新主题</a>
@@ -168,6 +171,22 @@
                 $("#tabAllMain").remove();
                 $("#index_rightNavigation").remove();
                 $("#no_unread").css("display", "block");
+            }
+        });
+
+        //给收藏信息的a标签添加点击事件
+        $(".collection_a").click(function () {
+            if($(this).text()!=="0"){
+                //判断是否有收藏，如果有则直接跳转
+                var Gohref = $(this).attr("Gohref");
+                window.location.href=Gohref;
+            }else{
+                layer.alert("你并没有收藏帖子",{icon: 2});
+                //如果没有收藏，则跳到提示的界面，让他去收藏帖子
+                $(".header").remove();
+                $("#tabAllMain").remove();
+                $("#index_rightNavigation").remove();
+                $("#no_collection").css("display", "block");
             }
         });
 

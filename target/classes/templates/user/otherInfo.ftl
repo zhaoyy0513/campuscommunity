@@ -39,8 +39,17 @@
             <span>${focus.userName}</span>
             <span>&nbsp;(${focus.userCollege})</span>
         </span>
+        <div style="margin: 8px 5px 0 0;">
+            <#if (focus.userRole)==1>
+                <span style="color: blue";>普通用户</span>
+            <#else>
+                 <span  style="color: orange";>管理员</span>
+            </#if>
+        </div>
     </span>
-       <span id=main_info_right style="display: none;"><button type="button" class="option_btn especial_btn" onclick="btnConfirm()"><span style="font-weight: 600;"></span></button></span>
+    <span id=main_info_right style="display: none;"><button type="button" class="option_btn especial_btn"
+                                                            onclick="btnConfirm()"><span
+            style="font-weight: 600;"></span></button></span>
 </div>
 
 <div id="posted">
@@ -62,7 +71,7 @@
                     <tr>
                         <td width="48" valign="top" align="center">
                             <a>
-                                <img src="/static/img/portrait.png" class="avatar"  border="0" align="default">
+                                <img src="/static/img/portrait.png" class="avatar" border="0" align="default">
                             </a>
                         </td>
                         <td width="10"></td>
@@ -83,7 +92,7 @@
                         </td>
                           <#if (post.postReplyCount)==0>
                               <td width="70" align="right" valign="middle">
-                                  <a href="#" class="count_livid">0</a>
+                                  <a href="/post/postDetail/${post.id}" class="count_livid">0</a>
                               </td>
                           <#else>
                                 <td width="70" align="right" valign="middle">
@@ -104,10 +113,9 @@
 </div>
 
 
-
 </body>
 <script>
-    layui.use(['form','layer'], function () {
+    layui.use(['form', 'layer'], function () {
         var form = layui.form;
         var layer = layui.layer;
     });
@@ -116,19 +124,24 @@
 <script type="text/javascript">
     $(function () {
         var status = '${status}';
-        if('focused'===status){
+        if ('focused' === status) {
             //上面默认设置按钮是隐藏的，如果进来的不是用户本人，则显示出来按钮
-            $("#main_info_right").css("display","inline-block");
+            $("#main_info_right").css("display", "inline-block");
             $(".option_btn span").text('取消特别关注');
             $(".option_btn")
-                    .css({'background-color':'rgb(180,180,180)','color':'white','width':'103px','height':'28px'});
+                    .css({
+                        'background-color': 'rgb(180,180,180)',
+                        'color': 'white',
+                        'width': '103px',
+                        'height': '28px'
+                    });
         }
-        if('unFocused'===status){
+        if ('unFocused' === status) {
             //上面默认设置按钮是隐藏的，如果进来的不是用户本人，则显示出来按钮
-            $("#main_info_right").css("display","inline-block");
+            $("#main_info_right").css("display", "inline-block");
             $(".option_btn span").text('添加特别关注');
             $(".option_btn")
-                    .css({'background-color':'#FFDF00','color':'#402112'});
+                    .css({'background-color': '#FFDF00', 'color': '#402112'});
         }
     })
 </script>
@@ -139,41 +152,41 @@
         var clickName = '${focus.userName}';
         var userId = '${user.id}';
         var focusId = '${focus.id}';
-        if('取消特别关注'===btnText){
-            layer.confirm("确定取消关注"+clickName+"吗？", {btn: ['确定', '取消'], title: "取消确认"}, function (index) {
+        if ('取消特别关注' === btnText) {
+            layer.confirm("确定取消关注" + clickName + "吗？", {btn: ['确定', '取消'], title: "取消确认"}, function (index) {
                 $.ajax({
-                    type:'POST',
-                    dataType:'JSON',
-                    url:'/user/cancelFocus',
-                    data:{'userId':userId,'focusId':focusId},
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/user/cancelFocus',
+                    data: {'userId': userId, 'focusId': focusId},
                     cache: false,
-                    success:function (data) {
-                        if('correct'===data){  //如果业务操作成功
-                            $(".option_btn").css({'background-color':'#FFDF00','color':'#402112'});
+                    success: function (data) {
+                        if ('correct' === data) {  //如果业务操作成功
+                            $(".option_btn").css({'background-color': '#FFDF00', 'color': '#402112'});
                             $(".option_btn span").text('添加特别关注');
                             layer.close(index);  //关闭当前弹窗
-                        }else{
+                        } else {
                             layer.alert("操作失败，请重试");
                             layer.close(index);  //关闭当前弹窗
                         }
                     },
                 });
             }); //layer
-        }else{ //如果内容是添加特别关注的(后端已经判断这个人，用户目前还没有关注)
-            layer.confirm("确定添加关注"+clickName+"吗？", {btn: ['确定', '取消'], title: "添加确认"}, function (index) {
+        } else { //如果内容是添加特别关注的(后端已经判断这个人，用户目前还没有关注)
+            layer.confirm("确定添加关注" + clickName + "吗？", {btn: ['确定', '取消'], title: "添加确认"}, function (index) {
                 $.ajax({
-                    type:'POST',
-                    dataType:'JSON',
-                    url:'/user/addFocus',
-                    data:{'userId':userId,'focusId':focusId},
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/user/addFocus',
+                    data: {'userId': userId, 'focusId': focusId},
                     cache: false,
-                    success:function (data) {
-                        if('correct'===data){  //如果业务操作成功
+                    success: function (data) {
+                        if ('correct' === data) {  //如果业务操作成功
                             $(".option_btn")
-                                    .css({'background-color':'rgb(180,180,180)','color':'white'});
+                                    .css({'background-color': 'rgb(180,180,180)', 'color': 'white'});
                             $(".option_btn span").text('取消特别关注');
                             layer.close(index);  //关闭当前弹窗
-                        }else{
+                        } else {
                             layer.alert("操作失败，请重试");
                             layer.close(index);  //关闭当前弹窗
                         }

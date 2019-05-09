@@ -6,8 +6,11 @@
     <link href="../../static/codemirror/lib/codemirror.css" rel="stylesheet" type="text/css">
     <link href="../../static/codemirror/addon/display/fullscreen.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../static/css/post.css">
+    <link href="../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <!-- 图片上传即使预览插件 -->
     <link rel="stylesheet" href="../../static/css/fileinput.min.css" />
+    <script type="text/javascript" src="../../static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/js/fileinput.min.js"></script>
     <script type="text/javascript" src="../../static/js/zh.js"></script>
 
@@ -62,8 +65,8 @@
 
             <div class="form-group">
                 <label class="prompt">上传图片：</label>
-                <input type="file" name="myfile" class="col-sm-10 myfile" data-ref="iurl" id="file0" value="" />
-                <input type="hidden" id="postContentImg" name="iurl" disabled class="form-control">
+                <input type="file" name="myfile" class="col-sm-10 myfile" multiple data-ref="iurl" value="" />
+                <input type="hidden" id="postContentImg" name="iurl" disabled class="form-control" />
             </div>
 
             <div class="cell">
@@ -97,65 +100,9 @@
                 }
             }
         });
-    })
-</script>
+    });
 
-<script>
-    function publishTopic() {
-        var postUserName = $("#userName").val();
-        var postTitle = $("#postTitle").val();
-        var postTabId = $("#nodes").val();
-        var tabName =  $("#nodes option:selected").text();  //获取标签名
-        var splitName = tabName.split("/");  //分割标签名
-        var postTabName = splitName[1];  //设置标签名
-        var postContent = $("span[role='presentation']").text().trim();
-        var picName = $("#file0").val();  //原本的图片名
-        var postContentImg = $("#postContentImg").val();//传入到后台的图片名
-        if(postTitle==""){
-            layer.alert("标题不能为空!",{icon:2});
-            return ;
-        }
-        if(postContent==""){
-            layer.alert("内容不能为空!",{icon:2});
-            return ;
-        }
-        else{
-            layer.confirm('确定发布吗？', {
-                title:'确认框'
-                ,time: 0 //不自动关闭
-                ,btn: ['确定','取消']
-                ,yes:function(index){
-                    layer.close(index);
-                    var ii = layer.load();
-                    //此处用setTimeout演示ajax的回调
-                    setTimeout(function(){
-                        $.ajax({
-                            url:'/post/releasePost',
-                            method:'POST',
-                            dataType:'JSON',
-                            data:{postUserName:postUserName,postTitle:postTitle,postTabId:postTabId,postTabName:postTabName,postContent:postContent,postContentImg:postContentImg},
-                            cache:false,
-                            async:true,
-                            success:function(data){
-                                if(data.msg==='发布成功'){
-                                    layer.alert('发布成功', {icon: 6});
-                                    setTimeout(function(){
-                                        window.location.href='/user/toIndex';
-                                        },1000);
-                                }else{
-                                    layer.msg('发布失败,请联系管理员!QQ:54930XXXX', {icon: 5});
-                                }
-                            }
-                        });
-                        layer.close(ii);
-                    }, 1000);
-                }
-            });
-        }
-    }
-</script>
-
-<script>
+    //初始化上传组件
     $(".myfile").fileinput({
         language : 'zh',
         uploadUrl:"/post/uploadPic",//上传的地址
@@ -214,6 +161,62 @@
     $('.myfile').on('filepreupload', function(event, data, previewId, index) {
         console.log("filepreupload");
     });
+
+</script>
+
+<script>
+    function publishTopic() {
+        var postUserName = $("#userName").val();
+        var postTitle = $("#postTitle").val();
+        var postTabId = $("#nodes").val();
+        var tabName =  $("#nodes option:selected").text();  //获取标签名
+        var splitName = tabName.split("/");  //分割标签名
+        var postTabName = splitName[1];  //设置标签名
+        var postContent = $("span[role='presentation']").text().trim();
+        var picName = $(".myfile").val();  //原本的图片名
+        var postContentImg = $("#postContentImg").val();//传入到后台的图片名
+        if(postTitle==""){
+            layer.alert("标题不能为空!",{icon:2});
+            return ;
+        }
+        if(postContent==""){
+            layer.alert("内容不能为空!",{icon:2});
+            return ;
+        }
+        else{
+            layer.confirm('确定发布吗？', {
+                title:'确认框'
+                ,time: 0 //不自动关闭
+                ,btn: ['确定','取消']
+                ,yes:function(index){
+                    layer.close(index);
+                    var ii = layer.load();
+                    //此处用setTimeout演示ajax的回调
+                    setTimeout(function(){
+                        $.ajax({
+                            url:'/post/releasePost',
+                            method:'POST',
+                            dataType:'JSON',
+                            data:{postUserName:postUserName,postTitle:postTitle,postTabId:postTabId,postTabName:postTabName,postContent:postContent,postContentImg:postContentImg},
+                            cache:false,
+                            async:true,
+                            success:function(data){
+                                if(data.msg==='发布成功'){
+                                    layer.alert('发布成功', {icon: 6});
+                                    setTimeout(function(){
+                                        window.location.href='/user/toIndex';
+                                        },1000);
+                                }else{
+                                    layer.msg('发布失败,请联系管理员!QQ:54930XXXX', {icon: 5});
+                                }
+                            }
+                        });
+                        layer.close(ii);
+                    }, 1000);
+                }
+            });
+        }
+    }
 </script>
 <script>
     $(function () {

@@ -206,7 +206,7 @@ public class UserController {
     /**
      * @Description: 游客进入页面之后，点击登录后出现的弹出层操作逻辑
      * @Param: []
-     * @return: java.util.Map<java.lang.String       ,       java.lang.Object>
+     * @return: java.util.Map<java.lang.String               ,               java.lang.Object>
      * @Author: zhaoyy
      * @Date: 2019/4/8 13:41
      */
@@ -235,7 +235,6 @@ public class UserController {
     @RequestMapping("/getFocus/{user_id}")
     public String getFocus(@PathVariable("user_id") int user_id, HttpServletRequest request) {
         request.getSession().setAttribute("user", request.getSession().getAttribute("user"));
-        User user = userService.getUserById(user_id);
         String focusUserIdByUid = focusService.getFocusUserIdByUid(user_id);
         System.out.println("所有关注的用户id字符串:" + focusUserIdByUid);
         String[] arr = focusUserIdByUid.split(";");
@@ -300,61 +299,6 @@ public class UserController {
     }
 
     /**
-     * @Description: 用来取消特别关注的controller
-     * @Param: [] 第一个参数是当前用户的id,第二个参数是被关注那个用户的id
-     * @return: java.lang.String
-     * @Author: zhaoyy
-     * @Date: 2019/4/24 16:25
-     */
-    @RequestMapping(value = "/cancelFocus")
-    @ResponseBody
-    public String cancelFocus(int userId, int focusId, HttpServletRequest request) {
-        Focus focused = focusService.getFocusByUid(userId);  //首先获取当前用户所对应的的Focus实体
-        System.out.println("操作完成前focused:" + focused.getFocusedId());
-        String focusedId = focused.getFocusedId(); //获取Focus实体中对应的关注用户的id字符串
-        int index = focusedId.indexOf(String.valueOf(focusId));
-        StringBuffer sb = new StringBuffer(focusedId);
-        //数据格式是1;2;3;这种
-        sb.deleteCharAt(index);  //删除一个之后索引原来的位置上就变成一个;
-        sb.deleteCharAt(index);  //然后继续删除该位置上的;就成了最后新的字符串
-        String resultStr = sb.toString();
-        focused.setFocusedId(resultStr);
-        //下面操作用户的关注数量
-        User currentUser = userService.getUserById(userId);
-        if (currentUser.getFocusNumber() == 0) {
-            currentUser.setFocusNumber(0);
-        } else {
-            currentUser.setFocusNumber(currentUser.getFocusNumber() - 1);
-        }
-        //重新设置用户信息
-        request.getSession().setAttribute("user", currentUser);
-        //更新
-        int userResult = userService.updateUser(currentUser);
-
-        if (currentUser.getFocusNumber() == 0) {
-            //如果得到关注数为0，直接删除focus数据库对应的一整行数据
-            int deleteResult = focusService.deleteFocusByUid(userId);
-            System.out.println("操作完成后focused:" + focused.getFocusedId());
-            if (userResult < 0 || deleteResult < 0) {
-                //有一个失败则操作失败
-                return JSONArray.toJSONString("error");
-            } else {
-                return JSONArray.toJSONString("correct");
-            }
-        } else {
-            //如果关注数不是0,则更新对应的行数据
-            int focusResult = focusService.updateFocus(focused);
-            System.out.println("操作完成后focused:" + focused.getFocusedId());
-            if (userResult < 0 || focusResult < 0) {
-                //有一个失败则操作失败
-                return JSONArray.toJSONString("error");
-            } else {
-                return JSONArray.toJSONString("correct");
-            }
-        }
-    }
-
-    /**
      * @Description: 添加关注
      * @Param: [userId, focusId]
      * @return: java.lang.String
@@ -373,10 +317,10 @@ public class UserController {
             String resultStr = sb.toString();
             focus.setFocusedId(resultStr);
             //下面操作用户的关注数量
-            currentUser.setFocusNumber(currentUser.getFocusNumber() + 1);
+            currentUser.setFocusNumber(1);
             //重新设置用户信息
-            request.getSession().setAttribute("user", currentUser);
             int userResult = userService.updateUser(currentUser);
+            request.getSession().setAttribute("user", currentUser);
             int focusResult = focusService.addFocus(focus);
             //更新
             System.out.println("操作完成后focused:" + focus.getFocusedId());
@@ -395,11 +339,10 @@ public class UserController {
             String resultStr = sb.toString();
             focused.setFocusedId(resultStr);
             //下面操作用户的关注数量
-
             currentUser.setFocusNumber(currentUser.getFocusNumber() + 1);
+            int userResult = userService.updateUser(currentUser);
             //重新设置用户信息
             request.getSession().setAttribute("user", currentUser);
-            int userResult = userService.updateUser(currentUser);
             int focusResult = focusService.updateFocus(focused);
             //更新
             System.out.println("操作完成后focused:" + focused.getFocusedId());
@@ -412,4 +355,71 @@ public class UserController {
         }
     } //
 
+    /**
+     * @Description: 用来取消特别关注的controller
+     * @Param: [] 第一个参数是当前用户的id,第二个参数是被关注那个用户的id
+     * @return: java.lang.String
+     * @Author: zhaoyy
+     * @Date: 2019/4/24 16:25
+     */
+    @RequestMapping(value = "/cancelFocus")
+    @ResponseBody
+    public String cancelFocus(int userId, int focusId, HttpServletRequest request) {
+        Focus focused = focusService.getFocusByUid(userId);  //首先获取当前用户所对应的的Focus实体
+        System.out.println("操作完成前focused:" + focused.getFocusedId());
+        String focusedId = focused.getFocusedId(); //获取Focus实体中对应的关注用户的id字符串
+        int index = focusedId.indexOf(String.valueOf(focusId));
+        if (index >= 0) {
+            StringBuilder sb = new StringBuilder(focusedId);
+            //单线程StringBuilder更快
+            //数据格式是1;2;3;这种
+            sb.deleteCharAt(index);  //删除一个之后索引原来的位置上就变成一个;
+            sb.deleteCharAt(index);  //然后继续删除该位置上的;就成了最后新的字符串
+            String resultStr = sb.toString();
+            focused.setFocusedId(resultStr);
+            //下面操作用户的关注数量
+            User currentUser = userService.getUserById(userId);
+            currentUser.setFocusNumber(currentUser.getFocusNumber() - 1);
+            //重新设置用户信息
+
+            if (currentUser.getFocusNumber() == 0) {
+                //如果得到关注数为0，直接删除focus数据库对应的一整行数据
+                int deleteResult = focusService.deleteFocusByUid(userId);
+                if (deleteResult < 0) {
+                    //如果删除失败
+                    return JSONArray.toJSONString("error");
+                } else {
+                    //更新
+                    int userResult = userService.updateUser(currentUser);
+                    if(userResult < 0){
+                        return JSONArray.toJSONString("error");
+                    }else{
+                        request.getSession().setAttribute("user", currentUser);
+                        return JSONArray.toJSONString("correct");
+                    }
+
+                }
+            } else {
+                //如果关注数不是0,则更新对应的行数据
+                int focusResult = focusService.updateFocus(focused);
+                System.out.println("操作完成后focused:" + focused.getFocusedId());
+                if (focusResult < 0) {
+                    //有一个失败则操作失败
+                    return JSONArray.toJSONString("error");
+                }else{
+                    //更新
+                    int userResult = userService.updateUser(currentUser);
+                    if(userResult >= 0){
+                        request.getSession().setAttribute("user", currentUser);
+                        return JSONArray.toJSONString("correct");
+                    }else{
+                        return JSONArray.toJSONString("error");
+                    }
+                }
+            }
+        }else{
+            //未找到关注的id
+            return JSONArray.toJSONString("error");
+        }
+    }
 }

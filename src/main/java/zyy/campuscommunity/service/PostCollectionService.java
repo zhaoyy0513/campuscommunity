@@ -13,7 +13,7 @@ import java.util.List;
 public interface PostCollectionService {
     int insertPostCollection(PostCollection postCollection);
     int updataPostCollection(PostCollection postCollection);
-    int deletePostCollection(int Pid);
+    int deletePostCollection(int Uid);
     PostCollection getPostCollectionByUid(int Uid);
     List<PostCollection> selectPostCollectionsByUid(int userId);
 }

@@ -113,14 +113,21 @@
     </dependencies>
 
     <build>
-        <!--不拦截字体-->
         <resources>
+            <!--配置打包时字体文件不被maven拷贝，导致字体文件破坏-->
             <resource>
-                <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <excludes>
-                    <exclude>static/bootstrap-3.3.7-dist/fonts/*</exclude>
+                    <exclude>static/**</exclude>
                 </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/**</include>
+                </includes>
             </resource>
         </resources>
 

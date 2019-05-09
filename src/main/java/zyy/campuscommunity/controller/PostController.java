@@ -148,14 +148,18 @@ public class PostController {
         }
         //查看帖子是否是收藏过的，用来设置属性
         User user = (User)request.getSession().getAttribute("user");
-        PostCollection postCollection = postCollectionService.getPostCollectionByUid(user.getId());//获取该用户对应的收藏表
-        String postCollectStr = postCollection.getPostId();//从收藏表中获取收藏字符串
-        int index = postCollectStr.indexOf(String.valueOf(postId));
-        if(index>0){
-            //如果关注了，那么就设置状态为已经收藏
-            request.getSession().setAttribute("status", "collected");
-        }else{
+        if(user.getPostCollectionNum()==0){
             request.getSession().setAttribute("status", "uncollected");
+        }else{
+            PostCollection postCollection = postCollectionService.getPostCollectionByUid(user.getId());//获取该用户对应的收藏表
+            String postCollectStr = postCollection.getPostId();//从收藏表中获取收藏字符串
+            int index = postCollectStr.indexOf(String.valueOf(postId));
+            if(index >= 0){
+                //如果关注了，那么就设置状态为已经收藏
+                request.getSession().setAttribute("status", "collected");
+            }else{
+                request.getSession().setAttribute("status", "uncollected");
+            }
         }
         model.addObject("post", post);
         model.addObject("replies", replies);

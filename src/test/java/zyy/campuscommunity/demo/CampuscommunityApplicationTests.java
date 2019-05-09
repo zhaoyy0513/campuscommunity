@@ -22,8 +22,8 @@ public class CampuscommunityApplicationTests {
 
     @Test
     public void testCount(){
-        int result = replyService.getLastReplyId();
-        System.out.println(result);
+        System.out.println(System.currentTimeMillis());
+        System.out.println(System.currentTimeMillis());
     }
 
 
