@@ -15,7 +15,7 @@ body{
     width: 270px;
     height: 270px;
     float: right;
-    bottom: 320px;
+    bottom: 52.5%;
     left: 79%;
     background-color: white;
 }
@@ -158,7 +158,9 @@ td, th {
     width: 10%;
     height: 100%;
     margin-left: 15%;
+    background-size: cover;
     background-image: url("../img/aurora.PNG");
+    overflow: hidden;
 }
 #header_searchBar{
     margin-top: -3%;

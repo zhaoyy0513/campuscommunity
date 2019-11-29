@@ -5,7 +5,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CommonController {
-		
+
+	@RequestMapping("/setting")
+	public String goSetting() {
+		return "setting";
+	}
+
+	@RequestMapping("/timeline")
+	public String goTimeLine(){return "timeline";}
+
 	@RequestMapping("/")
 	public String goLogin() {
 		return "login";

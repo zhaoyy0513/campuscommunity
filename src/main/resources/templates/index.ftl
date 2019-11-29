@@ -2,36 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>社区主页</title>
+    <title>Aurora>社区主页</title>
     <#include "css.ftl" />
     <link rel="stylesheet" href="/static/css/index.css">
     <#include "js.ftl" />
     <script type="text/javascript" src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="index_header">
-    <div id="header_logo"></div>
-    <div class="col-lg-3" id="header_searchBar">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-    <div id="header_option">
-        <a href="/user/toIndex">首页</a>
-            <#if user??>
-                 <a href="#">${user.userName}</a>
-            <#else>
-                 <a href="/user/toLogin">请登录</a>
-            </#if>
-        <a href="#">时间轴</a>
-        <a href="#">设置</a>
-        <a href="/user/logout">退出</a>
-    </div>
-</div>
-
+<#include "head.ftl"/>
+<#include "touristLogin.ftl" />
 <div id="main_content">
     <div id="start_post" style="display: none;height: 40%;">
         <#include "user/post.ftl" />
@@ -45,7 +24,6 @@
     <div id="no_collection"  style="display: none;height: 40%;">
          <#include "user/noCollection.ftl" />
     </div>
-
     <div id="index_content">
         <div id="primary_title">
             <ul class="nav nav-pills">
@@ -160,7 +138,6 @@
 </body>
 <script>
     $(function () {
-        $("a").css("color","black");
         //给第一个li设置被选中属性
         $($("ul").children().get(0)).addClass("active");
         //给一级标题设置点击事件，添加和删除相应的样式
@@ -329,11 +306,5 @@
 
         });
     })
-</script>
-
-<script>
-    layui.use('element', function () {
-        var element = layui.element;
-    });
 </script>
 </html>

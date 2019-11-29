@@ -1,12 +1,18 @@
 package zyy.campuscommunity.controller;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import zyy.campuscommunity.entity.BaseResult;
 import zyy.campuscommunity.entity.Post;
 import zyy.campuscommunity.entity.Tab;
+import zyy.campuscommunity.entity.User;
 import zyy.campuscommunity.service.PostService;
 import zyy.campuscommunity.service.TabService;
 
@@ -19,6 +25,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/tab")
+@CrossOrigin()
 public class TabController {
     @Autowired
     TabService tabService;
@@ -98,7 +105,19 @@ public class TabController {
     @ResponseBody
     @RequestMapping(value = "/getAllTabs")
     public Map getAllTabs(HttpServletRequest request,Model model) {
+        User user = (User)request.getSession().getAttribute("user");
         List<Tab> tabs = tabService.getAllTabs();
+        List<Tab> collegetabs = tabService.getTabsByParentId(8); //获取所有学院事务选项，当用户是教师的时候使用
+       if(user.getUserRole()!=2){
+           //如果用户不是老师就不让其能发布学院事务贴
+           for(int i=0;i<collegetabs.size();i++){
+               Tab tab = collegetabs.get(i);
+               if(tabs.contains(tab)){  //Tab实体类已经重写了equals方法，可以直接判断是否包含
+                   int index = tabs.indexOf(tab);
+                   tabs.remove(index);
+               }
+           }
+       }
         Collections.sort(tabs, new Comparator<Tab>() {
             public int compare(Tab o1, Tab o2) {
                 //对tab进行排序，使字数长的放在后面显示
@@ -120,10 +139,95 @@ public class TabController {
                 map.put(child_id, new_union_name);
             }
         }
-//        for(Map.Entry entry:map.entrySet()){
-//            System.out.println(entry.getKey()+"||"+entry.getValue());
-//        }
         return map;
     }
+
+
+    //root后台管理根据分页查询标签
+    @RequestMapping(value = "/getTabsByPage")
+    @ResponseBody
+    public BaseResult getTabsByPage(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "15") Integer rows){
+        PageHelper.startPage(page,rows);
+        List<Tab> list = tabService.getAllTabs();
+        PageInfo<Tab> info = new PageInfo<>(list);
+        BaseResult baseResult = new BaseResult();
+        baseResult.setTotal(info.getTotal());
+        baseResult.setData(info.getList());
+        return baseResult;
+    }
+
+    //root后台管理用来根据Tid获取单个Tab用于查看和修改
+    @RequestMapping(value = "/getTabByIdRoot/{Tid}")
+    @ResponseBody
+    public Tab getTabByIdRoot(@PathVariable("Tid") int Tid){
+        Tab tab = null;
+        try{
+            tab = tabService.getTabById(Tid);
+            return tab;
+        }catch (Exception e){
+            System.out.println("getTabByIdRoot"+e.getCause().getMessage());
+            return tab;
+        }
+    }
+
+    //root后台管理通过id修改标签信息
+    @RequestMapping(value = "/updateTabByIdRoot/{Tid}")
+    @ResponseBody
+    public String updateTabByIdRoot(@PathVariable("Tid") int Tid, HttpServletRequest request){
+        Tab tab = JSON.parseObject(request.getParameter("tab"),Tab.class);
+        System.out.println(tab.toString());
+        tab.setId(Tid);
+        //这里填修改的属性
+       int result =  tabService.updateTab(tab);
+       if(result<0){
+           return "修改失败";
+       }else{
+           return  "修改成功";
+       }
+    }
+
+    //root管理界面模糊查询标签
+    @RequestMapping(value = "/getTabsByLike/{likeStr}")
+    @ResponseBody
+    public List<Tab> getTabsByLike(@PathVariable("likeStr") String likeStr){
+        List<Tab> tab = new ArrayList<>();
+        try{
+            return tabService.getTabsByLike(likeStr);
+        }catch (Exception e){
+            System.out.println("getTabsByLike"+e.getCause().getMessage());
+            return tab;
+        }
+    }
+
+    //通过标签Id进行标签的删除
+    @RequestMapping(value = "/deleteTabByIdRoot/{Tid}")
+    @ResponseBody
+    public String deleteTabByIdRoot(@PathVariable("Tid") int Tid){
+        int result = tabService.deleteTabById(Tid);
+        if(result<0){
+            return "删除失败";
+        }else{
+            return "删除成功";
+        }
+    }
+
+    //root添加标签
+    @RequestMapping(value = "/insertTabByRoot")
+    @ResponseBody
+    public String insertTabByRoot(HttpServletRequest request){
+        Tab tab = JSON.parseObject(request.getParameter("tab"),Tab.class);
+        int result = tabService.insertTab(tab);;
+        if(result<0){
+            return "添加失败";
+        }else{
+            return "添加成功";
+        }
+    }
+
+
+
+
+
+
 
 }

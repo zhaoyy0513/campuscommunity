@@ -6,25 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-import zyy.campuscommunity.entity.Tab;
-import zyy.campuscommunity.service.ReplyService;
-import zyy.campuscommunity.service.TabService;
-import zyy.campuscommunity.service.UserService;
+import zyy.campuscommunity.entity.*;
+import zyy.campuscommunity.service.*;
+import zyy.campuscommunity.util.AuthService;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CampuscommunityApplicationTests {
     @Autowired
-    ReplyService replyService;
+    PostService postService;
 
     @Test
-    public void testCount(){
-        System.out.println(System.currentTimeMillis());
-        System.out.println(System.currentTimeMillis());
+    public void getCollegeDistribute(){
+        System.out.println(AuthService.getAuth());
     }
+
 
 
 }

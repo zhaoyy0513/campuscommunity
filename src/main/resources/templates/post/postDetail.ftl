@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Aurora>帖子详情</title>
 </head>
 <#include "../css.ftl" />
 <link rel="stylesheet" href="../../static/css/postDetail.css">
@@ -10,29 +10,8 @@
 <script type="text/javascript" src="../../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../static/layui/layui.js"></script>
 <body style="background-color: whitesmoke;">
-<div id="index_header">
-    <div id="header_logo"></div>
-    <div class="col-lg-3" id="header_searchBar">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-    <div id="header_option">
-        <a href="/user/toIndex">首页</a>
-            <#if user??>
-                 <a href="#">${user.userName}</a>
-            <#else>
-                 <a href="/user/toLogin">请登录</a>
-            </#if>
-        <a href="#">时间轴</a>
-        <a href="#">设置</a>
-        <a href="/user/logout">退出</a>
-    </div>
-</div>
-
+<#include "../head.ftl"/>
+<#include "../touristLogin.ftl" />
 <div id="main_content">
     <div id="start_post" style="display: none;height: 40%;">
         <#include "../user/post.ftl" />
@@ -43,16 +22,17 @@
     <div id="no_unread" style="display: none;height: 40%;">
          <#include "../user/noUnread.ftl" />
     </div>
-    <div id="no_collection"  style="display: none;height: 40%;">
+    <div id="no_collection" style="display: none;height: 40%;">
          <#include "../user/noCollection.ftl" />
     </div>
     <div id="tabAllMain">
         <div class="box" style="border-bottom: 0;">
             <div class="header">
-                <div class="fr"><a href="#"><img
+                <div class="fr"><a href="/user/userInfo/${post.postUserId}"><img
                         src="../../static/img/portrait.png" class="avatar"
                         border="0" align="default"></a></div>
-                <a style="color: deepskyblue;" href="/user/toIndex">ZZUI</a> <span class="chevron">&nbsp;›&nbsp;</span>
+                <a style="color: deepskyblue;" href="/user/toIndex">Aurora</a> <span
+                    class="chevron">&nbsp;›&nbsp;</span>
                 <a href="/post/tabId/${post.postTabId}">${post.postTabName}</a>
                 <div class="sep10"></div>
                 <h1>${post.postTitle}</h1>
@@ -71,51 +51,87 @@
         </div>
 
         <div id="replies_head_info">
-            <p>${post.postReplyCount}回复</p>
+            <p style="font-weight: 600;"><span>${post.postReplyCount}</span>条回复</p>
         </div>
 
         <div id="replies">
         <#if replies?? >
             <#list replies as reply>
-            <div class="cell">
-                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                    <tbody>
-                    <tr>
-                        <td width="48" valign="top" align="center"><a href="/user/userInfo/${reply.replyUserId}"><img
-                                src="../../static/img/portrait.png" class="avatar" border="0" align="default"></a></td>
-                        <td width="10" valign="top"></td>
-                        <td width="auto" valign="top" align="left">
-                            <div class="sep3"></div>
-                            <strong><a href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp;
-                            &nbsp;<span style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
-                            <span id="reply_floor">
-                                ${reply.replyFloor}
-                            </span>
+                <#if (reply.replyUserId)==(user.id)>
+                          <div class="cell">
+                              <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                  <tbody>
+                                  <tr>
+                                      <td width="48" valign="top" align="center"><a
+                                              href="/user/userInfo/${reply.replyUserId}"><img
+                                              src="../../static/img/portrait.png" class="avatar" border="0"
+                                              align="default"></a></td>
+                                      <td width="10" valign="top"></td>
+                                      <td width="auto" valign="top" align="left">
+                                          <div class="sep3"></div>
+                                          <strong><a
+                                                  href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp;
+                                          &nbsp;<span
+                                              style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
+                                          <span id="reply_floor">
+                                              ${reply.replyFloor}
+                                          </span>
+                                          <div class="sep5"></div>
+                                          <div class="reply_content">${reply.replyContent}</div>
+                                      </td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                              <a params="${reply.id}/${reply.postId}"
+                                 style="cursor: pointer; background-color: orangered;display:inline-block;margin:-4.7% 4% 0 0 ;float: right;"
+                                 class="count_livid delete_reply">删除</a>
+                          </div>
+                <#else>
+                      <div class="cell">
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                              <tbody>
+                              <tr>
+                                  <td width="48" valign="top" align="center"><a
+                                          href="/user/userInfo/${reply.replyUserId}"><img
+                                          src="../../static/img/portrait.png" class="avatar" border="0" align="default"></a>
+                                  </td>
+                                  <td width="10" valign="top"></td>
+                                  <td width="auto" valign="top" align="left">
+                                      <div class="sep3"></div>
+                                      <strong><a
+                                              href="/user/userInfo/${reply.replyUserId}">${reply.replyUserName}</a></strong>&nbsp;
+                                      &nbsp;<span
+                                          style="font-size: 12px;color: darkgray;">${reply.replyTimeSimple}</span>
+                                      <span id="reply_floor">
+                                          ${reply.replyFloor}
+                                      </span>
+                                      <a class="reply_icon" style="margin-right: 12px;float: right;" href="#"
+                                         onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');"><img
+                                              src="../../static/img/reply.png" border="0" alt="Reply"></a>
+                                      <a style="margin-right: 14px;float: right;text-decoration: none; display: none;"
+                                         href="#"
+                                         onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');">回复</a>
+                                      <div class="sep5"></div>
+                                      <div class="reply_content">${reply.replyContent}</div>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
 
-                            <a class="reply_icon" style="margin-right: 12px;float: right;" href="#"
-                               onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');"><img
-                                    src="../../static/img/reply.png" border="0" alt="Reply"></a>
-                            <a style="margin-right: 14px;float: right;text-decoration: none; display: none;" href="#"
-                               onclick="replyOne('${reply.replyUserId}','${reply.replyUserName}');">回复</a>
-                            <div class="sep5"></div>
-                            <div class="reply_content">${reply.replyContent}</div>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                </#if>
+
             </#list>
         <#else>
-
         </#if>
         </div>
         <#if (user.userName)=='游客'>
-            <h1><a href="#" id="tourist_login">游客暂不支持回复，回复请登录</a></h1>
+            <h1><a style="cursor: pointer;" class="tourist_reply">游客暂不支持回复，回复请登录</a></h1>
         <#else>
             <div id="replyRefer">
                 <div id="replyRefer_header">
                     <p id="first_p">添加一条新回复</p>
-                    <p id="second_p"><a href="#" class="change_a">↑回到顶部</a></p>
+                    <p id="second_p"><a style="cursor: pointer;" class="back_top">↑回到顶部</a></p>
                 </div>
                 <form class="layui-form" action="/reply/addReply/${post.id}" method="post" id="reply_form">
                     <input type="hidden" name="replyUserId" value="${user.id}"/>
@@ -129,31 +145,9 @@
                     </div>
                 </form>
                 <hr style="color: #E2E2E2"/>
-                <p id="third_p"><a href="/user/toIndex" class="change_a">←ZZUI</a></p>
+                <p id="third_p"><a href="/user/toIndex" class="change_a">←Aurora</a></p>
             </div>
         </#if>
-
-        <div id="Login" style="display: none;">
-            <form class="layui-form layui-form-pane">
-                <div class="layui-form-item" style="margin: 2% 0 0 5%;">
-                    <label class="layui-form-label">用户名</label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="tourist_userName" lay-verify="required" placeholder="请输入用户名"
-                               autocomplete="on" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item" style="margin: 2% 0 0 5%;">
-                    <label class="layui-form-label">密 码</label>
-                    <div class="layui-input-inline">
-                        <input type="password" id="tourist_userPwd" lay-verify="required" placeholder="请输入密码"
-                               autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <span style="margin: 4% 0 0 6%;"><a href="#">忘记密码?</a></span>
-                <br/>
-                <input lay-submit type="button" style="margin: 2% 0 0 5%;" class="layui-btn" value="登陆" id="login_btn">
-            </form>
-        </div>
 <#if (user.userName)!='游客'>
     <div id="index_rightNavigation">
         <div class="cell">
@@ -178,7 +172,9 @@
                 <tr style="text-align: center;">
                     <td width="33%"><a style="cursor: pointer;" class="unread_a"
                                        Gohref="/unread/unreadsByUid/${user.id}">${user.unreadMessage}</a></td>
-                    <td width="34%"><a style="cursor: pointer;" class="collection_a" Gohref="/postCollection/getCollections/${user.id}">${user.postCollectionNum}</a></td>
+                    <td width="34%"><a style="cursor: pointer;" class="collection_a"
+                                       Gohref="/postCollection/getCollections/${user.id}">${user.postCollectionNum}</a>
+                    </td>
                     <td width="33%"><a style="cursor: pointer;" class="focus_a"
                                        Gohref="/user/getFocus/${user.id}">${user.focusNumber}</a></td>
                 </tr>
@@ -194,8 +190,9 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                 <tbody>
                 <tr>
-                    <td width="40"><a style="cursor: pointer;" class="create_post"><span class="glyphicon glyphicon-pencil" width="32"
-                                                     border="0"></span></a>
+                    <td width="40"><a style="cursor: pointer;" class="create_post"><span
+                            class="glyphicon glyphicon-pencil" width="32"
+                            border="0"></span></a>
                     </td>
                     <td width="10"></td>
                     <td width="auto" valign="middle" align="left"><a style="cursor: pointer;"
@@ -212,14 +209,6 @@
     </div>
 </div>
 </body>
-
-<script>
-    layui.use(['form', 'layer'], function () {
-        var form = layui.form;
-        var layer = layui.layer;
-    });
-</script>
-
 <script>
     $(function () {
         //根据帖子是否被收藏，来设置按钮样式
@@ -228,33 +217,95 @@
             //如果已经收藏，则直接修改相应的属性,如果没有收藏，则使用默认的
             $("#collectBtn").attr("class", "btn btn-warning").text("取消收藏");
         }
-    })
-</script>
-<script>
-    $(function () {
+
         //回复按钮的逻辑
         $(".reply_icon").mouseover(function () {
             $(this).next().css("display", "block");
-        });
-        $(".reply_icon").next().mouseout(function () {
+        }).next().mouseout(function () {
             $(this).css("display", "none");
         });
-    });
 
+        //回到顶部按钮的点击事件(过渡动画)
+        //var timer=null;
+        $(".back_top").click(function () {
+            $('body,html').animate({scrollTop: 0}, 300);
+            return false;
+            // cancelAnimationFrame(timer);
+            // timer = requestAnimationFrame(function fn(){
+            //     var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            //     if(oTop > 0){
+            //         document.body.scrollTop = document.documentElement.scrollTop = oTop - 30;
+            //         timer = requestAnimationFrame(fn);
+            //     }else{
+            //         cancelAnimationFrame(timer);
+            //     }
+            // });
+        });
+
+        //删除回复的点击事件
+        $(".delete_reply").click(function () {
+            var parent = $(this).parent();
+            var replyConut = $("#replies_head_info p>span").text();
+            var params = $(this).attr("params").split('/');
+            var Rid = params[0];
+            var Pid = params[1];
+
+            layer.confirm('确定删除此回复吗', {
+                btn: ['确定', '取消'] //选项按钮
+            }, function () {
+                //点击确定之后跳转的
+                $.ajax({
+                    url: '/reply/deleteReply',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: {'Rid': Rid, 'Pid': Pid},
+                    async: false,
+                    cache: false,
+                    success: function (res) {
+                        if ('success' === res) {
+                            layer.msg("删除回复成功!", {icon: 6, time: 2000});
+                            $("#replies_head_info p>span").text(parseInt(replyConut)-1);
+                            parent.fadeOut();
+                        } else {
+                            layer.alert("删除回复失败!,请联系管理员", {icon: 5});
+                        }
+                    },
+                    error: function () {
+                        layer.alert("连接服务器异常!,请联系管理员", {icon: 5});
+                    }
+                });
+            }, function () {
+                layer.close();
+            });
+        });
+
+        //回复区登录操作,#Login的内容在上面include(touristLogin.ftl里)
+        $(".tourist_reply").click(function () {
+            //自定页
+            layer.open({
+                title: '登录',
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                anim: 2,
+                area: ['420px', '250px'], //宽高
+                content: $('#Login'),
+            });
+        });
+
+
+    })
 </script>
-
 <script>
     function replyOne(toId, toName) { //添加回复给某个用户功能的按钮
         //第一个参数是目的用户的id，第二个参数是目的用户的用户名
         //进入这个方法后获取焦点，并将要回复的名字写入到里面
         $("input[name='infoTo']").val(toId);
-        //focus可能会失效，这里设置个定时器函数进行 功能的实现
+        //focus可能会失效，这里设置个定时器函数进行功能的实现
         setTimeout(function () {
             $("#replyTextArea").focus().text('@' + toName + ' ');
         }, 100);
     }
 </script>
-
 
 <script>
     $(function () {
@@ -297,7 +348,6 @@
             }
         });
 
-
         //给特别关注的a标签添加点击事件
         $(".focus_a").click(function () {
             if ($(this).text() !== "0") {
@@ -324,6 +374,11 @@
             var toCancelUrl = '/postCollection/cancelCollect/' + post_id;
             var collection_a = $(".collection_a").text();
             if ("添加收藏" === btnText) {
+                if (user_id === '0') {
+                    layer.msg("游客暂不支持收藏，请先登录");
+                    layer.close();
+                    return;
+                }
                 //如果在下面确定选项中直接$(this)获取的并不是要设置的按钮，因此提前设置好
                 layer.confirm('确定添加收藏吗？', {
                     btn: ['确定', '取消'] //按钮的选项
@@ -338,14 +393,14 @@
                         success: function (data) {
                             if ("success" === data) {
                                 btn.attr("class", "btn btn-warning").text("取消收藏");
-                                $(".collection_a").text(parseInt(collection_a)+1);
+                                $(".collection_a").text(parseInt(collection_a) + 1);
                                 layer.close(index);
                             } else {
-                                layer.alert("添加收藏失败", {icon: 5});
+                                layer.alert("添加收藏失败", {icon: 2});
                             }
                         },
                         error: function (data) {
-                            layer.alert("连接异常!,重试或联系管理员", {icon: 5});
+                            layer.alert("连接异常!,重试或联系管理员", {icon: 2});
                         }
                     });
                 }, function (index) {
@@ -367,14 +422,14 @@
                         success: function (data) {
                             if ("success" === data) {
                                 btn.attr("class", "btn btn-primary").text("添加收藏");
-                                $(".collection_a").text(parseInt(collection_a)-1);
+                                $(".collection_a").text(parseInt(collection_a) - 1);
                                 layer.close(index);
                             } else {
-                                layer.alert("添加收藏失败", {icon: 5});
+                                layer.alert("添加收藏失败", {icon: 2});
                             }
                         },
                         error: function (data) {
-                            layer.alert("连接异常!,重试或联系管理员", {icon: 5});
+                            layer.alert("连接异常!,重试或联系管理员", {icon: 2});
                         }
                     });
                 }, function (index) {
@@ -393,23 +448,67 @@
         //帖子回复点击事件
         $("#reply_btn").click(function () {
             var replyText = $("textarea[name='replyContent']").val();
+            var replyConut = $("#replies_head_info p>span").text();
             layer.confirm('确定提交回复吗', {
                 btn: ['确定', '取消'] //按钮
             }, function () {
                 //点击确定之后执行ajax代码，执行后台业务的操作
                 if (replyText == '') {
-                    layer.alert('回复不能为空', {icon: 5});
+                    layer.alert('回复不能为空', {icon: 2});
                 } else {
                     var replyArr = replyText.trim();
                     var pos = replyArr.indexOf("@");
+                    //不同的回复结果跳转不同的controller位置
                     if (pos != 0) {//如果索引位置不是0
                         //不等于0 表示用户@完用户之后 又将@这些去掉了，那么清空infoTo这个表单的内容
                         $("input[name='infoTo']").val("");
-                        $("#reply_form").submit();//让第一个form表单提交
+                        $.ajax({
+                            url:'/reply/replyValidate',
+                            method:'POST',
+                            dataType:'JSON',
+                            data:$("#reply_form").serialize(),
+                            cache:false,
+                            async:false,
+                            success:function (data) {
+                                if('success'===data.msg){
+                                    $("#replies_head_info p>span").text(parseInt(replyConut) + 1);
+                                    //action="/reply/addReply/${post.id}"
+                                    $("#reply_form").submit();//让第一个form表单提交
+                                }
+                                else{
+                                    layer.msg(data.msg,{icon:5,time: 5000});
+                                    return ;
+                                }
+                            },
+                            error:function () {
+                                layer.msg("连接服务器失败，请联系管理员",{icon:2});
+                            }
+                        });
+
                     } else {
                         //如果是用户@某个用户 则直接提交
                         var url = "/reply/replyUser/${post.id}";
-                        $("#reply_form").attr("action", url).submit();
+                        $.ajax({
+                            url:'/reply/replyValidate',
+                            method:'POST',
+                            dataType:'JSON',
+                            data:$("#reply_form").serialize(),
+                            cache:false,
+                            async:false,
+                            success:function (data) {
+                                if('success'===data.msg){
+                                    $("#replies_head_info p>span").text(parseInt(replyConut) + 1);
+                                    $("#reply_form").attr("action", url).submit();
+                                }
+                                else{
+                                    layer.msg(data.msg,{icon:5,time:5000});
+                                    return ;
+                                }
+                            },
+                            error:function () {
+                                layer.msg("连接服务器失败，请联系管理员",{icon:2});
+                            }
+                        });
                     }
                 }
             }, function () {
@@ -417,59 +516,6 @@
                 layer.close();
             });
         });
-
-        //用户登录弹出层点击事件
-        $("#tourist_login").click(function () {
-            //自定页
-            layer.open({
-                title: '登录',
-                type: 1,
-                skin: 'layui-layer-demo', //样式类名
-                anim: 2,
-                area: ['420px', '250px'], //宽高
-                content: $('#Login'),
-            });
-        });
-
-        //登录按钮点击事件
-        $("#login_btn").click(function () {
-            var userName = $("#tourist_userName").val();
-            var pwd = $("#tourist_userPwd").val();
-            if (userName == '') {
-                layer.msg("用户名不能为空");
-                return;
-            }
-            if (pwd == '') {
-                layer.msg("密码不能为空");
-                return;
-            }
-            $.ajax({
-                type: 'POST',
-                url: '../../user/tourist_login',
-                dataType: 'JSON',
-                data: {userName: userName, userPwd: pwd},
-                async: true,
-                cache: false,
-                success: function (data) {
-                    if (data.msg === '验证通过') {
-                        layer.msg("登陆成功");
-                        setTimeout(function () {  //使用  setTimeout（）方法设定定时2000毫秒
-                            window.location.reload();//页面刷新
-                        }, 1000);
-                    }
-                    if (data.msg === '未找到该用户') {
-                        layer.msg("未找到该用户，请核对");
-                    }
-                    if (data.msg === '密码错误') {
-                        layer.msg("密码错误，请重新输入");
-                    }
-                },
-                error: function (data) {
-                    layer.msg("登陆失败，请查看输入是否有误,若无误请联系管理员！");
-                }
-            });
-        })
-
     });
 </script>
 </html>

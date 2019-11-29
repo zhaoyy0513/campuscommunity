@@ -6,7 +6,12 @@ body{
     background-repeat: repeat-x, repeat-x;
 }
 #header_logo{
+    width: 10%;
+    height: 100%;
+    margin-left: 15%;
+    background-size: cover;
     background-image: url("../img/aurora.PNG");
+    overflow: hidden;
 }
 #index_header{
     border-top: 1px solid white;
@@ -14,12 +19,6 @@ body{
     height: 50px;
     background-color: white;
     box-shadow:  darkgrey 0 1px 1px 1px ;//边框阴影;
-}
-#header_logo{
-    width: 10%;
-    height: 100%;
-    margin-left: 15%;
-    background-color: darkred;
 }
 #header_searchBar{
     margin-top: -3%;
@@ -68,7 +67,7 @@ table {
     float: right;
     width: 270px;
     height: 270px;
-    bottom: 320px;
+    bottom: 52.5%;
     left: 79%;
     background-color: white;
 }

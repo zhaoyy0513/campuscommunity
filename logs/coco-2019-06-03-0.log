@@ -1,0 +1,122 @@
+2019-06-03 13:53:21.370 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 50 ] - Starting CampuscommunityApplication on Zhaoyy_PC with PID 10552 (D:\workplace\ideaPlace\campuscommunity\target\classes started by Zhaoyy_PC in D:\workplace\ideaPlace\campuscommunity)
+2019-06-03 13:53:21.370 [ main ] - [ DEBUG ] [ zyy.campuscommunity.CampuscommunityApplication : 53 ] - Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2019-06-03 13:53:21.370 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 679 ] - The following profiles are active: dev
+2019-06-03 13:53:23.919 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-8088"]
+2019-06-03 13:53:23.919 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2019-06-03 13:53:23.919 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-06-03 13:53:23.936 [ main ] - [ INFO  ] [ org.apache.catalina.core.AprLifecycleListener : 173 ] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\tools\mysql5.7.12\mysql-5.7.12-winx64\bin;D:\tools\python3;C:\WINDOWS\System32\OpenSSH\;D:\tools\svn\bin;D:\tools\node\;C:\Users\Zhaoyy_PC\.app\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\Java\jre1.8.0_121\bin;D:\myIcon;;C:\Users\Zhaoyy_PC\AppData\Local\Microsoft\WindowsApps;D:\tools\vscode\Microsoft VS Code\bin;C:\Users\Zhaoyy_PC\AppData\Roaming\npm;.]
+2019-06-03 13:53:24.107 [ main ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring embedded WebApplicationContext
+2019-06-03 13:53:25.891 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-8088"]
+2019-06-03 13:53:25.904 [ main ] - [ INFO  ] [ org.apache.tomcat.util.net.NioSelectorPool : 173 ] - Using a shared selector for servlet write/read
+2019-06-03 13:53:25.924 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 59 ] - Started CampuscommunityApplication in 5.598 seconds (JVM running for 10.374)
+2019-06-03 14:07:20.205 [ http-nio-8088-exec-1 ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-03 14:07:20.315 [ http-nio-8088-exec-1 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 110 ] - HikariPool-1 - Starting...
+2019-06-03 14:07:21.123 [ http-nio-8088-exec-1 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 123 ] - HikariPool-1 - Start completed.
+2019-06-03 14:07:21.131 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-06-03 14:07:21.154 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-06-03 14:07:21.211 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-06-03 14:07:21.505 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:07:21.506 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:07:21.551 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:07:21.553 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:07:21.554 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:07:21.557 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:07:29.627 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-06-03 14:07:29.628 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-06-03 14:07:29.629 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-06-03 14:07:29.710 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:07:29.710 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:07:29.712 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:07:29.713 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:07:29.714 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:07:29.716 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:07:41.957 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-06-03 14:07:41.957 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:07:41.959 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:07:41.959 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-06-03 14:07:41.959 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-06-03 14:07:41.961 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-06-03 14:07:42.854 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM tab 
+2019-06-03 14:07:42.855 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:07:42.881 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:07:42.882 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab LIMIT ? 
+2019-06-03 14:07:42.882 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 15(Integer)
+2019-06-03 14:07:42.885 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 15
+2019-06-03 14:09:21.024 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM tab 
+2019-06-03 14:09:21.024 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:09:21.027 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:09:21.027 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab LIMIT ? 
+2019-06-03 14:09:21.027 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 15(Integer)
+2019-06-03 14:09:21.034 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 15
+2019-06-03 14:11:58.330 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM tab 
+2019-06-03 14:11:58.331 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:11:58.334 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:11:58.335 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab LIMIT ? 
+2019-06-03 14:11:58.336 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 15(Integer)
+2019-06-03 14:11:58.338 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 15
+2019-06-03 14:12:01.486 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:12:01.487 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:01.488 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:01.489 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:12:01.489 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:12:01.494 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:12:02.949 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-06-03 14:12:02.949 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:02.950 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:02.950 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-06-03 14:12:02.951 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-06-03 14:12:02.952 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-06-03 14:12:03.789 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM tab 
+2019-06-03 14:12:03.790 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:03.790 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:03.791 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab LIMIT ? 
+2019-06-03 14:12:03.792 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 15(Integer)
+2019-06-03 14:12:03.794 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 15
+2019-06-03 14:12:27.350 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-06-03 14:12:27.351 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-06-03 14:12:27.367 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-06-03 14:12:27.565 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:12:27.565 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:27.566 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:27.567 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:12:27.568 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:12:27.570 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:12:36.536 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-06-03 14:12:36.536 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:36.538 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:36.538 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-06-03 14:12:36.539 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-06-03 14:12:36.543 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-06-03 14:12:39.120 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:12:39.120 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:12:39.121 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:12:39.122 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:12:39.122 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:12:39.124 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:23:44.550 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:23:44.553 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:23:44.555 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:23:44.556 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:23:44.557 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:23:44.561 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:26:52.418 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-06-03 14:26:52.418 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:26:52.420 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:26:52.420 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-06-03 14:26:52.421 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-06-03 14:26:52.423 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-06-03 14:32:56.928 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-06-03 14:32:56.929 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-06-03 14:32:56.931 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-06-03 14:32:57.583 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-06-03 14:32:57.584 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:32:57.585 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:32:57.586 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-06-03 14:32:57.586 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-06-03 14:32:57.589 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-06-03 14:34:28.113 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM tab 
+2019-06-03 14:34:28.114 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - ==> Parameters: 
+2019-06-03 14:34:28.117 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectAllTabs_COUNT : 159 ] - <==      Total: 1
+2019-06-03 14:34:28.120 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab LIMIT ? 
+2019-06-03 14:34:28.121 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 15(Integer)
+2019-06-03 14:34:28.123 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 15

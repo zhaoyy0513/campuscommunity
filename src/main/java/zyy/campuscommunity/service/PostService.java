@@ -6,10 +6,13 @@ import java.util.List;
 
 public interface PostService {
     int insert(Post post);
-    Post getPostById(int id);
+    int deletePostById(int Pid);
     int updatePost(Post post);
+    int getLastPostNum();
+    Post getPostById(int id);
     List<Post> getPostByUid(int Uid);
+    List<Post> getPostByLike(String likeStr);
     List<Post> getPostByTabId(int tabId);
     List<Post> getPostByParentId(int parentId);
-    List<Post> selectAllPost();
+    List<Post> getAllPost();
 }

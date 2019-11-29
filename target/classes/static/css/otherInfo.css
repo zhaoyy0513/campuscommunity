@@ -19,7 +19,9 @@ body{
     width: 10%;
     height: 100%;
     margin-left: 15%;
+    background-size: cover;
     background-image: url("../img/aurora.PNG");
+    overflow: hidden;
 }
 #header_searchBar{
     margin-top: -3%;
@@ -35,62 +37,11 @@ body{
     font-size: 16px;
     text-decoration: none;
 }
-
-#index_content{
-    float: left;
-    margin-left: 10%;
-    margin-top: 1.5%;
-    width: 60%;
-    height: 40px;
-    background-color: white;
-}
 #main_article{
     clear: both;
     background-color: #FFFFFF;
 }
 
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: grey;
-}
-
-#main_article td {
-    display: table-cell;
-    vertical-align: inherit;
-}
-#main_content{
-    height: 600px;
-}
-
-textarea{
-    margin: 10px 0 0 30px;
-    padding: 5px;
-    width: 750px;
-    height: 112px;
-}
-.btn_group{
-    margin-top: 5px;
-    margin-left: 30px;
-    margin-bottom: 5px;
-}
-#primary_title{
-    height: 40px;
-}
-#secondary_title{
-    height: 40px;
-    background-color: #F9F9F9;
-}
-#secondary_title>span{
-    display: inline-block !important;
-    margin-top: 1%;
-    margin-left: 2%;
-}
-#secondary_title a{
-    font-size: 14px;
-    color: #4d5256;
-}
 .count_livid{
     line-height: 12px;
     font-weight: 700;
@@ -122,20 +73,19 @@ textarea{
     line-height: 200%;
 }
 #main_info{
-    width: 770px;
+    width: 50%;
     height: 100px;
-    margin: 2% 0 0 11%;
-    background-color: indianred;
+    margin: 1% 0 0 1%;
+    background-color: darkturquoise;
 }
 #main_info_left{
-    display:inline-block;
+    float: left;
     margin: 1% 0 0 1%;
 }
 #main_info_right{
-     display: inline-block;
      width: 106px;
      float: right;
-     margin: 1% 1% 0 0;
+     margin: 1% 0 0 10%;
  }
 .especial_btn{
     width: 103px;
@@ -160,21 +110,12 @@ textarea{
 }
 
 #tabAllMain{
-    width: 58%;
-    margin-left: 10%;
+    width: 50%;
+    margin-left: 0.2%;
     margin-top: 1%;
 }
 #main_content{
     height: 600px;
-}
-#index_rightNavigation{
-    position: fixed;
-    width: 270px;
-    height: 270px;
-    float: right;
-    bottom: 325px;
-    left: 79%;
-    background-color: white;
 }
 #allPostHeader{
     width: 100%;
@@ -232,16 +173,15 @@ textarea{
     border-bottom: 2px solid white;
 }
 .header{
-    margin: 1.5% 0 -0.9% 11%;
-    width: 56.5%;
+    margin: 1.5% 0 -0.9% 1%;
+    width: 50%;
     height: 35px;
     line-height: 35px;
     background-color: #FFFFFF;
     border: 1px solid #f0f0f0;
     box-shadow:  #f0f0f0 0 1px 1px 1px;
 }
-#postCount{
-    display: inline-block;
+#postCountSpan{
     float: right;
     margin-right: 2%;
 }
@@ -253,4 +193,23 @@ textarea{
 }
 .avatar{
     cursor: pointer;
+}
+.timeline{
+    width: 35%;
+    float: right;
+    margin:1% 5% 0 0;
+}
+.timeline_title{
+    height: 35px;
+    line-height: 35px;
+    background-color: #FFFFFF;
+    border: 1px solid #f0f0f0;
+    box-shadow:  #f0f0f0 0 1px 1px 1px;
+}
+.line_content{
+    margin-top: 10px;
+}
+.allTimeLine{
+    margin-top: 2px;
+    border-bottom: 1px solid #E2E2E2;
 }

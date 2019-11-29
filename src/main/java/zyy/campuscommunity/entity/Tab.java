@@ -3,9 +3,10 @@ package zyy.campuscommunity.entity;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @ToString
-public class Tab implements Serializable {
+public class Tab implements  Serializable{
     private Integer id;
 
     private String tabName;
@@ -13,6 +14,17 @@ public class Tab implements Serializable {
     private Integer parentId;
 
     private String tabDescribe;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tab tab = (Tab) o;
+        return Objects.equals(id, tab.id) &&
+                Objects.equals(tabName, tab.tabName) &&
+                Objects.equals(parentId, tab.parentId) &&
+                Objects.equals(tabDescribe, tab.tabDescribe);
+    }
 
     public Integer getId() {
         return id;
@@ -45,4 +57,6 @@ public class Tab implements Serializable {
     public void setTabDescribe(String tabDescribe) {
         this.tabDescribe = tabDescribe == null ? null : tabDescribe.trim();
     }
+
+
 }

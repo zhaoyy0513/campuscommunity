@@ -100,7 +100,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectAllUser" resultMap="BaseResultMap">
+  <select id="getAllUser" resultMap="BaseResultMap">
     select
     *
     from user

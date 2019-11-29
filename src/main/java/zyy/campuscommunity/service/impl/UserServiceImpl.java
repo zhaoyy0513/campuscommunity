@@ -16,11 +16,20 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserMapper userMapper;
-	
-	@Override
+
+    @Override
+    public int insertUser(User user) {
+        int result = userMapper.insert(user);
+        if (result < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
 	public User getUserById(int id) {
-		User user = userMapper.selectByPrimaryKey(id);
-		return user;
+		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -34,12 +43,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	/**
+	 * @Description: 通过姓名查找用户，用于登录验证
+	 * @Param: [String name]
+	 * @return: java.util.List<zyy.campuscommunity.entity.User>
+	 * @Author: zhaoyy
+	 * @Date: 2019/5/14 17:55
+	 */
 	public List<User> getUserByName(String name) {
 		UserExample example = new UserExample();
 		Criteria createCriteria = example.createCriteria();
 		createCriteria.andUserNameEqualTo(name);
-		List<User> user = userMapper.selectByExample(example);  //获取列表第一个用户
-		return user;
+		return userMapper.selectByExample(example);//获
 	}
 
 	@Override
@@ -50,7 +65,17 @@ public class UserServiceImpl implements UserService {
 	* @Author: zhaoyy
 	* @Date: 2019/5/6 13:33
 	*/ 
-	public List<User> selectAllUser() {
-		return userMapper.selectAllUser();
+	public List<User> getAllUser() {
+		return userMapper.getAllUser();
+	}
+
+	@Override
+	//模糊查询用户
+	public List<User> getUsersByLike(String likeStr) {
+		UserExample example = new UserExample();
+		Criteria criteria = example.createCriteria();
+		likeStr = "%"+likeStr+"%";
+		criteria.andUserNameLike(likeStr);
+		return userMapper.selectByExample(example);
 	}
 }

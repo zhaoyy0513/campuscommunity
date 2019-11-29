@@ -34,10 +34,50 @@ public class TabServiceImpl implements TabService {
     }
 
     @Override
+    public List<Tab> getTabsByLike(String likeStr) {
+        TabExample example = new TabExample();
+        TabExample.Criteria criteria = example.createCriteria();
+        likeStr = "%"+likeStr+"%";
+        criteria.andTabNameLike(likeStr);
+        return tabMapper.selectByExample(example);
+    }
+
+    @Override
+    public int insertTab(Tab tab) {
+         int result = tabMapper.insert(tab);
+         if(result<0){
+             return -1;
+         }else{
+             return 0;
+         }
+    }
+
+    @Override
     public int getTabParentIdByTabId(int id) {
         Tab tab = tabMapper.selectByPrimaryKey(id);
         int parentId = tab.getParentId();
         System.out.println("TabServiceImpl-parentId:"+parentId);
         return parentId ;
+    }
+
+    @Override
+    public int updateTab(Tab tab) {
+        int result = tabMapper.updateByPrimaryKey(tab);
+        if(result<0){
+            return -1;
+        }else{
+            return 0;
+        }
+
+    }
+
+    @Override
+    public int deleteTabById(int id) {
+        int result = tabMapper.deleteByPrimaryKey(id);
+        if(result<0){
+            return -1;
+        }else{
+            return 0;
+        }
     }
 }

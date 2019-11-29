@@ -2,36 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ZZUI>我的特别关注</title>
+    <title>Aurora>我的特别关注</title>
 </head>
 <#include "../css.ftl" />
 <link rel="stylesheet" href="../../static/css/index.css">
 <link rel="stylesheet" href="../../static/css/focusPosts.css">
 <#include "../js.ftl" />
 <body style="overflow-y:auto;">
-<div id="index_header">
-    <div id="header_logo"></div>
-    <div class="col-lg-3" id="header_searchBar">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                </span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-    <div id="header_option">
-        <a href="/user/toIndex">首页</a>
-            <#if user??>
-                 <a href="#">${user.userName}</a>
-            <#else>
-                 <a href="/user/toLogin">请登录</a>
-            </#if>
-        <a href="#">时间轴</a>
-        <a href="#">设置</a>
-        <a href="/user/logout">退出</a>
-    </div>
-</div>
-
+<#include "../head.ftl"/>
+<#include "../touristLogin.ftl" />
 <div id="main_content">
     <div id="start_post" style="display: none;height: 40%;">
         <#include "../user/post.ftl" />
@@ -83,11 +62,11 @@
                         </td>
                           <#if (post.postReplyCount)==0>
                               <td width="70" align="right" valign="middle">
-                                  <a href="#" class="count_livid">0</a>
+                                  <a href="/post/postDetail/${post.id}" class="count_livid">0</a>
                               </td>
                           <#else>
                                 <td width="70" align="right" valign="middle">
-                                    <a href="#" class="count_livid">${post.postReplyCount}</a>
+                                    <a href="/post/postDetail/${post.id}" class="count_livid">${post.postReplyCount}</a>
                                 </td>
                           </#if>
                     </tr>

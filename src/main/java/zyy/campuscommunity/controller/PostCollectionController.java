@@ -1,6 +1,6 @@
 package zyy.campuscommunity.controller;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +27,6 @@ public class PostCollectionController {
     @Autowired
     PostService postService;
 
-
     @RequestMapping(value = "/addCollect/{postId}")
     @ResponseBody
     /**
@@ -52,10 +51,10 @@ public class PostCollectionController {
                 if (updateU >= 0) {
                     request.getSession().setAttribute("user", user);
                 } else {
-                    return JSONArray.toJSONString("error");
+                    return JSONObject.toJSONString("error");
                 }
             } else {
-                return JSONArray.toJSONString("error");
+                return JSONObject.toJSONString("error");
             } //result>=0
         } else {
             //如果收藏数不为0
@@ -69,15 +68,15 @@ public class PostCollectionController {
                 user.setPostCollectionNum(postCollectionNum + 1);
                 int updateU = userService.updateUser(user);  //更新用户的收藏数
                 if (updateU < 0) {
-                    return JSONArray.toJSONString("error");
-                }else{
+                    return JSONObject.toJSONString("error");
+                } else {
                     request.getSession().setAttribute("user", user);
                 }
             } else {
-                return JSONArray.toJSONString("error");
+                return JSONObject.toJSONString("error");
             } //result
         }
-        return JSONArray.toJSONString("success");
+        return JSONObject.toJSONString("success");
     }
 
     @RequestMapping(value = "/cancelCollect/{postId}")
@@ -108,15 +107,15 @@ public class PostCollectionController {
                 int resultD = postCollectionService.deletePostCollection(userId);
                 if (resultD < 0) {
                     //如果删除失败
-                    return JSONArray.toJSONString("error");
+                    return JSONObject.toJSONString("error");
                 } else {
                     int updateU = userService.updateUser(user); //更新用户信息
                     if (updateU < 0) {
                         //如果更新用户失败
-                        return JSONArray.toJSONString("error");
+                        return JSONObject.toJSONString("error");
                     } else {
                         request.getSession().setAttribute("user", user);
-                        return JSONArray.toJSONString("success");
+                        return JSONObject.toJSONString("success");
 
                     }
                 }
@@ -124,34 +123,61 @@ public class PostCollectionController {
                 int updateP = postCollectionService.updataPostCollection(postCollection); //更新收藏表
                 if (updateP < 0) {
                     //更新帖子失败
-                    return JSONArray.toJSONString("error");
+                    return JSONObject.toJSONString("error");
                 } else {
                     int updateU = userService.updateUser(user); //更新用户信息
                     if (updateU >= 0) {
                         request.getSession().setAttribute("user", user);
-                        return JSONArray.toJSONString("success");
+                        return JSONObject.toJSONString("success");
                     } else {
-                        return JSONArray.toJSONString("error");
+                        return JSONObject.toJSONString("error");
                     }
                 }
             }
         } else {
             //未找到该帖子Id
-            return JSONArray.toJSONString("error");
+            return JSONObject.toJSONString("error");
         }
     }
 
     @RequestMapping(value = "/getCollections/{uid}")
-    public String getCollectionsByUid(@PathVariable("uid") int uid,HttpServletRequest request){
+    public String getCollectionsByUid(@PathVariable("uid") int uid, HttpServletRequest request) {
         PostCollection postCollection = postCollectionService.getPostCollectionByUid(uid);//获取该用户的关注列表
         String postIdStr = postCollection.getPostId();
         String[] strArr = postIdStr.split(";");
         List<Post> posts = new ArrayList<>();
+        int postCount=0;
         for (String s : strArr) {
-            Post post = postService.getPostById(Integer.valueOf(s));
-            posts.add(post);
+            try {
+                Post post = postService.getPostById(Integer.valueOf(s));
+                posts.add(post);
+                postCount++;
+            } catch (Exception e) {
+                //没有找到指定的帖子之后更新收藏表
+                int index = postIdStr.indexOf(s);
+                StringBuilder sb = new StringBuilder(postIdStr);
+                sb.delete(index, index + 2);
+                postCollection.setPostId(sb.toString());
+                int result = postCollectionService.updataPostCollection(postCollection);
+                //更新用户信息表
+                User user = userService.getUserById(uid);
+                user.setPostCollectionNum(user.getPostCollectionNum() - 1);
+                int updateU = userService.updateUser(user);
+                request.getSession().setAttribute("user",user);
+                if(updateU<0){
+                    System.out.println("更新用户信息失败");
+                }
+                if (result < 0||updateU<0) {
+                    break;
+                } else {
+                    System.out.println("帖子被删除之后，重新设置帖子收藏" + sb.toString());
+                    //这里为空代表收藏的帖子不存在
+                    break;
+                }
+            }
         }
-        request.getSession().setAttribute("Posts",posts);
+        request.getSession().setAttribute("postCount", postCount);
+        request.getSession().setAttribute("Posts", posts);
         return "post/collection";
     }
 

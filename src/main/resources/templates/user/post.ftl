@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ZZU->创建主题</title>
+    <title>Aurora>创建主题</title>
     <link href="../../static/codemirror/lib/codemirror.css" rel="stylesheet" type="text/css">
     <link href="../../static/codemirror/addon/display/fullscreen.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../../static/css/post.css">
-    <link href="../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <!-- 图片上传即使预览插件 -->
     <link rel="stylesheet" href="../../static/css/fileinput.min.css" />
     <script type="text/javascript" src="../../static/js/jquery-3.3.1.min.js"></script>
@@ -45,6 +44,7 @@
     <div class="box" id="box">
         <div class="cell"><a href="/user/toIndex" style="color: deepskyblue">ZZUI</a> <span class="chevron">&nbsp;›&nbsp;</span> 创作新主题</div>
         <form method="post" enctype="multipart/form-data" id="postForm">
+            <input type="hidden" value="${user.id}" name="postUserId"  id="postUserId"/>
             <input type="hidden" value="${user.userName}" name="userName" id="userName">
             <div class="cell">
                 <div class="fr fade" id="title_remaining">120</div>
@@ -56,7 +56,7 @@
             </div>
             <div class="cell">
                 <div class="fr fade" id="content_remaining">20000</div>
-                正文<div style="float: right;font-weight: 600;">// Tab键换成4个空格 // F11键切换全屏// Esc键退出全屏</div>
+                正文<div style="float: right;font-weight: 600;">// Tab键添加4个空格 // F11键切换全屏// Esc键退出全屏</div>
             </div>
             <div style="text-align: left; border-bottom: 1px solid #e2e2e2; font-size: 14px; line-height: 120%;">
                 <textarea style="visibility: hidden; display: none;" maxlength="1000" id="editor">
@@ -71,7 +71,7 @@
 
             <div class="cell">
                 <select name="tabId" id="nodes" style="width: 300px;font-size: 14px;"
-                      class="form-control">
+                        lay-verify="required"   required  class="form-control">
                 </select>
             </div>
         </form>
@@ -89,9 +89,9 @@
         //获取所有可选择的节点列表
         $.ajax({
             url:'/tab/getAllTabs',
-            type:'POST',
+            method:'POST',
             dataType:'JSON',
-            async:true,
+            async:false,
             cache: false,
             success:function (result) {
                 for(var key in result){
@@ -166,6 +166,7 @@
 
 <script>
     function publishTopic() {
+        var postUserId = $("#postUserId").val();
         var postUserName = $("#userName").val();
         var postTitle = $("#postTitle").val();
         var postTabId = $("#nodes").val();
@@ -175,11 +176,11 @@
         var postContent = $("span[role='presentation']").text().trim();
         var picName = $(".myfile").val();  //原本的图片名
         var postContentImg = $("#postContentImg").val();//传入到后台的图片名
-        if(postTitle==""){
+        if(postTitle===""){
             layer.alert("标题不能为空!",{icon:2});
             return ;
         }
-        if(postContent==""){
+        if(postContent===""){
             layer.alert("内容不能为空!",{icon:2});
             return ;
         }
@@ -197,17 +198,21 @@
                             url:'/post/releasePost',
                             method:'POST',
                             dataType:'JSON',
-                            data:{postUserName:postUserName,postTitle:postTitle,postTabId:postTabId,postTabName:postTabName,postContent:postContent,postContentImg:postContentImg},
+                            data:{postUserId:postUserId,postUserName:postUserName,postTitle:postTitle,postTabId:postTabId,postTabName:postTabName,postContent:postContent,postContentImg:postContentImg},
                             cache:false,
-                            async:true,
+                            async:false,
                             success:function(data){
                                 if(data.msg==='发布成功'){
                                     layer.alert('发布成功', {icon: 6});
                                     setTimeout(function(){
                                         window.location.href='/user/toIndex';
                                         },1000);
-                                }else{
+                                }
+                                if(data.msg==='发布失败'){
                                     layer.msg('发布失败,请联系管理员!QQ:54930XXXX', {icon: 5});
+                                }
+                                else{
+                                    layer.msg(data.msg, {icon: 5,time: 5000});  //代表内容敏感
                                 }
                             }
                         });

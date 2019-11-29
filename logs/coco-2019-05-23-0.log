@@ -1,0 +1,579 @@
+2019-05-23 15:51:41.405 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 50 ] - Starting CampuscommunityApplicationTests on Zhaoyy_PC with PID 6856 (started by Zhaoyy_PC in D:\workplace\ideaPlace\campuscommunity)
+2019-05-23 15:51:41.418 [ main ] - [ DEBUG ] [ z.c.demo.CampuscommunityApplicationTests : 53 ] - Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2019-05-23 15:51:41.420 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 679 ] - The following profiles are active: dev
+2019-05-23 15:51:47.538 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 59 ] - Started CampuscommunityApplicationTests in 7.249 seconds (JVM running for 8.925)
+2019-05-23 15:51:47.915 [ main ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 110 ] - HikariPool-1 - Starting...
+2019-05-23 15:51:49.002 [ main ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 123 ] - HikariPool-1 - Start completed.
+2019-05-23 15:51:49.011 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( post_title like ? ) 
+2019-05-23 15:51:49.050 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: %��%(String)
+2019-05-23 15:51:49.092 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 15:51:49.299 [ Thread-2 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 350 ] - HikariPool-1 - Shutdown initiated...
+2019-05-23 15:51:49.341 [ Thread-2 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 352 ] - HikariPool-1 - Shutdown completed.
+2019-05-23 16:01:32.528 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 50 ] - Starting CampuscommunityApplication on Zhaoyy_PC with PID 14808 (D:\workplace\ideaPlace\campuscommunity\target\classes started by Zhaoyy_PC in D:\workplace\ideaPlace\campuscommunity)
+2019-05-23 16:01:32.595 [ main ] - [ DEBUG ] [ zyy.campuscommunity.CampuscommunityApplication : 53 ] - Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2019-05-23 16:01:32.596 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 679 ] - The following profiles are active: dev
+2019-05-23 16:01:34.241 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-8088"]
+2019-05-23 16:01:34.245 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2019-05-23 16:01:34.246 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-05-23 16:01:34.252 [ main ] - [ INFO  ] [ org.apache.catalina.core.AprLifecycleListener : 173 ] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\tools\mysql5.7.12\mysql-5.7.12-winx64\bin;D:\tools\python3;C:\WINDOWS\System32\OpenSSH\;D:\tools\svn\bin;D:\tools\node\;C:\Users\Zhaoyy_PC\.app\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\Java\jre1.8.0_121\bin;D:\myIcon;;C:\Users\Zhaoyy_PC\AppData\Local\Microsoft\WindowsApps;D:\tools\vscode\Microsoft VS Code\bin;C:\Users\Zhaoyy_PC\AppData\Roaming\npm;.]
+2019-05-23 16:01:34.421 [ main ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring embedded WebApplicationContext
+2019-05-23 16:01:35.730 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-8088"]
+2019-05-23 16:01:35.740 [ main ] - [ INFO  ] [ org.apache.tomcat.util.net.NioSelectorPool : 173 ] - Using a shared selector for servlet write/read
+2019-05-23 16:01:35.765 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 59 ] - Started CampuscommunityApplication in 3.889 seconds (JVM running for 6.103)
+2019-05-23 16:01:55.542 [ http-nio-8088-exec-1 ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-23 16:01:59.597 [ http-nio-8088-exec-6 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 110 ] - HikariPool-1 - Starting...
+2019-05-23 16:02:00.034 [ http-nio-8088-exec-6 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 123 ] - HikariPool-1 - Start completed.
+2019-05-23 16:02:00.043 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 16:02:00.063 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 16:02:00.108 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:02:00.228 [ http-nio-8088-exec-6 ] - [ INFO  ] [ io.lettuce.core.EpollProvider : 101 ] - Starting without optional epoll library
+2019-05-23 16:02:00.233 [ http-nio-8088-exec-6 ] - [ INFO  ] [ io.lettuce.core.KqueueProvider : 101 ] - Starting without optional kqueue library
+2019-05-23 16:02:01.661 [ http-nio-8088-exec-6 ] - [ ERROR ] [ o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] : 175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379] with root cause
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:616)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:563)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:480)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:442)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+2019-05-23 16:02:02.923 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 16:02:02.923 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 16:02:02.926 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:02:03.933 [ http-nio-8088-exec-7 ] - [ ERROR ] [ o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] : 175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 127.0.0.1:6379] with root cause
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:616)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:563)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:480)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:442)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:745)
+2019-05-23 16:02:29.295 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 16:02:29.298 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 16:02:29.305 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:02:29.344 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:02:29.345 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:29.348 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:02:29.349 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:02:29.350 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 今天学到了一点新的东西，跟同学们分享一下(String), 9(Integer), 工学(String), 1(Integer), 今天学习了设计模式，发现里面很多东西都非常值得思考，今天刚刚学习了策略模式，感觉非常不错，希望大家都可以学习一下，(String), 2019-03-29 10:38:08(String), 51d89138-372b-42e7-91c9-78afef1c52a3.PNG(String), (String), 444(Integer), 15(Integer), 吹不散眉弯(String), 2019-04-26 16:45:44(String), 26天23小时16分钟之前(String), 2(Integer)
+2019-05-23 16:02:29.466 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:02:29.467 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:02:29.468 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 1(Integer), root(String), B 站的同学，你们能不能不要在移动端主页投毒了？(String), 10(Integer), 理学(String), 1(Integer), 每次手机重装系统之后去 B 站主页( https://m.bilibili.com/index.html) 下客户端，都会下到国际版。只能安装客户端后去问客服要国内的客户端，再重新装一次。​为什么移动端首页不能改成国内的？国际版的没有免流服务，我要它何用？(String), 2019-04-01 09:09:08(String), (String), (String), 57(Integer), 2(Integer), 朝气蓬勃(String), 2019-05-05 15:57:41(String), 18天0小时4分钟之前(String), 4(Integer)
+2019-05-23 16:02:29.508 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:02:29.509 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:02:29.510 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 测试下管理学代码(String), 12(Integer), 管理学(String), 1(Integer), 如果管理学代码测试成功！，那么今天就完成了很大的一部分工作！加油 2019/4/1(String), 2019-04-01 11:27:28(String), (String), null, 159(Integer), 8(Integer), 一首歌从深情唱(String), 2019-05-17 14:36:45(String), 6天1小时25分钟之前(String), 5(Integer)
+2019-05-23 16:02:29.524 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:02:29.525 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:02:29.526 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 理学的二次测试(String), 10(Integer), 理学(String), 1(Integer), 如果这次理学测试成功，那么真的一二级标题联动就正式写完了！(String), 2019-04-01 16:09:43(String), (String), null, 94(Integer), 9(Integer), 深蓝梦境(String), 2019-05-15 10:32:15(String), 8天5小时30分钟之前(String), 6(Integer)
+2019-05-23 16:02:29.534 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:02:29.563 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:02:29.563 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:29.565 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 9
+2019-05-23 16:02:29.594 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==>  Preparing: select * from problem 
+2019-05-23 16:02:29.594 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==> Parameters: 
+2019-05-23 16:02:29.620 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - <==      Total: 9
+2019-05-23 16:02:29.703 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:02:29.704 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:29.710 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:02:30.452 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab 
+2019-05-23 16:02:30.453 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 
+2019-05-23 16:02:30.459 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 63
+2019-05-23 16:02:30.462 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:02:30.464 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 8(Integer)
+2019-05-23 16:02:30.466 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 19
+2019-05-23 16:02:30.468 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.468 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.470 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.472 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.473 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.474 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.475 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.477 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.480 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.482 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.482 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:02:30.484 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.485 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.485 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:02:30.487 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.488 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.488 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:02:30.490 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.490 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.491 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.493 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.496 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.497 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.499 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.499 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.500 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.501 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.502 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.503 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.507 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.507 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.508 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.509 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.512 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.513 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.514 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.514 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.515 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.516 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.517 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.517 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.518 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.520 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.521 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:02:30.522 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.523 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.524 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:02:30.525 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.526 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.526 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:30.528 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.529 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.529 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.530 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.531 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.531 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.533 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.534 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.534 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.536 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.536 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.537 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.538 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.538 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.539 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.540 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.541 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.541 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.543 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.544 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.544 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:02:30.545 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.546 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.547 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.548 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.549 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.549 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.550 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.551 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.551 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.553 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.553 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.554 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.555 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.556 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.556 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.557 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.558 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.558 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.560 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.561 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.561 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.563 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.564 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.564 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.565 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.566 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.566 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:02:30.567 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.568 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.568 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:02:30.569 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.570 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.570 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:02:30.571 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:30.572 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:02:30.576 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:02:30.584 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:50.020 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user where id = ? 
+2019-05-23 16:02:50.020 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:50.022 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:50.023 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( post_user_id = ? ) 
+2019-05-23 16:02:50.024 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:50.026 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 3
+2019-05-23 16:02:50.029 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_id, content, release_time from timeline WHERE ( user_id = ? ) 
+2019-05-23 16:02:50.029 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:50.035 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - <==      Total: 0
+2019-05-23 16:02:54.425 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user where id = ? 
+2019-05-23 16:02:54.425 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:54.427 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:02:54.429 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( post_user_id = ? ) 
+2019-05-23 16:02:54.429 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:54.431 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 3
+2019-05-23 16:02:54.434 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_id, content, release_time from timeline WHERE ( user_id = ? ) 
+2019-05-23 16:02:54.434 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:02:54.435 [ http-nio-8088-exec-9 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - <==      Total: 0
+2019-05-23 16:03:07.543 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 16:03:07.543 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: 吹不散眉弯(String)
+2019-05-23 16:03:07.546 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:03:07.552 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:03:07.553 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 0(Integer)
+2019-05-23 16:03:07.556 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 8
+2019-05-23 16:03:07.562 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:03:07.563 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:07.575 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:03:07.577 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:07.579 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 今天学到了一点新的东西，跟同学们分享一下(String), 9(Integer), 工学(String), 1(Integer), 今天学习了设计模式，发现里面很多东西都非常值得思考，今天刚刚学习了策略模式，感觉非常不错，希望大家都可以学习一下，(String), 2019-03-29 10:38:08(String), 51d89138-372b-42e7-91c9-78afef1c52a3.PNG(String), (String), 444(Integer), 15(Integer), 吹不散眉弯(String), 2019-04-26 16:45:44(String), 26天23小时17分钟之前(String), 2(Integer)
+2019-05-23 16:03:07.686 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:07.687 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:07.687 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 1(Integer), root(String), B 站的同学，你们能不能不要在移动端主页投毒了？(String), 10(Integer), 理学(String), 1(Integer), 每次手机重装系统之后去 B 站主页( https://m.bilibili.com/index.html) 下客户端，都会下到国际版。只能安装客户端后去问客服要国内的客户端，再重新装一次。​为什么移动端首页不能改成国内的？国际版的没有免流服务，我要它何用？(String), 2019-04-01 09:09:08(String), (String), (String), 57(Integer), 2(Integer), 朝气蓬勃(String), 2019-05-05 15:57:41(String), 18天0小时5分钟之前(String), 4(Integer)
+2019-05-23 16:03:07.710 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:07.710 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:07.711 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 测试下管理学代码(String), 12(Integer), 管理学(String), 1(Integer), 如果管理学代码测试成功！，那么今天就完成了很大的一部分工作！加油 2019/4/1(String), 2019-04-01 11:27:28(String), (String), null, 159(Integer), 8(Integer), 一首歌从深情唱(String), 2019-05-17 14:36:45(String), 6天1小时26分钟之前(String), 5(Integer)
+2019-05-23 16:03:07.718 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:07.719 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:07.720 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 理学的二次测试(String), 10(Integer), 理学(String), 1(Integer), 如果这次理学测试成功，那么真的一二级标题联动就正式写完了！(String), 2019-04-01 16:09:43(String), (String), null, 94(Integer), 9(Integer), 深蓝梦境(String), 2019-05-15 10:32:15(String), 8天5小时30分钟之前(String), 6(Integer)
+2019-05-23 16:03:07.721 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:07.722 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==>  Preparing: select * from problem 
+2019-05-23 16:03:07.723 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==> Parameters: 
+2019-05-23 16:03:07.725 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - <==      Total: 9
+2019-05-23 16:03:07.751 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:03:07.831 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:07.834 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:03:08.240 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab 
+2019-05-23 16:03:08.240 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 
+2019-05-23 16:03:08.242 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 63
+2019-05-23 16:03:08.244 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:03:08.244 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 8(Integer)
+2019-05-23 16:03:08.245 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 19
+2019-05-23 16:03:08.246 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.247 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.247 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.248 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.248 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.249 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.250 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.250 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.252 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.252 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.252 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:08.256 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.256 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.257 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:08.258 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.258 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.259 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:08.261 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.261 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.262 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.262 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.263 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.274 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.275 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.276 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.277 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.278 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.278 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.279 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.280 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.281 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.281 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.282 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.283 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.283 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.284 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.285 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.285 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.288 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.290 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.293 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.294 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.295 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.295 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:03:08.296 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.297 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.297 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:03:08.298 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.299 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.299 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:08.300 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.303 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.304 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.307 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.307 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.308 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.309 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.309 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.310 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.311 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.311 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.312 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.347 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.348 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.348 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.350 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.351 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.351 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.352 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.353 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.353 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:08.355 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.356 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.357 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.358 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.358 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.359 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.359 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.360 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.360 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.361 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.361 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.361 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.362 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.363 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.363 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.364 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.364 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.365 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.365 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.366 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.366 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.367 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.368 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.368 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.369 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.371 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.376 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:08.377 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.378 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.378 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:03:08.379 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.379 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.380 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:03:08.381 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:08.381 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:08.381 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:08.382 [ http-nio-8088-exec-2 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.190 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 16:03:47.191 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 16:03:47.193 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.199 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:03:47.201 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.207 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:03:47.208 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:47.209 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 今天学到了一点新的东西，跟同学们分享一下(String), 9(Integer), 工学(String), 1(Integer), 今天学习了设计模式，发现里面很多东西都非常值得思考，今天刚刚学习了策略模式，感觉非常不错，希望大家都可以学习一下，(String), 2019-03-29 10:38:08(String), 51d89138-372b-42e7-91c9-78afef1c52a3.PNG(String), (String), 444(Integer), 15(Integer), 吹不散眉弯(String), 2019-04-26 16:45:44(String), 26天23小时18分钟之前(String), 2(Integer)
+2019-05-23 16:03:47.311 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:47.312 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:47.312 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 1(Integer), root(String), B 站的同学，你们能不能不要在移动端主页投毒了？(String), 10(Integer), 理学(String), 1(Integer), 每次手机重装系统之后去 B 站主页( https://m.bilibili.com/index.html) 下客户端，都会下到国际版。只能安装客户端后去问客服要国内的客户端，再重新装一次。​为什么移动端首页不能改成国内的？国际版的没有免流服务，我要它何用？(String), 2019-04-01 09:09:08(String), (String), (String), 57(Integer), 2(Integer), 朝气蓬勃(String), 2019-05-05 15:57:41(String), 18天0小时6分钟之前(String), 4(Integer)
+2019-05-23 16:03:47.335 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:47.335 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:47.336 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 测试下管理学代码(String), 12(Integer), 管理学(String), 1(Integer), 如果管理学代码测试成功！，那么今天就完成了很大的一部分工作！加油 2019/4/1(String), 2019-04-01 11:27:28(String), (String), null, 159(Integer), 8(Integer), 一首歌从深情唱(String), 2019-05-17 14:36:45(String), 6天1小时27分钟之前(String), 5(Integer)
+2019-05-23 16:03:47.348 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:47.348 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==>  Preparing: update post set post_user_id = ?, post_user_name = ?, post_title = ?, post_tab_id = ?, post_tab_name = ?, tab_parentid = ?, post_content = ?, post_time = ?, post_content_img = ?, post_user_icon = ?, post_click_count = ?, post_reply_count = ?, post_last_reply = ?, post_last_reply_time = ?, post_last_reply_time_simple = ? where id = ? 
+2019-05-23 16:03:47.349 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - ==> Parameters: 2(Integer), 吹不散眉弯(String), 理学的二次测试(String), 10(Integer), 理学(String), 1(Integer), 如果这次理学测试成功，那么真的一二级标题联动就正式写完了！(String), 2019-04-01 16:09:43(String), (String), null, 94(Integer), 9(Integer), 深蓝梦境(String), 2019-05-15 10:32:15(String), 8天5小时31分钟之前(String), 6(Integer)
+2019-05-23 16:03:47.375 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.PostMapper.updateByPrimaryKey : 159 ] - <==    Updates: 1
+2019-05-23 16:03:47.377 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:03:47.377 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.378 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 9
+2019-05-23 16:03:47.440 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==>  Preparing: select * from problem 
+2019-05-23 16:03:47.440 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - ==> Parameters: 
+2019-05-23 16:03:47.441 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.ProblemMapper.getAllProblem : 159 ] - <==      Total: 9
+2019-05-23 16:03:47.476 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( tab_parentid = ? ) 
+2019-05-23 16:03:47.477 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.478 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 4
+2019-05-23 16:03:47.798 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab 
+2019-05-23 16:03:47.799 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - ==> Parameters: 
+2019-05-23 16:03:47.801 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.TabMapper.selectAllTabs : 159 ] - <==      Total: 63
+2019-05-23 16:03:47.802 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab WHERE ( parent_id = ? ) 
+2019-05-23 16:03:47.802 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - ==> Parameters: 8(Integer)
+2019-05-23 16:03:47.804 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.TabMapper.selectByExample : 159 ] - <==      Total: 19
+2019-05-23 16:03:47.804 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.805 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.805 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.806 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.806 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.807 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.808 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.808 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.809 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.810 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.810 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:47.811 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.811 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.811 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:47.813 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.813 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.814 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 2(Integer)
+2019-05-23 16:03:47.814 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.815 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.815 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.816 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.817 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.823 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.824 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.825 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.825 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.826 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.827 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.827 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.828 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.828 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.829 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.830 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.830 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.831 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.832 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.833 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.833 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.835 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.836 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.838 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.840 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.840 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.841 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:03:47.842 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.843 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.843 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 16:03:47.844 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.845 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.846 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:47.848 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.850 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.850 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.851 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.852 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.852 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.853 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.853 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.854 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.855 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.855 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.856 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.856 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.857 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.857 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.858 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.859 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.859 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.860 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.861 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.861 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 3(Integer)
+2019-05-23 16:03:47.862 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.865 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.866 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.867 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.868 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.868 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.869 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.870 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.873 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.874 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.874 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.874 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.875 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.876 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.876 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.877 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.878 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.878 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.879 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.880 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.882 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.884 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.885 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.885 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.886 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.886 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.887 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 5(Integer)
+2019-05-23 16:03:47.888 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.888 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.888 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:03:47.889 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.890 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.890 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 16:03:47.891 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:47.891 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, tab_name, parent_id, tab_describe from tab where id = ? 
+2019-05-23 16:03:47.892 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 4(Integer)
+2019-05-23 16:03:47.893 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.TabMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:48.986 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user where id = ? 
+2019-05-23 16:03:48.986 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:48.987 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByPrimaryKey : 159 ] - <==      Total: 1
+2019-05-23 16:03:48.988 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( post_user_id = ? ) 
+2019-05-23 16:03:48.988 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:48.989 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 3
+2019-05-23 16:03:48.990 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_id, content, release_time from timeline WHERE ( user_id = ? ) 
+2019-05-23 16:03:48.991 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - ==> Parameters: 1(Integer)
+2019-05-23 16:03:48.992 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.TimeLineMapper.selectByExample : 159 ] - <==      Total: 0
+2019-05-23 16:12:59.842 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 50 ] - Starting CampuscommunityApplicationTests on Zhaoyy_PC with PID 13320 (started by Zhaoyy_PC in D:\workplace\ideaPlace\campuscommunity)
+2019-05-23 16:12:59.845 [ main ] - [ DEBUG ] [ z.c.demo.CampuscommunityApplicationTests : 53 ] - Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2019-05-23 16:12:59.847 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 679 ] - The following profiles are active: dev
+2019-05-23 16:13:05.111 [ main ] - [ INFO  ] [ z.c.demo.CampuscommunityApplicationTests : 59 ] - Started CampuscommunityApplicationTests in 6.03 seconds (JVM running for 7.332)
+2019-05-23 16:13:05.370 [ main ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 110 ] - HikariPool-1 - Starting...
+2019-05-23 16:13:06.397 [ main ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 123 ] - HikariPool-1 - Start completed.
+2019-05-23 16:13:06.409 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==>  Preparing: select id, post_user_id, post_user_name, post_title, post_tab_id, post_tab_name, tab_parentid, post_content, post_time, post_content_img, post_user_icon, post_click_count, post_reply_count, post_last_reply, post_last_reply_time, post_last_reply_time_simple from post WHERE ( post_title like ? ) 
+2019-05-23 16:13:06.448 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - ==> Parameters: %��%(String)
+2019-05-23 16:13:06.479 [ main ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 16:13:06.774 [ Thread-2 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 350 ] - HikariPool-1 - Shutdown initiated...
+2019-05-23 16:13:06.794 [ Thread-2 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 352 ] - HikariPool-1 - Shutdown completed.
+2019-05-23 20:29:36.418 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 50 ] - Starting CampuscommunityApplication on Zhaoyy_PC with PID 17576 (D:\workplace\ideaPlace\campuscommunity\target\classes started by Zhaoyy_PC in D:\workplace\ideaPlace\campuscommunity)
+2019-05-23 20:29:36.422 [ main ] - [ DEBUG ] [ zyy.campuscommunity.CampuscommunityApplication : 53 ] - Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2019-05-23 20:29:36.424 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 679 ] - The following profiles are active: dev
+2019-05-23 20:29:38.349 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Initializing ProtocolHandler ["http-nio-8088"]
+2019-05-23 20:29:38.354 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardService : 173 ] - Starting service [Tomcat]
+2019-05-23 20:29:38.354 [ main ] - [ INFO  ] [ org.apache.catalina.core.StandardEngine : 173 ] - Starting Servlet Engine: Apache Tomcat/9.0.12
+2019-05-23 20:29:38.363 [ main ] - [ INFO  ] [ org.apache.catalina.core.AprLifecycleListener : 173 ] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\tools\mysql5.7.12\mysql-5.7.12-winx64\bin;D:\tools\python3;C:\WINDOWS\System32\OpenSSH\;D:\tools\svn\bin;D:\tools\node\;C:\Users\Zhaoyy_PC\.app\;C:\Program Files\Java\jdk1.8.0_121\bin;C:\Program Files\Java\jre1.8.0_121\bin;D:\myIcon;;C:\Users\Zhaoyy_PC\AppData\Local\Microsoft\WindowsApps;D:\tools\vscode\Microsoft VS Code\bin;C:\Users\Zhaoyy_PC\AppData\Roaming\npm;.]
+2019-05-23 20:29:38.814 [ main ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring embedded WebApplicationContext
+2019-05-23 20:29:41.421 [ main ] - [ INFO  ] [ org.apache.coyote.http11.Http11NioProtocol : 173 ] - Starting ProtocolHandler ["http-nio-8088"]
+2019-05-23 20:29:41.513 [ main ] - [ INFO  ] [ org.apache.tomcat.util.net.NioSelectorPool : 173 ] - Using a shared selector for servlet write/read
+2019-05-23 20:29:41.637 [ main ] - [ INFO  ] [ zyy.campuscommunity.CampuscommunityApplication : 59 ] - Started CampuscommunityApplication in 6.171 seconds (JVM running for 9.514)
+2019-05-23 20:31:50.564 [ http-nio-8088-exec-10 ] - [ INFO  ] [ o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] : 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-23 20:31:50.681 [ http-nio-8088-exec-10 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 110 ] - HikariPool-1 - Starting...
+2019-05-23 20:31:51.244 [ http-nio-8088-exec-10 ] - [ INFO  ] [ com.zaxxer.hikari.HikariDataSource : 123 ] - HikariPool-1 - Start completed.
+2019-05-23 20:31:51.252 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 20:31:51.278 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 20:31:51.306 [ http-nio-8088-exec-10 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 20:31:58.809 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 20:31:58.810 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root1(String)
+2019-05-23 20:31:58.811 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 0
+2019-05-23 20:32:03.876 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==>  Preparing: select id, user_role, user_id, user_name, user_pwd, user_phone, user_college, problem_id, problem_answer, user_sex, user_img, unread_message, post_collection_num, focus_number from user WHERE ( user_name = ? ) 
+2019-05-23 20:32:03.876 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - ==> Parameters: root(String)
+2019-05-23 20:32:03.878 [ http-nio-8088-exec-7 ] - [ DEBUG ] [ z.c.mapper.UserMapper.selectByExample : 159 ] - <==      Total: 1
+2019-05-23 20:32:04.119 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-05-23 20:32:04.158 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:32:04.161 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:32:04.163 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-05-23 20:32:04.163 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 20:32:04.167 [ http-nio-8088-exec-6 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-05-23 20:32:07.068 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-05-23 20:32:07.069 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:32:07.070 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:32:07.071 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-05-23 20:32:07.072 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 20:32:07.074 [ http-nio-8088-exec-5 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-05-23 20:32:12.300 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM post 
+2019-05-23 20:32:12.300 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:32:12.301 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.c.mapper.PostMapper.selectAllPost_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:32:12.302 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==>  Preparing: select * from post LIMIT ? 
+2019-05-23 20:32:12.302 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - ==> Parameters: 7(Integer)
+2019-05-23 20:32:12.305 [ http-nio-8088-exec-4 ] - [ DEBUG ] [ z.campuscommunity.mapper.PostMapper.selectAllPost : 159 ] - <==      Total: 7
+2019-05-23 20:32:12.948 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-05-23 20:32:12.948 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:32:12.950 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:32:12.951 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-05-23 20:32:12.951 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 20:32:12.954 [ http-nio-8088-exec-3 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-05-23 20:33:29.964 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-05-23 20:33:29.964 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:33:29.965 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:33:29.966 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-05-23 20:33:29.967 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 20:33:29.972 [ http-nio-8088-exec-1 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5
+2019-05-23 20:36:37.539 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==>  Preparing: SELECT count(0) FROM user 
+2019-05-23 20:36:37.540 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - ==> Parameters: 
+2019-05-23 20:36:37.542 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ z.c.mapper.UserMapper.getAllUser_COUNT : 159 ] - <==      Total: 1
+2019-05-23 20:36:37.543 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==>  Preparing: select * from user LIMIT ? 
+2019-05-23 20:36:37.543 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - ==> Parameters: 6(Integer)
+2019-05-23 20:36:37.545 [ http-nio-8088-exec-8 ] - [ DEBUG ] [ zyy.campuscommunity.mapper.UserMapper.getAllUser : 159 ] - <==      Total: 5

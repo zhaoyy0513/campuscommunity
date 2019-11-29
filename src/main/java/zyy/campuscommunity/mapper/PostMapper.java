@@ -28,5 +28,7 @@ public interface PostMapper {
 
     int updateByPrimaryKey(Post record);
 
+    int getLastPostNum();
+
     List<Post> selectAllPost();
 }

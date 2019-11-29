@@ -16,8 +16,12 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     public int insertReply(Reply reply) {
-       int result = replyMapper.insert(reply);
-        return result;
+        int i = replyMapper.insert(reply);
+        if(i<0){
+            return -1;
+        }else{
+            return 0;
+        }
     }
 
     @Override
@@ -25,8 +29,7 @@ public class ReplyServiceImpl implements ReplyService {
         ReplyExample example = new ReplyExample();
         ReplyExample.Criteria criteria = example.createCriteria();
         criteria.andPostIdEqualTo(postId);
-        List<Reply> replies =  replyMapper.selectByExample(example);
-        return replies;
+        return replyMapper.selectByExample(example);
     }
 
     @Override
@@ -54,8 +57,21 @@ public class ReplyServiceImpl implements ReplyService {
     * @Author: zhaoyy
     * @Date: 2019/5/7 17:09
     */ 
-    public int deleteReplyById(int id) {
-        int i = replyMapper.deleteByPrimaryKey(id);
+    public int deleteReplyById(int Rid) {
+        int i = replyMapper.deleteByPrimaryKey(Rid);
+        if(i<0){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
+    public int deleteReplyByPid(int pid) {
+        ReplyExample example = new ReplyExample();
+        ReplyExample.Criteria criteria = example.createCriteria();
+        criteria.andPostIdEqualTo(pid);
+        int i =replyMapper.deleteByExample(example);
         if(i<0){
             return -1;
         }else{
@@ -77,13 +93,14 @@ public class ReplyServiceImpl implements ReplyService {
 
     @Override
     /** 
-    * @Description: 获取最后一个回复id，用来设置下一个回复的id，以便删除评论时好删除
+    * @Description: 获取最后一个回复的索引id，用来设置下一个回复的索引id，以便删除评论时好删除
     * @Param: [] 
     * @return: int 
     * @Author: zhaoyy
     * @Date: 2019/5/7 15:07
     */ 
     public int getLastReplyId() {
+        //select max(id) from reply
         return replyMapper.getLastReplyId();
     }
 }

@@ -1,9 +1,7 @@
 package zyy.campuscommunity.entity;
-
 import lombok.ToString;
-
 @ToString
-public class User {
+public class User{
     private Integer id;
 
     private Integer userRole;
@@ -31,6 +29,13 @@ public class User {
     private Integer postCollectionNum;
 
     private Integer focusNumber;
+
+    public User() {
+        this.focusNumber = 0;
+        this.unreadMessage = 0;
+        this.postCollectionNum = 0;
+    }
+
 
     public Integer getId() {
         return id;

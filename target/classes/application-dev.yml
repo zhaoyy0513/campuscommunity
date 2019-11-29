@@ -1,6 +1,5 @@
 server:
-  port: 8081
-
+  port: 8088
 spring:
   redis:
     database: 0
@@ -10,9 +9,8 @@ spring:
   datasource:
     username: root
     password: admin
-    url: jdbc:mysql://localhost:3306/campus?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    dbcp2:
-      driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/campus?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
     #指定静态静态资源位置
     static-locations: classpath:/

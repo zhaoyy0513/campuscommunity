@@ -61,6 +61,20 @@ public class UnreadServiceImpl implements UnreadService {
         }
     }
 
+    @Override
+    //根据帖子Id删除收藏
+    public int deleteUnreadByPid(int Pid) {
+        UnreadExample example = new UnreadExample();
+        UnreadExample.Criteria criteria = example.createCriteria();
+        criteria.andPostIdEqualTo(Pid);
+        int result = unreadMapper.deleteByExample(example);
+        if (result < 0) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
 
     @Override
     /** 

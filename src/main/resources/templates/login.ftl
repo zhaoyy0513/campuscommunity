@@ -62,12 +62,42 @@
                 <button id="user_register" class="" style="border-radius: 5px;" type="button" onclick="register()">注册
                 </button>
                 <div class="help_info">
-                    <a href="/user/tourist" id="tourist" style="text-decoration:none">游客</a>
+                    <a href="#" id="tourist" style="text-decoration:none">游客</a>
                     <a href="#" id="forget_password" style="text-decoration:none">忘记密码</a>
                 </div>
             </div>
         </form>
         </p>
+
+        <div id="forget_form" style="display: none;margin-top: 5%;">
+            <form class="layui-form" action="">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="userName" lay-verify="required" placeholder="请输入要重置密码的用户名"
+                        style="width: 240px;" autocomplete="on" class="layui-input">
+                </div>
+                <input type="button" style="" class="layui-btn" value="下一步" id="next_btn">
+            </form>
+        </div>
+
+        <div id="reset_form" style="display: none;margin-top: 5%;">
+            <form class="layui-form" action="">
+                <div style="margin-left: 25%;">
+                    <label for="need_answer">密码找回问题</label>
+                    <input type="text" name="need_answer" disabled style="width:70%;background-color: #E8EAED;" id="need_answer"
+                           class="layui-input">
+                    <label for="problemAnswer">问题回答</label>
+                    <input type="text" name="problemAnswer" style="width:70%;" id="problemAnswer" lay-verify="required" class="layui-input">
+                    <label for="pwd">新的密码</label>
+                    <input type="password" name="pwd" style="width:70%;" class="layui-input" value="" id="pwd">
+                    <label for="repwd">确认一遍密码</label>
+                    <input type="password" name="repwd" style="width:70%;" class="layui-input" value="" id="repwd">
+                    <br/>
+                    <input type="button" style="" class="layui-btn" value="提交" id="reply_btn">
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
 </body>
@@ -78,12 +108,178 @@
         window.location.href = "/user/toRegister";
     }
 </script>
+<script>
+    $(function () {
+        //游客按钮的点击事件
+        $("#tourist").click(function () {
+            $.ajax({
+                method: "post",
+                url: "/user/tourist",
+                dataType: "json",
+                async: false,
+                cache: false,
+                success: function (res) {
+                    if ('success' === res) {
+                        window.location.href = "/user/toIndex";
+                    }
+                },
+            });
+        });
+    })
+
+</script>
 <script type="text/javascript">
     //相当于java的main是layui的入口，使用哪个模块就在下面layui.use方框里写
     layui.use(['layer', 'form', 'jquery'], function () {
         var layer = layui.layer;
         var form = layui.form;
         var $ = layui.jquery;
+        //监听登陆
+        form.on('submit(user_login)', function (data) {
+            var field = data.field;
+            $.ajax({
+                method: "post",
+                url: "/user/login",
+                data: field,
+                dataType: "json",
+                async: false,
+                cache: false,
+                success: function (res) {
+                    if ('success' === res) {
+                        window.location.href = "/user/toIndex";
+                        return;
+                    }
+                    if ('noUser' === res) {
+                        layer.msg("未找到该用户!请核对用户名", {icon: 5});
+                        return;
+                    }
+                    else { //代表用户密码啥的登陆出错了
+                        //询问框
+                        layer.confirm('密码错误，要以游客的身份登录吗？', {
+                            btn: ['登陆', '取消'] //按钮
+                        }, function () {
+                            $.ajax({
+                                type: "post",
+                                url: "/user/tourist",
+                                dataType: "json",
+                                async: false,
+                                cache: false,
+                                success: function (res) {
+                                    if ('success' === res) {
+                                        window.location.href = "/user/toIndex";
+                                    }
+                                },
+                            });
+                        }, function () {
+                            layer.close();
+                        });
+                        return;
+                    }
+                },
+                error: function (res) {
+                    layer.msg("连接服务器失败!请联系管理员", {icon: 5});
+                }
+            });
+            return false;
+        });
+
+        //监听密码找回按钮
+        $("#forget_password").click(function () {
+            layer.open({
+                title: '密码重置',
+                type: 1,
+                skin: 'layui-layer-demo', //样式类名
+                anim: 2,
+                shade: false,
+                area: ['420px', '150px'], //宽高
+                content: $('#forget_form'),
+            });
+        });//forget_password
+
+        //下一步按钮点击事件
+        $("#next_btn").click(function () {
+            var userName = $("#userName").val();
+            if (userName === '') {
+                layer.alert("用户名不能为空", {icon: 2});
+                return;
+            }
+            $.ajax({
+                method: 'POST',
+                url: '/user/getUserReset',
+                dataType: 'JSON',
+                data: {'userName': userName},
+                async: false,
+                cache: false,
+                success: function (data) {
+                    if ('noUser' === data) {
+                        layer.alert("未找到该用户名，请核对", {icon: 5});
+                        return ;
+                    }
+                    //console.log(data);
+                    $("#need_answer").text(data.problem).val(data.problem); //将问题显示出来
+                    layer.open({
+                        title: '密码重置',
+                        type: 1,
+                        skin: 'layui-layer-demo', //样式类名
+                        anim: 2,
+                        shade: false,
+                        area: ['420px', '420px'], //宽高
+                        content: $('#reset_form'),
+                    });
+
+                    $("#reply_btn").click(function () {
+                        var pwd = $("#pwd").val();
+                        var repwd = $("#repwd").val();
+                        var answer = $("#problemAnswer").val();
+                        if (answer === '') {
+                            layer.alert("问题回答不能为空", {icon: 2});
+                            return ;
+                        }
+                        if(''===pwd||''===repwd){
+                            layer.alert("密码不能为空", {icon: 2});
+                            return ;
+                        }
+                        if(repwd!==pwd){
+                            layer.alert('两次输入的密码不一致,请核对',{icon:5});
+                            $("#pwd").val('');
+                            $("#repwd").val('');
+                            return ;
+                        }
+                        $.ajax({
+                            method:'POST',
+                            dataType:'JSON',
+                            url:'/user/resetPwd',
+                            data:{'userName':userName,'answer':answer,'pwd':pwd},
+                            success:function (res) {
+                                if('answerError'===res){
+                                    layer.alert("问题答案错误,请重试",{icon:2});
+                                    return ;
+                                }
+                                if('updateError'===res){
+                                    layer.alert("响应失败,请重试或联系管理员",{icon:2});
+                                    return ;
+                                }else{
+                                    layer.alert("密码重置成功!",{icon:1});
+                                    setTimeout(function () {
+                                        window.location.href='/user/toLogin';
+                                    },2500);
+
+                                }
+                            },
+                            error:function () {
+                                layer.alert("响应失败,请重试或联系管理员",{icon:2});
+                            }
+                        });
+
+                    }); //reply_btn
+                },
+                error: function () {
+                    layer.msg("查找失败，请重试或联系管理员！");
+                }
+            });
+        });
+
+
     });
 </script>
 

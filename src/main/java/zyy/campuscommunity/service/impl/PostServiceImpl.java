@@ -26,6 +26,17 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    //删除贴子
+    public int deletePostById(int Pid) {
+        int i = postMapper.deleteByPrimaryKey(Pid);
+        if(i<0){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
     /** 
     * @Description: 通过帖子id进行查找，用来进行帖子的查看和删除等
     * @Param: [id] 
@@ -57,6 +68,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public int getLastPostNum() {
+        return postMapper.getLastPostNum();
+    }
+
+    @Override
     /** 
     * @Description: 通过用户索引id查找帖子，用于关注功能
     * @Param: [Uid] 
@@ -70,6 +86,16 @@ public class PostServiceImpl implements PostService {
         criteria.andPostUserIdEqualTo(Uid);
         List<Post> posts = postMapper.selectByExample(example);
         return posts;
+    }
+
+    @Override
+    //模糊查询，root后台管理
+    public List<Post> getPostByLike(String likeStr) {
+        PostExample example = new PostExample();
+        PostExample.Criteria criteria = example.createCriteria();
+        likeStr = "%"+likeStr+"%";
+        criteria.andPostTitleLike(likeStr);
+        return postMapper.selectByExample(example);
     }
 
     @Override
@@ -112,7 +138,9 @@ public class PostServiceImpl implements PostService {
     * @Author: zhaoyy
     * @Date: 2019/5/6 13:37
     */ 
-    public List<Post> selectAllPost() {
+    public List<Post> getAllPost() {
         return postMapper.selectAllPost();
     }
+
+
 }
